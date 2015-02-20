@@ -1,0 +1,548 @@
+
+Dentro de java/Lexer:
+
+Comandos usados:
+
+    java -cp ../../ JLex.Main Yylex
+    javac -d ../../class/ -cp --/.:../../cup:. Yylex.java
+
+Resultado:
+
+  100 errores al compilar Yylex.java
+
+FuchosMB:Lexer fucho$ java -cp ../../ JLex.Main Yylex
+Processing first section -- user code.
+Processing second section -- JLex declarations.
+Processing third section -- lexical rules.
+Creating NFA machine representation.
+NFA comprised of 217 states.
+Working on character classes.:::::::....::..::....::.::.........:...:..::.........................................:.........:..............:::::::::.:........:::::.
+NFA has 37 distinct character classes.
+Creating DFA transition table.
+Working on DFA states.........................................................................................................................
+Minimizing DFA transition table.
+113 states after removal of redundant states.
+Outputting lexical analyzer code.
+FuchosMB:Lexer fucho$ clear
+
+FuchosMB:Lexer fucho$ 
+FuchosMB:Lexer fucho$ 
+FuchosMB:Lexer fucho$ 
+FuchosMB:Lexer fucho$ 
+FuchosMB:Lexer fucho$ 
+FuchosMB:Lexer fucho$ 
+FuchosMB:Lexer fucho$ java -cp ../../ JLex.Main Yylex
+Processing first section -- user code.
+Processing second section -- JLex declarations.
+Processing third section -- lexical rules.
+Creating NFA machine representation.
+NFA comprised of 217 states.
+Working on character classes.:::::::....::..::....::.::.........:...:..::.........................................:.........:..............:::::::::.:........:::::.
+NFA has 37 distinct character classes.
+Creating DFA transition table.
+Working on DFA states.........................................................................................................................
+Minimizing DFA transition table.
+113 states after removal of redundant states.
+Outputting lexical analyzer code.
+
+
+
+FuchosMB:Lexer fucho$ javac -d ../../class/ -cp --/.:../../cup:. Yylex.java
+Yylex.java:2: error: package Errors does not exist
+import Errors.LexerException;
+             ^
+Yylex.java:3: error: package Parser does not exist
+import Parser.sym;
+             ^
+Yylex.java:391: error: cannot find symbol
+LexerException
+^
+  symbol:   class LexerException
+  location: class Yylex
+Yylex.java:415: error: cannot find symbol
+{return tok(sym.EOF, null); }
+            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:442: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:446: error: cannot find symbol
+						{throw new LexerException("Caracter Ilegal en linea "+yyline); }
+						           ^
+  symbol:   class LexerException
+  location: class Yylex
+Yylex.java:450: error: cannot find symbol
+						{return tok(sym.PC, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:454: error: cannot find symbol
+						{return tok(sym.PAREN, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:458: error: cannot find symbol
+						{return tok(sym.TESIS, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:462: error: cannot find symbol
+						{return tok(sym.COMA, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:466: error: cannot find symbol
+						{return tok(sym.CLOG, new Boolean(true)); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:470: error: cannot find symbol
+						{return tok(sym.CLOG, new Boolean(false)); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:478: error: cannot find symbol
+						{return tok(sym.IF, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:482: error: cannot find symbol
+						{return tok(sym.OR, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:486: error: cannot find symbol
+						{return tok(sym.ASIG, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:490: error: cannot find symbol
+						{return tok(sym.AND, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:494: error: cannot find symbol
+						{return tok(sym.NOT, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:498: error: cannot find symbol
+						{return tok(sym.END, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:502: error: cannot find symbol
+						{return tok(sym.THEN, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:506: error: cannot find symbol
+						{return tok(sym.STOP, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:510: error: cannot find symbol
+						{return tok(sym.WITH, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:514: error: cannot find symbol
+						{return tok(sym.BEGIN, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:518: error: cannot find symbol
+						{return tok(sym.ENDIF, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:522: error: cannot find symbol
+						{return tok(sym.START, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:526: error: cannot find symbol
+						{return tok(sym.FINAL, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:530: error: cannot find symbol
+						{return tok(sym.LOCAL, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:534: error: cannot find symbol
+						{return tok(sym.INPUTS, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:538: error: cannot find symbol
+						{return tok(sym.STATES, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:542: error: cannot find symbol
+						{return tok(sym.OUTPUTS, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:546: error: cannot find symbol
+						{return tok(sym.BEHAVIOUR, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:550: error: cannot find symbol
+						{return tok(sym.CONDITION, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:554: error: cannot find symbol
+						{return tok(sym.TRANSITION, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:558: error: cannot find symbol
+						{return tok(sym.STATE_MACHINE, null); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:562: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:566: error: cannot find symbol
+						{throw new LexerException("Caracter Ilegal en linea "+yyline); }
+						           ^
+  symbol:   class LexerException
+  location: class Yylex
+Yylex.java:570: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:574: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:578: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:582: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:586: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:590: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:594: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:598: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:602: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:606: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:610: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:614: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:618: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:622: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:626: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:630: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:634: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:638: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:642: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:646: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:650: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:654: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:658: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:662: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:666: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:670: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:674: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:678: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:682: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:686: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:690: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:694: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:698: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:702: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:706: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:710: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:714: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:718: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:722: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:726: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:730: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:734: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:738: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:742: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:746: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:750: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:754: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:758: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:762: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:766: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:770: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:774: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:778: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:782: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:786: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:790: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:794: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:798: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:802: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:806: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:810: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:814: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:818: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:822: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+Yylex.java:826: error: cannot find symbol
+						{return tok(sym.IDENT, yytext()); }
+						            ^
+  symbol:   variable sym
+  location: class Yylex
+100 errors
+FuchosMB:Lexer fucho$ 
