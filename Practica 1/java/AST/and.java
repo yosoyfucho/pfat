@@ -3,7 +3,7 @@ package AST;
 import Errors.*;
 import java.io.*;
 
-public class And implements Exp
+public class and implements Exp
 {
 	public final Exp exp1;
 	public final Exp exp2;
