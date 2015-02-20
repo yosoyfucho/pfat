@@ -1,0 +1,68 @@
+package Parser;
+import java_cup.runtime.*;
+
+terminal STATE_MACHINE, COMA, PC, PAREN, TESIS, BEGIN, END, ASIG, STATES,
+FINAL, INPUTS, LOCAL, OUTPUTS, TRANSITION, BEHAVIOUR, AND, OR, NOT,
+START, WITH, CONDITION, STOP, IF, THEN, ENDIF, IDENT, CLOG;
+
+terminal String CSTR, IDENT;
+terminal Boolean CLOG;
+
+non terminal S S;
+non terminal StateDeclList StateDeclList
+non terminal FinalStateDeclList FinalStateDeclList
+non terminal IdentList IdentList;
+non terminal InputEventDecl InputEventDecl;
+non terminal LocalVarDecl LocalVarDecl;
+non terminal OutputEventDecl OutputEventDecl;
+non terminal Transitions Transitions;
+non terminal TransitionList TransitionList;
+non terminal TransBehaviour TransBehaviour;
+non terminal Statement Statement;
+non terminal Transition Transition;
+non terminal InitialState InitialState;
+non terminal Event Event;
+non terminal FinalState FinalState;
+non terminal ExpLog ExpLog;
+non terminal Condition Condition;
+non terminal Initialization Initialization;
+non terminal SimpleStatementList SimpleStatementList;
+
+precedence left OR;
+precedence left AND;
+precedence left NOT;
+
+start with S;
+
+S ::=  state_machine StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
+   |  state_machine StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}   
+   |  state_machine StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
+   |  state_machine StateDeclList:sdl InputEventDecl:ied OutputEventDecl>:oed Initialization:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :}
+
+StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il); :} 	
+FinalStateDeclList ::= FINAL STATES <IdentList> PC
+IdentList ::= IDENT
+   | IDENT COMA <IdentList>
+InputEventDecl ::= INPUTS <IdentList> PC
+LocalVarDecl ::= LOCAL <IdentList> PC
+OutputEventDecl ::= OUTPUTS <IdentList> PC
+Transitions ::= BEGIN <TransitionList> END
+TransitionList ::= <Transition>
+   | <Transition> <TransitionList>
+               
+Transition ::= TRANSITION PAREN <InitialState> COMA <Event> COMA <FinalState> TESIS PC
+   | TRANSITION PAREN <InitialState> COMA <Event> COMA <FinalState> TESIS PC <TransBehaviour> 
+   | TRANSITION PAREN <InitialState> COMA <Event> COMA <FinalState> TESIS PC <Condition> 
+   | TRANSITION PAREN <InitialState> COMA <Event> COMA <FinalState> TESIS PC <Condition> <TransBehaviour>
+Condition ::= CONDITION PAREN <ExpLog> TESIS PC
+InitialState ::= IDENT
+Event ::= IDENT
+FinalState ::= IDENT
+TransBehaviour ::= BEHAVIOUR <Statement>
+Statement ::= <Statement> <Statement>
+   | STOP PC
+   | IDENT ASIG <ExpLog> PC
+   | IF <ExpLog> THEN <Statement> ENDIF PC
+Initialization ::= START WITH IDENT PC <SimpleStatementList>
+SimpleStatementList ::= <SimpleStatementList> IDENT ASIG CLOG PC
+   | IDENT ASIG CLOG PC
