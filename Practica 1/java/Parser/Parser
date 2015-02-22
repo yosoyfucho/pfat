@@ -1,5 +1,17 @@
 package Parser;
 import java_cup.runtime.*;
+import AST.*;
+
+parser code {:
+public void syntax_error(Symbol s) {
+  report_error("Error de sintaxis en linea " + s.left, null);
+}
+
+public void unrecovered_syntax_error(Symbol s) throws
+  java.lang.Exception {
+  report_fatal_error("", null);
+}
+:};
 
 terminal STATE_MACHINE, COMA, PC, PAREN, TESIS, BEGIN, END, ASIG, STATES,
 FINAL, INPUTS, LOCAL, OUTPUTS, TRANSITION, BEHAVIOUR, AND, OR, NOT,
@@ -34,35 +46,50 @@ precedence left NOT;
 
 start with S;
 
-S ::=  state_machine StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
-   |  state_machine StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}   
-   |  state_machine StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
-   |  state_machine StateDeclList:sdl InputEventDecl:ied OutputEventDecl>:oed Initialization:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :}
+S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
+   |  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}   
+   |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
+   |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied OutputEventDecl>:oed Initialization:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :}
 
-StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il); :} 	
-FinalStateDeclList ::= FINAL STATES:s IdentList:il {:RESULT = new FinalStateDeclList(s,il); :}    
-IdentList ::= IDENT:i {:RESULT = new IdentList(i); :}    
-   | IDENT:i COMA IdentList:il   {:RESULT = new IdentList(i,il); :}    
-InputEventDecl ::= INPUTS IdentList:il PC {:RESULT = new InputEventDec(il); :}    
-LocalVarDecl ::= LOCAL IdentList:il PC {:RESULT = new LocalVarDecl(il); :}    
-OutputEventDecl ::= OUTPUTS IdentList:il PC  {:RESULT = new OutputEventDecl(il); :}    
-Transitions ::= BEGIN TransitionList:tl END  {:RESULT = new Transitions(tl); :}    
-TransitionList ::= Transition:t  {:RESULT = new TransitionList(t); :}    
-   | Transition:t TransitionList:tl    {:RESULT = new TransitionList(t,tl); :}    
+StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il); :}
+
+FinalStateDeclList ::= FINAL STATES:s IdentList:il {:RESULT = new FinalStateDeclList(s,il); :}   
+
+IdentList ::= IDENT:i   {:RESULT = new IdentList(i); :}    
+   | IDENT:i COMA IdentList:il   {:RESULT = new IdentList(i,il); :}
+
+InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDec(il); :} 
+
+LocalVarDecl ::= LOCAL IdentList:il PC   {:RESULT = new LocalVarDecl(il); :}   
+
+OutputEventDecl ::= OUTPUTS IdentList:il PC   {:RESULT = new OutputEventDecl(il); :}    
+
+Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :} 
+
+TransitionList ::= Transition:t   {:RESULT = new TransitionList(t); :}    
+   | Transition:t TransitionList:tl   {:RESULT = new TransitionList(t,tl); :}    
                
-Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC  {:RESULT = new FinalState(is,e,fs); :}    
+Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new FinalState(is,e,fs); :}    
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new FinalState(is,e,fs,tb); :}     
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState(is,e,fs,c); :}     
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new FinalState(is,e,fs,c,tb); :}    
-Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :}    
-InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :}    
-Event ::= IDENT:i {:RESULT = new Event(i); :}    
-FinalState ::= IDENT:i  {:RESULT = new FinalState(i); :}    
-TransBehaviour ::= BEHAVIOUR Statement:s  {:RESULT = new TransBehaviour(s); :}    
-Statement ::= Statement:s Statement:s  {:RESULT = new Statement(s,s); :}    
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new FinalState(is,e,fs,c,tb); :}
+
+Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :}   
+
+InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :} 
+
+Event ::= IDENT:i   {:RESULT = new Event(i); :}    
+
+FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :} 
+
+TransBehaviour ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehaviour(s); :}    
+
+Statement ::= Statement:s Statement:s   {:RESULT = new Statement(s,s); :}    
    | STOP PC
    | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement(i,el); :}    
-   | IF ExpLog:el THEN Statement:s ENDIF PC  {:RESULT = new Statement(el,s); :}    
-Initialization ::= START WITH IDENT:i PC SimpleStatementList:ssl  {:RESULT = new Initialization(i,ssl); :}    
-SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC {:RESULT = new SimpleStatementList(i,cl); :}    
-   | IDENT:i ASIG CLOG:cl PC  {:RESULT = new SimpleStatementList(i,cl); :}    
+   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement(el,s); :}
+
+Initialization ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialization(i,ssl); :} 
+   
+SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList(i,cl); :}    
+   | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList(i,cl); :}    
