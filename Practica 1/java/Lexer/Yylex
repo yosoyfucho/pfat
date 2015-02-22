@@ -22,7 +22,7 @@ LexerException
 %eofval}
 
 letra = [a-zA-Z]
-caracter = "_"
+digitos = [0-9]
 
 %%
 
@@ -53,7 +53,9 @@ endif		{return tok(sym.ENDIF, null); }
 ","			{return tok(sym.COMA, null); }
 "1"			{return tok(sym.CLOG, new Boolean(true)); }
 "0"			{return tok(sym.CLOG, new Boolean(false)); }
-{letra}({letra}|[0-9]|caracter)*	{return tok(sym.IDENT, yytext()); }          
+
+{letra}({letra}|{digitos}|_)*	{return tok(sym.IDENT, yytext());}
+
 (" "|\n|\t|\r)+	{ }
 
 
