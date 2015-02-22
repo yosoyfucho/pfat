@@ -55,8 +55,8 @@ StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il); :
 
 FinalStateDeclList ::= FINAL STATES:s IdentList:il {:RESULT = new FinalStateDeclList(s,il); :}   
 
-IdentList ::= IDENT:i   {:RESULT = new IdentList(i); :}    
-   | IDENT:i COMA IdentList:il   {:RESULT = new IdentList(i,il); :}
+IdentList ::= IDENT:i   {:RESULT = new IdentList1(i); :}    
+   | IDENT:i COMA IdentList:il   {:RESULT = new IdentList2(i,il); :}
 
 InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDec(il); :} 
 
@@ -66,13 +66,13 @@ OutputEventDecl ::= OUTPUTS IdentList:il PC   {:RESULT = new OutputEventDecl(il)
 
 Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :} 
 
-TransitionList ::= Transition:t   {:RESULT = new TransitionList(t); :}    
-   | Transition:t TransitionList:tl   {:RESULT = new TransitionList(t,tl); :}    
+TransitionList ::= Transition:t   {:RESULT = new TransitionList1(t); :}    
+   | Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :}    
                
-Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new FinalState(is,e,fs); :}    
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new FinalState(is,e,fs,tb); :}     
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState(is,e,fs,c); :}     
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new FinalState(is,e,fs,c,tb); :}
+Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new FinalState1(is,e,fs); :}    
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new FinalState2(is,e,fs,tb); :}     
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState3(is,e,fs,c); :}     
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new FinalState4(is,e,fs,c,tb); :}
 
 Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :}   
 
@@ -84,12 +84,12 @@ FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :}
 
 TransBehaviour ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehaviour(s); :}    
 
-Statement ::= Statement:s Statement:s   {:RESULT = new Statement(s,s); :}    
+Statement ::= Statement:s Statement:s   {:RESULT = new Statement1(s,s); :}    
    | STOP PC
-   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement(i,el); :}    
-   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement(el,s); :}
+   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}    
+   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :}
 
 Initialization ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialization(i,ssl); :} 
    
-SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList(i,cl); :}    
-   | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList(i,cl); :}    
+SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList1(i,cl); :}    
+   | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :}    
