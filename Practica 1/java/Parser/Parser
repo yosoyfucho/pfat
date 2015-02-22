@@ -84,7 +84,7 @@ FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :}
 
 TransBehaviour ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehaviour(s); :}    
 
-Statement ::= Statement:s Statement:s   {:RESULT = new Statement1(s,s); :}    
+Statement ::= Statement:s Statement:es   {:RESULT = new Statement1(s,es); :}    
    | STOP PC
    | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}    
    | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :}
