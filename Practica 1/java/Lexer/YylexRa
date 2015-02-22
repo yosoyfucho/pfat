@@ -1,0 +1,36 @@
+package Lexer;
+
+import Errors.LexerException;
+import Parser.sym;
+
+%%
+%{
+private java_cup.runtime.Symbol tok(int k, Object value) {
+//  System.out.println("Token: " + k);
+  return new java_cup.runtime.Symbol(k, yyline, 0, value); 
+}
+%}
+
+%public
+%cup
+%line
+%yylexthrow{
+LexerException
+%yylexthrow} 
+%eofval{
+{return tok(sym.EOF, null); }
+%eofval}
+
+letra= [a-zA-Z]
+digito= [0-9]
+letraDigito= ({letra}|{digito})+
+simbolo= ["?" "*" "+"" "|" "(" ")" "^" "$" "." "[" "]" "{" "}" \" "\"]
+simboloLetraDigito = ({simbolo}|{letraDigito})+
+
+
+%%
+
+and		{return tok(sym.AND, null); }
+
+
+
