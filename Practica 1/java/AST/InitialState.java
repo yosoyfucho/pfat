@@ -3,12 +3,12 @@ package AST;
 import Errors.*;
 import java.io.*;
 
-public class InitialState implements State
+public class InitialState implements Ident
 {
-	public State is;
+	public Ident i;
 
-	public InitialState (State is)
+	public InitialState (Ident i)
 	{
-		this.is = is;
+		this.i = i;
 	}
 }
