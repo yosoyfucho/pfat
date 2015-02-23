@@ -10,7 +10,7 @@ public class FinalState2 implements FinalState
 	public FinalState fs;
 	public TransBehavior tb;
 
-	public FinalState (InitialState is, Event e, FinalState fs, TransBehavior tb)
+	public FinalState2 (InitialState is, Event e, FinalState fs, TransBehavior tb)
 	{
 		this.is = is;
 		this.e = e;

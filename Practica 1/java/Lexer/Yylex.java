@@ -241,20 +241,20 @@ private java_cup.runtime.Symbol tok(int k, Object value) {
 		/* 29 */ YY_NO_ANCHOR,
 		/* 30 */ YY_NO_ANCHOR,
 		/* 31 */ YY_NO_ANCHOR,
-		/* 32 */ YY_NOT_ACCEPT,
+		/* 32 */ YY_NO_ANCHOR,
 		/* 33 */ YY_NO_ANCHOR,
 		/* 34 */ YY_NO_ANCHOR,
-		/* 35 */ YY_NOT_ACCEPT,
+		/* 35 */ YY_NO_ANCHOR,
 		/* 36 */ YY_NO_ANCHOR,
-		/* 37 */ YY_NOT_ACCEPT,
+		/* 37 */ YY_NO_ANCHOR,
 		/* 38 */ YY_NO_ANCHOR,
-		/* 39 */ YY_NOT_ACCEPT,
+		/* 39 */ YY_NO_ANCHOR,
 		/* 40 */ YY_NO_ANCHOR,
-		/* 41 */ YY_NOT_ACCEPT,
+		/* 41 */ YY_NO_ANCHOR,
 		/* 42 */ YY_NO_ANCHOR,
-		/* 43 */ YY_NOT_ACCEPT,
+		/* 43 */ YY_NO_ANCHOR,
 		/* 44 */ YY_NO_ANCHOR,
-		/* 45 */ YY_NOT_ACCEPT,
+		/* 45 */ YY_NO_ANCHOR,
 		/* 46 */ YY_NO_ANCHOR,
 		/* 47 */ YY_NO_ANCHOR,
 		/* 48 */ YY_NO_ANCHOR,
@@ -314,77 +314,63 @@ private java_cup.runtime.Symbol tok(int k, Object value) {
 		/* 102 */ YY_NO_ANCHOR,
 		/* 103 */ YY_NO_ANCHOR,
 		/* 104 */ YY_NO_ANCHOR,
-		/* 105 */ YY_NO_ANCHOR,
-		/* 106 */ YY_NO_ANCHOR,
-		/* 107 */ YY_NO_ANCHOR,
-		/* 108 */ YY_NO_ANCHOR,
-		/* 109 */ YY_NO_ANCHOR,
-		/* 110 */ YY_NO_ANCHOR,
-		/* 111 */ YY_NO_ANCHOR,
-		/* 112 */ YY_NO_ANCHOR
+		/* 105 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
 "33:9,32:2,33:2,32,33:18,32,33:7,25,26,33:2,27,33:3,29,28,31:8,23,22,33,24,3" +
 "3:3,30:26,33:4,12,33,1,4,14,3,5,16,6,15,7,30:2,17,13,2,8,18,30,9,11,10,19,2" +
 "0,21,30:3,33:5,0:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,113,
-"0,1,2,1:7,3,4:2,1,4:2,5,4:14,1,6,7,8,9,10,11,12,13,14,15,4,16,17,18,19,20,2" +
-"1,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,4" +
-"6,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,7" +
-"1,4,72,73,74,75,76,77,78,79,80,81,82,83,84")[0];
+	private int yy_rmap[] = unpackFromString(1,106,
+"0,1,2,1:7,3,4:2,1,4:2,5,4:15,6,7,8,9,4,10,11,12,13,14,15,16,17,18,19,20,21," +
+"22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46," +
+"47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,4,67,68,69,70,7" +
+"1,72,73,74,75,76,77")[0];
 
-	private int yy_nxt[][] = unpackFromString(85,34,
-"1,2,91,99,103,105,99,33,36,99,106,107,3,99,108,99,109,110,99:3,111,4,34,3,5" +
-",6,7,8,9,99,3,10,3,-1:35,99,38,99:9,-1,99,40,99:7,-1:6,42:2,99,42,-1:34,10," +
-"-1:2,99:11,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:6,66,99:4,-1,99,40,99:7,-1" +
-":6,42:2,99,42,-1:15,35,-1:21,99,48,99:9,-1,99,40,99,11,99:5,-1:6,42:2,99,42" +
-",-1:26,13,-1:10,37,-1:33,99:8,12,99:2,-1,99,40,99:4,49,99:2,-1:6,42:2,99,42" +
-",-1:16,39,-1:20,99:2,14,99:8,-1,99,40,99:7,-1:6,42:2,99,42,-1:17,41,-1:19,5" +
-"4,99:10,-1,99,40,99:7,-1:6,42:2,99,42,-1:9,43,-1:28,45,-1:32,99:9,15,99,-1," +
-"99,40,99:7,-1:6,42:2,99,42,-1:7,31,-1:29,99:5,55,99:5,-1,99,40,56,99:6,-1:6" +
-",42:2,99,42,-1:3,99:2,16,99:8,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:11,-1,9" +
-"9,40,99:3,57,99:3,-1:6,42:2,99,42,-1:3,99:9,58,99,-1,99,40,99:7,-1:6,42:2,9" +
-"9,42,-1:3,99:4,59,99:6,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,60,99:6,61,99:3,-" +
-"1,99,40,99:7,-1:6,42:2,99,42,-1:3,99,62,99:9,-1,99,40,99:7,-1:6,42:2,99,42," +
-"-1:3,99:11,-1,99,101,99:7,-1:6,42:2,99,42,-1:3,99:8,104,99:2,-1,99,40,99:7," +
-"-1:6,42:2,99,42,-1:3,99:6,64,99:4,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,65,99:" +
-"10,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:11,-1,99,40,99:4,67,99:2,-1:6,42:2" +
-",99,42,-1:3,99:11,-1,99,40,99:3,68,99:3,-1:6,42:2,99,42,-1:3,99,17,99:9,-1," +
-"99,40,99:7,-1:6,42:2,99,42,-1:3,99:8,70,71,99,-1,99,40,99:7,-1:6,42:2,99,42" +
-",-1:3,99:11,-1,99,40,99:3,18,99:3,-1:6,42:2,99,42,-1:3,99:2,72,99:8,-1,99,4" +
-"0,99:7,-1:6,42:2,99,42,-1:3,99:11,-1,99,40,19,99:6,-1:6,42:2,99,42,-1:3,99," +
-"20,99:9,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:11,-1,99,40,99:5,96,99,-1:6,4" +
-"2:2,99,42,-1:3,99:11,-1,99,40,99,21,99:5,-1:6,42:2,99,42,-1:3,99:9,76,99,-1" +
-",99,40,99:7,-1:6,42:2,99,42,-1:3,99:11,-1,99,40,99:4,77,99:2,-1:6,42:2,99,4" +
-"2,-1:3,99:10,102,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:9,22,99,-1,99,40,99:" +
-"7,-1:6,42:2,99,42,-1:3,99:4,78,99:6,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:6" +
-",97,99:4,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:11,-1,99,40,99:2,23,99:4,-1:" +
-"6,42:2,99,42,-1:3,99:8,104,99:2,-1,99,40,99:2,24,99:4,-1:6,42:2,99,42,-1:3," +
-"99:11,-1,99,79,99:7,-1:6,42:2,99,42,-1:3,99:10,25,-1,99,40,99:7,-1:6,42:2,9" +
-"9,42,-1:3,99:9,81,99,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:10,26,32,99,40,9" +
-"9:7,-1:6,42:2,99,42,-1:3,54,99:8,84,99,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,9" +
-"9:7,85,99:3,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:10,27,-1,99,40,99:7,-1:6," +
-"42:2,99,42,-1:3,99:9,112,99,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:6,86,99:4" +
-",-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:4,87,99:6,-1,99,40,99:7,-1:6,42:2,99" +
-",42,-1:3,99:11,-1,99,40,99:4,88,99:2,-1:6,42:2,99,42,-1:3,99:7,89,99:3,-1,9" +
-"9,40,99:7,-1:6,42:2,99,42,-1:3,99:8,42,99:2,-1,99,40,99:7,-1:6,42:2,99,42,-" +
-"1:3,99:8,28,99:2,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99,29,99:9,-1,99,40,99:" +
-"7,-1:6,42:2,99,42,-1:3,99,30,99:9,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:7,4" +
-"4,99:3,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,100,99:10,-1,99,40,99:7,-1:6,42:2" +
-",99,42,-1:3,99:9,63,99,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99,95,99:9,-1,99," +
-"40,99:7,-1:6,42:2,99,42,-1:3,73,99:10,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99" +
-":6,80,99:4,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:9,83,99,-1,99,40,99:7,-1:6" +
-",42:2,99,42,-1:3,99:7,90,99:3,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99,69,99:9" +
-",-1,99,40,99:7,-1:6,42:2,99,42,-1:3,74,99:10,-1,99,40,99:7,-1:6,42:2,99,42," +
-"-1:3,99:6,82,99:4,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:4,46,99:6,-1,99,40," +
-"99:7,-1:6,42:2,99,42,-1:3,75,99:10,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99,47" +
-",99:9,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:8,92,99:2,-1,99,40,50,99:6,-1:6" +
-",42:2,99,42,-1:3,99:9,51,99,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:7,52,99:3" +
-",-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:6,94,99:4,-1,99,40,99:7,-1:6,42:2,99" +
-",42,-1:3,99:7,53,99:3,-1,99,40,99:7,-1:6,42:2,99,42,-1:3,99:6,93,99:4,-1,99" +
-",40,99:7,-1:6,42:2,99,42,-1:3,99:6,98,99:4,-1,99,40,99:7,-1:6,42:2,99,42,-1" +
-":2");
+	private int yy_nxt[][] = unpackFromString(78,34,
+"1,2,86,94,97,98,94,32,34,94,99,100,3,94,101,94,102,103,94:3,104,4,33,3,5,6," +
+"7,8,9,94,3,10,3,-1:35,94,35,94:9,36,94:9,-1:6,36:2,94,36,-1:34,10,-1:2,94:1" +
+"1,36,94:9,-1:6,36:2,94,36,-1:3,94:6,58,94:4,36,94:9,-1:6,36:2,94,36,-1:3,94" +
+",40,94:9,36,94:3,11,94:5,-1:6,36:2,94,36,-1:26,13,-1:10,94:8,12,94:2,36,94:" +
+"6,41,94:2,-1:6,36:2,94,36,-1:3,94:2,14,94:8,36,94:9,-1:6,36:2,94,36,-1:3,94" +
+":9,15,94,36,94:9,-1:6,36:2,94,36,-1:3,94:5,47,94:5,36,94:2,88,94:6,-1:6,36:" +
+"2,94,36,-1:3,94:2,16,94:8,36,94:9,-1:6,36:2,94,36,-1:3,94:11,36,94:5,48,94:" +
+"3,-1:6,36:2,94,36,-1:3,94:9,49,94,36,94:9,-1:6,36:2,94,36,-1:3,95,94:10,36," +
+"94:9,-1:6,36:2,94,36,-1:3,94:4,50,94:6,36,94:9,-1:6,36:2,94,36,-1:3,51,94:6" +
+",52,94:3,36,94:9,-1:6,36:2,94,36,-1:3,94,53,94:9,36,94:9,-1:6,36:2,94,36,-1" +
+":3,94:11,36,94,90,94:7,-1:6,36:2,94,36,-1:3,94:6,56,94:4,36,94:9,-1:6,36:2," +
+"94,36,-1:3,94:11,36,94:6,59,94:2,-1:6,36:2,94,36,-1:3,94:11,36,94:5,60,94:3" +
+",-1:6,36:2,94,36,-1:3,94,17,94:9,36,94:9,-1:6,36:2,94,36,-1:3,94:8,62,63,94" +
+",36,94:9,-1:6,36:2,94,36,-1:3,94:11,36,94:5,18,94:3,-1:6,36:2,94,36,-1:3,94" +
+":2,64,94:8,36,94:9,-1:6,36:2,94,36,-1:3,65,94:10,36,94:9,-1:6,36:2,94,36,-1" +
+":3,94:11,36,94:2,19,94:6,-1:6,36:2,94,36,-1:3,94,20,94:9,36,94:9,-1:6,36:2," +
+"94,36,-1:3,94:11,36,94:7,91,94,-1:6,36:2,94,36,-1:3,94:11,36,94:3,21,94:5,-" +
+"1:6,36:2,94,36,-1:3,94:9,67,94,36,94:9,-1:6,36:2,94,36,-1:3,94:11,36,94:6,6" +
+"8,94:2,-1:6,36:2,94,36,-1:3,94:10,96,36,94:9,-1:6,36:2,94,36,-1:3,94:9,22,9" +
+"4,36,94:9,-1:6,36:2,94,36,-1:3,94:4,69,94:6,36,94:9,-1:6,36:2,94,36,-1:3,94" +
+":6,92,94:4,36,94:9,-1:6,36:2,94,36,-1:3,94:11,36,94:4,23,94:4,-1:6,36:2,94," +
+"36,-1:3,94:11,36,94:4,24,94:4,-1:6,36:2,94,36,-1:3,94:10,25,36,94:9,-1:6,36" +
+":2,94,36,-1:3,94:9,71,94,36,94:9,-1:6,36:2,94,36,-1:3,94:10,26,73,94:9,-1:6" +
+",36:2,94,36,-1:3,94:7,75,94:3,36,94:9,-1:6,36:2,94,36,-1:3,94:10,27,36,94:9" +
+",-1:6,36:2,94,36,-1:3,94:9,105,94,36,94:9,-1:6,36:2,94,36,-1:3,94:11,36,76," +
+"94:8,-1:6,36:2,94,36,-1:3,94:6,77,94:4,36,94:9,-1:6,36:2,94,36,-1:3,94:11,3" +
+"6,94:6,78,94:2,-1:6,36:2,94,36,-1:3,79,94:10,36,94:9,-1:6,36:2,94,36,-1:3,9" +
+"4:7,80,94:3,36,94:9,-1:6,36:2,94,36,-1:3,94:8,28,94:2,36,94:9,-1:6,36:2,94," +
+"36,-1:3,94:11,36,94,82,94:7,-1:6,36:2,94,36,-1:3,94,29,94:9,36,94:9,-1:6,36" +
+":2,94,36,-1:3,94,30,94:9,36,94:9,-1:6,36:2,94,36,-1:3,94:11,36,94:2,83,94:6" +
+",-1:6,36:2,94,36,-1:3,94:6,84,94:4,36,94:9,-1:6,36:2,94,36,-1:3,94,85,94:9," +
+"36,94:9,-1:6,36:2,94,36,-1:3,94:4,31,94:6,36,94:9,-1:6,36:2,94,36,-1:3,94:7" +
+",37,94:3,36,94:9,-1:6,36:2,94,36,-1:3,94:9,55,94,36,94:9,-1:6,36:2,94,36,-1" +
+":3,57,94:10,36,94:9,-1:6,36:2,94,36,-1:3,94,54,94:9,36,94:9,-1:6,36:2,94,36" +
+",-1:3,66,94:10,36,94:9,-1:6,36:2,94,36,-1:3,94:6,70,94:4,36,94:9,-1:6,36:2," +
+"94,36,-1:3,94:9,74,94,36,94:9,-1:6,36:2,94,36,-1:3,94:7,81,94:3,36,94:9,-1:" +
+"6,36:2,94,36,-1:3,94,61,94:9,36,94:9,-1:6,36:2,94,36,-1:3,94:6,72,94:4,36,9" +
+"4:9,-1:6,36:2,94,36,-1:3,94:4,38,94:6,36,94:9,-1:6,36:2,94,36,-1:3,94,39,94" +
+":9,36,94:9,-1:6,36:2,94,36,-1:3,94:8,42,94:2,36,94:2,43,94:6,-1:6,36:2,94,3" +
+"6,-1:3,94:9,44,94,36,94:9,-1:6,36:2,94,36,-1:3,94:7,45,94:3,36,94:9,-1:6,36" +
+":2,94,36,-1:3,94:6,89,94:4,36,94:9,-1:6,36:2,94,36,-1:3,94:7,46,94:3,36,94:" +
+"9,-1:6,36:2,94,36,-1:3,94:6,87,94:4,36,94:9,-1:6,36:2,94,36,-1:3,94:6,93,94" +
+":4,36,94:9,-1:6,36:2,94,36,-1:2");
 
 	public java_cup.runtime.Symbol next_token ()
 		throws java.io.IOException, 
@@ -439,7 +425,7 @@ LexerException
 					case -2:
 						break;
 					case 2:
-						{return tok(sym.IDENT, yytext()); }
+						{return tok(sym.IDENT, yytext());}
 					case -3:
 						break;
 					case 3:
@@ -558,300 +544,300 @@ LexerException
 						{return tok(sym.STATE_MACHINE, null); }
 					case -32:
 						break;
-					case 33:
-						{return tok(sym.IDENT, yytext()); }
+					case 32:
+						{return tok(sym.IDENT, yytext());}
 					case -33:
 						break;
-					case 34:
+					case 33:
 						{throw new LexerException("Caracter Ilegal en linea "+yyline); }
 					case -34:
 						break;
-					case 36:
-						{return tok(sym.IDENT, yytext()); }
+					case 34:
+						{return tok(sym.IDENT, yytext());}
 					case -35:
 						break;
-					case 38:
-						{return tok(sym.IDENT, yytext()); }
+					case 35:
+						{return tok(sym.IDENT, yytext());}
 					case -36:
 						break;
-					case 40:
-						{return tok(sym.IDENT, yytext()); }
+					case 36:
+						{return tok(sym.IDENT, yytext());}
 					case -37:
 						break;
-					case 42:
-						{return tok(sym.IDENT, yytext()); }
+					case 37:
+						{return tok(sym.IDENT, yytext());}
 					case -38:
 						break;
-					case 44:
-						{return tok(sym.IDENT, yytext()); }
+					case 38:
+						{return tok(sym.IDENT, yytext());}
 					case -39:
 						break;
-					case 46:
-						{return tok(sym.IDENT, yytext()); }
+					case 39:
+						{return tok(sym.IDENT, yytext());}
 					case -40:
 						break;
-					case 47:
-						{return tok(sym.IDENT, yytext()); }
+					case 40:
+						{return tok(sym.IDENT, yytext());}
 					case -41:
 						break;
-					case 48:
-						{return tok(sym.IDENT, yytext()); }
+					case 41:
+						{return tok(sym.IDENT, yytext());}
 					case -42:
 						break;
-					case 49:
-						{return tok(sym.IDENT, yytext()); }
+					case 42:
+						{return tok(sym.IDENT, yytext());}
 					case -43:
 						break;
-					case 50:
-						{return tok(sym.IDENT, yytext()); }
+					case 43:
+						{return tok(sym.IDENT, yytext());}
 					case -44:
 						break;
-					case 51:
-						{return tok(sym.IDENT, yytext()); }
+					case 44:
+						{return tok(sym.IDENT, yytext());}
 					case -45:
 						break;
-					case 52:
-						{return tok(sym.IDENT, yytext()); }
+					case 45:
+						{return tok(sym.IDENT, yytext());}
 					case -46:
 						break;
-					case 53:
-						{return tok(sym.IDENT, yytext()); }
+					case 46:
+						{return tok(sym.IDENT, yytext());}
 					case -47:
 						break;
-					case 54:
-						{return tok(sym.IDENT, yytext()); }
+					case 47:
+						{return tok(sym.IDENT, yytext());}
 					case -48:
 						break;
-					case 55:
-						{return tok(sym.IDENT, yytext()); }
+					case 48:
+						{return tok(sym.IDENT, yytext());}
 					case -49:
 						break;
-					case 56:
-						{return tok(sym.IDENT, yytext()); }
+					case 49:
+						{return tok(sym.IDENT, yytext());}
 					case -50:
 						break;
-					case 57:
-						{return tok(sym.IDENT, yytext()); }
+					case 50:
+						{return tok(sym.IDENT, yytext());}
 					case -51:
 						break;
-					case 58:
-						{return tok(sym.IDENT, yytext()); }
+					case 51:
+						{return tok(sym.IDENT, yytext());}
 					case -52:
 						break;
-					case 59:
-						{return tok(sym.IDENT, yytext()); }
+					case 52:
+						{return tok(sym.IDENT, yytext());}
 					case -53:
 						break;
-					case 60:
-						{return tok(sym.IDENT, yytext()); }
+					case 53:
+						{return tok(sym.IDENT, yytext());}
 					case -54:
 						break;
-					case 61:
-						{return tok(sym.IDENT, yytext()); }
+					case 54:
+						{return tok(sym.IDENT, yytext());}
 					case -55:
 						break;
-					case 62:
-						{return tok(sym.IDENT, yytext()); }
+					case 55:
+						{return tok(sym.IDENT, yytext());}
 					case -56:
 						break;
-					case 63:
-						{return tok(sym.IDENT, yytext()); }
+					case 56:
+						{return tok(sym.IDENT, yytext());}
 					case -57:
 						break;
-					case 64:
-						{return tok(sym.IDENT, yytext()); }
+					case 57:
+						{return tok(sym.IDENT, yytext());}
 					case -58:
 						break;
-					case 65:
-						{return tok(sym.IDENT, yytext()); }
+					case 58:
+						{return tok(sym.IDENT, yytext());}
 					case -59:
 						break;
-					case 66:
-						{return tok(sym.IDENT, yytext()); }
+					case 59:
+						{return tok(sym.IDENT, yytext());}
 					case -60:
 						break;
-					case 67:
-						{return tok(sym.IDENT, yytext()); }
+					case 60:
+						{return tok(sym.IDENT, yytext());}
 					case -61:
 						break;
-					case 68:
-						{return tok(sym.IDENT, yytext()); }
+					case 61:
+						{return tok(sym.IDENT, yytext());}
 					case -62:
 						break;
-					case 69:
-						{return tok(sym.IDENT, yytext()); }
+					case 62:
+						{return tok(sym.IDENT, yytext());}
 					case -63:
 						break;
-					case 70:
-						{return tok(sym.IDENT, yytext()); }
+					case 63:
+						{return tok(sym.IDENT, yytext());}
 					case -64:
 						break;
-					case 71:
-						{return tok(sym.IDENT, yytext()); }
+					case 64:
+						{return tok(sym.IDENT, yytext());}
 					case -65:
 						break;
-					case 72:
-						{return tok(sym.IDENT, yytext()); }
+					case 65:
+						{return tok(sym.IDENT, yytext());}
 					case -66:
 						break;
-					case 73:
-						{return tok(sym.IDENT, yytext()); }
+					case 66:
+						{return tok(sym.IDENT, yytext());}
 					case -67:
 						break;
-					case 74:
-						{return tok(sym.IDENT, yytext()); }
+					case 67:
+						{return tok(sym.IDENT, yytext());}
 					case -68:
 						break;
-					case 75:
-						{return tok(sym.IDENT, yytext()); }
+					case 68:
+						{return tok(sym.IDENT, yytext());}
 					case -69:
 						break;
-					case 76:
-						{return tok(sym.IDENT, yytext()); }
+					case 69:
+						{return tok(sym.IDENT, yytext());}
 					case -70:
 						break;
-					case 77:
-						{return tok(sym.IDENT, yytext()); }
+					case 70:
+						{return tok(sym.IDENT, yytext());}
 					case -71:
 						break;
-					case 78:
-						{return tok(sym.IDENT, yytext()); }
+					case 71:
+						{return tok(sym.IDENT, yytext());}
 					case -72:
 						break;
-					case 79:
-						{return tok(sym.IDENT, yytext()); }
+					case 72:
+						{return tok(sym.IDENT, yytext());}
 					case -73:
 						break;
-					case 80:
-						{return tok(sym.IDENT, yytext()); }
+					case 73:
+						{return tok(sym.IDENT, yytext());}
 					case -74:
 						break;
-					case 81:
-						{return tok(sym.IDENT, yytext()); }
+					case 74:
+						{return tok(sym.IDENT, yytext());}
 					case -75:
 						break;
-					case 82:
-						{return tok(sym.IDENT, yytext()); }
+					case 75:
+						{return tok(sym.IDENT, yytext());}
 					case -76:
 						break;
-					case 83:
-						{return tok(sym.IDENT, yytext()); }
+					case 76:
+						{return tok(sym.IDENT, yytext());}
 					case -77:
 						break;
-					case 84:
-						{return tok(sym.IDENT, yytext()); }
+					case 77:
+						{return tok(sym.IDENT, yytext());}
 					case -78:
 						break;
-					case 85:
-						{return tok(sym.IDENT, yytext()); }
+					case 78:
+						{return tok(sym.IDENT, yytext());}
 					case -79:
 						break;
-					case 86:
-						{return tok(sym.IDENT, yytext()); }
+					case 79:
+						{return tok(sym.IDENT, yytext());}
 					case -80:
 						break;
-					case 87:
-						{return tok(sym.IDENT, yytext()); }
+					case 80:
+						{return tok(sym.IDENT, yytext());}
 					case -81:
 						break;
-					case 88:
-						{return tok(sym.IDENT, yytext()); }
+					case 81:
+						{return tok(sym.IDENT, yytext());}
 					case -82:
 						break;
-					case 89:
-						{return tok(sym.IDENT, yytext()); }
+					case 82:
+						{return tok(sym.IDENT, yytext());}
 					case -83:
 						break;
-					case 90:
-						{return tok(sym.IDENT, yytext()); }
+					case 83:
+						{return tok(sym.IDENT, yytext());}
 					case -84:
 						break;
-					case 91:
-						{return tok(sym.IDENT, yytext()); }
+					case 84:
+						{return tok(sym.IDENT, yytext());}
 					case -85:
 						break;
-					case 92:
-						{return tok(sym.IDENT, yytext()); }
+					case 85:
+						{return tok(sym.IDENT, yytext());}
 					case -86:
 						break;
-					case 93:
-						{return tok(sym.IDENT, yytext()); }
+					case 86:
+						{return tok(sym.IDENT, yytext());}
 					case -87:
 						break;
-					case 94:
-						{return tok(sym.IDENT, yytext()); }
+					case 87:
+						{return tok(sym.IDENT, yytext());}
 					case -88:
 						break;
-					case 95:
-						{return tok(sym.IDENT, yytext()); }
+					case 88:
+						{return tok(sym.IDENT, yytext());}
 					case -89:
 						break;
-					case 96:
-						{return tok(sym.IDENT, yytext()); }
+					case 89:
+						{return tok(sym.IDENT, yytext());}
 					case -90:
 						break;
-					case 97:
-						{return tok(sym.IDENT, yytext()); }
+					case 90:
+						{return tok(sym.IDENT, yytext());}
 					case -91:
 						break;
-					case 98:
-						{return tok(sym.IDENT, yytext()); }
+					case 91:
+						{return tok(sym.IDENT, yytext());}
 					case -92:
 						break;
-					case 99:
-						{return tok(sym.IDENT, yytext()); }
+					case 92:
+						{return tok(sym.IDENT, yytext());}
 					case -93:
 						break;
-					case 100:
-						{return tok(sym.IDENT, yytext()); }
+					case 93:
+						{return tok(sym.IDENT, yytext());}
 					case -94:
 						break;
-					case 101:
-						{return tok(sym.IDENT, yytext()); }
+					case 94:
+						{return tok(sym.IDENT, yytext());}
 					case -95:
 						break;
-					case 102:
-						{return tok(sym.IDENT, yytext()); }
+					case 95:
+						{return tok(sym.IDENT, yytext());}
 					case -96:
 						break;
-					case 103:
-						{return tok(sym.IDENT, yytext()); }
+					case 96:
+						{return tok(sym.IDENT, yytext());}
 					case -97:
 						break;
-					case 104:
-						{return tok(sym.IDENT, yytext()); }
+					case 97:
+						{return tok(sym.IDENT, yytext());}
 					case -98:
 						break;
-					case 105:
-						{return tok(sym.IDENT, yytext()); }
+					case 98:
+						{return tok(sym.IDENT, yytext());}
 					case -99:
 						break;
-					case 106:
-						{return tok(sym.IDENT, yytext()); }
+					case 99:
+						{return tok(sym.IDENT, yytext());}
 					case -100:
 						break;
-					case 107:
-						{return tok(sym.IDENT, yytext()); }
+					case 100:
+						{return tok(sym.IDENT, yytext());}
 					case -101:
 						break;
-					case 108:
-						{return tok(sym.IDENT, yytext()); }
+					case 101:
+						{return tok(sym.IDENT, yytext());}
 					case -102:
 						break;
-					case 109:
-						{return tok(sym.IDENT, yytext()); }
+					case 102:
+						{return tok(sym.IDENT, yytext());}
 					case -103:
 						break;
-					case 110:
-						{return tok(sym.IDENT, yytext()); }
+					case 103:
+						{return tok(sym.IDENT, yytext());}
 					case -104:
 						break;
-					case 111:
-						{return tok(sym.IDENT, yytext()); }
+					case 104:
+						{return tok(sym.IDENT, yytext());}
 					case -105:
 						break;
-					case 112:
-						{return tok(sym.IDENT, yytext()); }
+					case 105:
+						{return tok(sym.IDENT, yytext());}
 					case -106:
 						break;
 					default:
