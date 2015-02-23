@@ -37,7 +37,7 @@ non terminal Event Event;
 non terminal FinalState FinalState;
 non terminal ExpLog ExpLog;
 non terminal Condition Condition;
-non terminal Initialization Initialization;
+non terminal Initialitation Initialitation;
 non terminal SimpleStatementList SimpleStatementList;
 
 precedence left OR;
@@ -46,10 +46,10 @@ precedence left NOT;
 
 start with S;
 
-S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
-   |  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}   
-   |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialization:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
-   |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied OutputEventDecl>:oed Initialization:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :}
+S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
+   |  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}   
+   |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
+   |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :}
 
 StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il); :}
 
@@ -89,7 +89,7 @@ Statement ::= Statement:s Statement:es   {:RESULT = new Statement1(s,es); :}
    | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}    
    | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :}
 
-Initialization ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialization(i,ssl); :} 
+Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :} 
    
 SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList1(i,cl); :}    
    | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :}    
