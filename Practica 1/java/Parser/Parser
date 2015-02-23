@@ -70,9 +70,9 @@ TransitionList ::= Transition:t   {:RESULT = new TransitionList1(t); :}
    | Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :}    
                
 Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new FinalState1(is,e,fs); :}    
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new FinalState2(is,e,fs,tb); :}     
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState3(is,e,fs,c); :}     
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new FinalState4(is,e,fs,c,tb); :}
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehavior:tb   {:RESULT = new FinalState2(is,e,fs,tb); :}     
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState3(is,e,fs,c); : }
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehavior:tb   {:RESULT = new FinalState4(is,e,fs,c,tb); :}
 
 Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :}   
 
@@ -82,7 +82,7 @@ Event ::= IDENT:i   {:RESULT = new Event(i); :}
 
 FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :} 
 
-TransBehaviour ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehaviour(s); :}    
+TransBehavior ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehavior(s); :}    
 
 Statement ::= Statement:s Statement:es   {:RESULT = new Statement1(s,es); :}    
    | STOP PC
