@@ -1,0 +1,51 @@
+state_machine
+
+states s0, s1, s2, s3;
+
+inputs a, b;
+
+outputs s0, s1, s2, s3;
+
+starts with s0;
+
+s0:='1';
+s1:='0';
+s2:='0';
+s3:='0';
+
+begin
+
+transition(s0,a,s1);
+behaviour
+s0:='0';
+s1:='1';
+
+transition(s1,a,s2);
+behaviour
+s2:='1';
+s1:='0';
+
+transition(s1,b,s0);
+behaviour
+s0:='1';
+s1:='0';
+
+transition(s2, a, s3);
+behaviour
+s2:='0';
+s3:='1';
+
+transition(s2, b, s0);
+behaviour
+s0:='1';
+s2:='0';
+
+transition(s3, b, s0);
+behaviour
+s0:='1';
+s3:='0';
+
+end
+
+
+
