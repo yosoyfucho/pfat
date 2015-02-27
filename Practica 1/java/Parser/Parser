@@ -23,8 +23,8 @@ terminal String IDENT;
 terminal Boolean CLOG;
 
 non terminal S S;
-non terminal StateDeclList StateDeclList
-non terminal FinalStateDeclList FinalStateDeclList
+non terminal StateDeclList StateDeclList;
+non terminal FinalStateDeclList FinalStateDeclList;
 non terminal IdentList IdentList;
 non terminal InputEventDecl InputEventDecl;
 non terminal LocalVarDecl LocalVarDecl;
@@ -41,6 +41,7 @@ non terminal ExpLog ExpLog;
 non terminal Condition Condition;
 non terminal Initialitation Initialitation;
 non terminal SimpleStatementList SimpleStatementList;
+non terminal Nuevo Nuevo;
 
 precedence left OR;
 precedence left AND;
@@ -53,12 +54,15 @@ S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ie
    |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
    |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :}
 
-StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il); :}
-
-FinalStateDeclList ::= FINAL STATES:s IdentList:il {:RESULT = new FinalStateDeclList(s,il); :}
 
 IdentList ::= IDENT:i   {:RESULT = new IdentList1(i); :}
    | IDENT:i COMA IdentList:il   {:RESULT = new IdentList2(i,il); :}
+
+StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il);:}
+
+FinalStateDeclList ::= FINAL STATES:s IdentList:il {:RESULT = new FinalStateDeclList(s,il);:}
+
+
 
 InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDec(il); :}
 
