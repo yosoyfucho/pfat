@@ -1,4 +1,5 @@
 package Parser;
+
 import java_cup.runtime.*;
 import AST.*;
 
@@ -15,9 +16,10 @@ public void unrecovered_syntax_error(Symbol s) throws
 
 terminal STATE_MACHINE, COMA, PC, PAREN, TESIS, BEGIN, END, ASIG, STATES,
 FINAL, INPUTS, LOCAL, OUTPUTS, TRANSITION, BEHAVIOUR, AND, OR, NOT,
-START, WITH, CONDITION, STOP, IF, THEN, ENDIF, IDENT, CLOG;
+START, WITH, CONDITION, STOP, IF, THEN, ENDIF;
 
-terminal String CSTR, IDENT;
+terminal String CSTR;
+terminal String IDENT;
 terminal Boolean CLOG;
 
 non terminal S S;
@@ -47,52 +49,52 @@ precedence left NOT;
 start with S;
 
 S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
-   |  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}   
+   |  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}
    |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
    |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :}
 
 StateDeclList ::= STATES:s IdentList:il PC	{:RESULT = new StateDeclList(s,il); :}
 
-FinalStateDeclList ::= FINAL STATES:s IdentList:il {:RESULT = new FinalStateDeclList(s,il); :}   
+FinalStateDeclList ::= FINAL STATES:s IdentList:il {:RESULT = new FinalStateDeclList(s,il); :}
 
-IdentList ::= IDENT:i   {:RESULT = new IdentList1(i); :}    
+IdentList ::= IDENT:i   {:RESULT = new IdentList1(i); :}
    | IDENT:i COMA IdentList:il   {:RESULT = new IdentList2(i,il); :}
 
-InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDec(il); :} 
+InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDec(il); :}
 
-LocalVarDecl ::= LOCAL IdentList:il PC   {:RESULT = new LocalVarDecl(il); :}   
+LocalVarDecl ::= LOCAL IdentList:il PC   {:RESULT = new LocalVarDecl(il); :}
 
-OutputEventDecl ::= OUTPUTS IdentList:il PC   {:RESULT = new OutputEventDecl(il); :}    
+OutputEventDecl ::= OUTPUTS IdentList:il PC   {:RESULT = new OutputEventDecl(il); :}
 
-Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :} 
+Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :}
 
-TransitionList ::= Transition:t   {:RESULT = new TransitionList1(t); :}    
-   | Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :}    
-               
-Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new FinalState1(is,e,fs); :}    
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new FinalState2(is,e,fs,tb); :}     
+TransitionList ::= Transition:t   {:RESULT = new TransitionList1(t); :}
+   | Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :}
+
+Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new FinalState1(is,e,fs); :}
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new FinalState2(is,e,fs,tb); :}
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState3(is,e,fs,c); : }
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new FinalState4(is,e,fs,c,tb); :}
 
-Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :}   
+Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :}
 
-InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :} 
+InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :}
 
-Event ::= IDENT:i   {:RESULT = new Event(i); :}    
+Event ::= IDENT:i   {:RESULT = new Event(i); :}
 
-FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :} 
+FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :}
 
-TransBehaviour ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehaviour(s); :}    
+TransBehaviour ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehaviour(s); :}
 
-Statement ::= Statement:s Statement:es   {:RESULT = new Statement1(s,es); :}    
+Statement ::= Statement:s Statement:es   {:RESULT = new Statement1(s,es); :}
    | STOP PC
-   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}    
+   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}
    | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :}
 
-Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :} 
-   
-SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList1(ssl,i,cl); :}    
-   | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :}    
+Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :}
+
+SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList1(ssl,i,cl); :}
+   | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :}
 
 ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
    | IDENT:i   {:RESULT = new Variable(i); :}
