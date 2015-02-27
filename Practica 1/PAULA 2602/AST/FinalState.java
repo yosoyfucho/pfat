@@ -1,10 +1,10 @@
 package AST;
 import Errors.*;
 
-public class FinalState implements Ident{
-	public Ident i;
+public class FinalState {
+	public String i;
 
-	public FinalState (Ident i){
+	public FinalState (String i){
 		this.i = i;
 	}
 }
