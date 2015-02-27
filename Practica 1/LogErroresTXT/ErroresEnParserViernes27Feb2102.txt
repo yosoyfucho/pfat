@@ -1,0 +1,47 @@
+FuchosMB:Parser fucho$ java -cp ../../../CUP java_cup.Main Parser
+Opening files...
+Parsing specification from standard input...
+Error at 20(29): java_cup.runtime.Symbol "IDENT" has already been declared
+Error at 21(23): java_cup.runtime.Symbol "CLOG" has already been declared
+Error at 25(4): Syntax error
+Error at 27(13): Illegal use of reserved word
+Error at 54(18): Syntax error
+Error at 54(37): Illegal use of reserved word
+Error at 56(23): Syntax error
+Error at 56(38): Illegal use of reserved word
+Error at 58(14): Syntax error
+Error at 58(57): Illegal use of reserved word
+Error at 61(19): Syntax error
+Error at 61(39): Illegal use of reserved word
+Error at 63(17): Syntax error
+Error at 63(36): Illegal use of reserved word
+Error at 65(20): Syntax error
+Error at 65(41): Illegal use of reserved word
+Error at 67(16): Syntax error
+Error at 67(40): Illegal use of reserved word
+Error at 69(19): Syntax error
+Error at 69(72): Illegal use of reserved word
+Error at 72(15): Syntax error
+Error at 72(46): Illegal use of reserved word
+Error at 77(14): Syntax error
+Error at 77(38): Illegal use of reserved word
+Error at 79(17): Syntax error
+Error at 79(62): Illegal use of reserved word
+Error at 81(10): Syntax error
+Error at 81(48): Illegal use of reserved word
+Error at 83(15): Syntax error
+Error at 83(58): Illegal use of reserved word
+Error at 85(19): Syntax error
+Error at 85(41): Illegal use of reserved word
+Error at 87(14): Syntax error
+Error at 87(36): Illegal use of reserved word
+Error at 92(19): Syntax error
+Error at 92(37): Illegal use of reserved word
+Error at 94(24): Syntax error
+Error at 94(54): Illegal use of reserved word
+Error at 97(11): Syntax error
+Error at 97(47): Illegal use of reserved word
+Error at 102(48): Syntax error
+Error at 102(48): Couldn't repair and continue parse
+Can't recover from previous error(s), giving up.
+FuchosMB:Parser fucho$ 

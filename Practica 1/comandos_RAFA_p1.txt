@@ -1,0 +1,9 @@
+/Users/fucho/GitHub/pfat/Practica 1/java/Errors
+FuchosMB:Errors fucho$ javac -d ../../class *.java
+
+/Users/fucho/GitHub/pfat/Practica 1/java/AST
+FuchosMB:AST fucho$ javac -d ../../class -cp .. *.java
+
+
+/Users/fucho/GitHub/pfat/Practica 1/java/Parser
+FuchosMB:Parser fucho$ java -cp ../../../CUP java_cup.Main Parser
