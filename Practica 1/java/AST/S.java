@@ -1,10 +1,6 @@
 package AST;
-
-
 import Errors.*;
 
-
-public interface S
-{
+public interface S{
 	
 }

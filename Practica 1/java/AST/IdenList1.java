@@ -1,14 +1,11 @@
 package AST;
-
 import Errors.*;
-import java.io.*;
 
-public class IdenList1 implements IdenList
-{
-	public IdenList i;
+public class IdentList1 implements IdentList{
+	
+	public IdentList i;
 
-	public IdenList1 (IdenList i)
-	{
+	public IdentList1 (IdentList i){
 		this.i=i;
 	}
 }

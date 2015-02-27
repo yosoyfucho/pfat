@@ -1,18 +1,13 @@
 package AST;
-
 import Errors.*;
-import java.io.*;
 
-public class FinalState1 implements FinalState
-{
-	public Ident i;
+public class FinalState1 implements Transition{
+  
 	public InitialState is;
 	public Event e;
 	public FinalState fs;
 
-	public FinalState1 (Ident i, InitialState is, Event e, FinalState fs)
-	{
-		this.i = i;
+	public FinalState1(InitialState is, Event e, FinalState fs){
 		this.is = is;
 		this.e = e;
 		this.fs = fs;

@@ -1,6 +1,6 @@
 package AST;
 import Errors.*;
 
-public interface IdentList{
-	
+public interface ExpLog {
+
 }

@@ -1,10 +1,7 @@
 package AST;
-
 import Errors.*;
-import java.io.*;
 
-public class S3 implements S
-{
+public class S3 implements S{
 
 	public StateDeclList sdl;
 	public InputEventDecl ied;
@@ -14,8 +11,8 @@ public class S3 implements S
 	public Transition t;	
 
 	public S3 (StateDeclList sdl, InputEventDecl ied, LocalVarDecl lvd,
-		OutputEventDecl oed, Initialitation i, Transition t)
-	{
+		OutputEventDecl oed, Initialitation i, Transition t){
+		
 		this.sdl = sdl;
 		this.ied = ied;
 		this.lvd = lvd;

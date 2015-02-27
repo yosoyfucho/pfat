@@ -1,17 +1,13 @@
 package AST;
-
 import Errors.*;
-import java.io.*;
 
-public class FinalState2 implements FinalState
-{
+public class FinalState2 implements Transition{
 	public InitialState is;
 	public Event e;
 	public FinalState fs;
 	public TransBehavior tb;
 
-	public FinalState2 (InitialState is, Event e, FinalState fs, TransBehavior tb)
-	{
+	public FinalState2 (InitialState is, Event e, FinalState fs, TransBehavior tb){
 		this.is = is;
 		this.e = e;
 		this.fs = fs;

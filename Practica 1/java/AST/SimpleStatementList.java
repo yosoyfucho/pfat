@@ -1,8 +1,6 @@
 package AST;
-
 import Errors.*;
 
-public interface SimpleStatementList
-{
+public interface SimpleStatementList{
 	
 }

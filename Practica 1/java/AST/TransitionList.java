@@ -1,9 +1,6 @@
 package AST;
-
 import Errors.*;
 
-
-public interface TransitionList
-{
+public interface TransitionList{
 	
 }
