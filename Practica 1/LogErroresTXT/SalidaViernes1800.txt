@@ -1,0 +1,144 @@
+Resumen compilaciones:
+  Primero en la carpeta java/Errors
+
+      javac -d ../../class *.java  (Sin errores)
+
+  Después en la carpeta java/AST
+
+      javac -d ../../class -cp .. *.java (25 errores a las 18 de la tarde Viernes 27/02)
+
+
+Log:
+
+FuchosMB:Practica 1 fucho$ cd java
+FuchosMB:java fucho$ cd Errors
+FuchosMB:Errors fucho$ javac -d ../../class *.java
+FuchosMB:Errors fucho$ cd ..
+FuchosMB:java fucho$ cd AST
+FuchosMB:AST fucho$ pwd
+/Users/fucho/GitHub/pfat/Practica 1/java/AST
+FuchosMB:AST fucho$ javac -d ../../class -cp .. *.java
+Event.java:4: error: cannot find symbol
+public class Event implements Ident{
+                              ^
+  symbol: class Ident
+Event.java:5: error: cannot find symbol
+	public Ident i;
+	       ^
+  symbol:   class Ident
+  location: class Event
+Event.java:7: error: cannot find symbol
+	public Event (Ident i)	{
+	              ^
+  symbol:   class Ident
+  location: class Event
+FinalState.java:4: error: cannot find symbol
+public class FinalState implements Ident{
+                                   ^
+  symbol: class Ident
+FinalState.java:5: error: cannot find symbol
+	public Ident i;
+	       ^
+  symbol:   class Ident
+  location: class FinalState
+FinalState.java:7: error: cannot find symbol
+	public FinalState (Ident i){
+	                   ^
+  symbol:   class Ident
+  location: class FinalState
+InitialState.java:4: error: cannot find symbol
+public class InitialState implements Ident{
+                                     ^
+  symbol: class Ident
+InitialState.java:5: error: cannot find symbol
+	public Ident i;
+	       ^
+  symbol:   class Ident
+  location: class InitialState
+InitialState.java:7: error: cannot find symbol
+	public InitialState (Ident i){
+	                     ^
+  symbol:   class Ident
+  location: class InitialState
+FinalStateDeclList.java:6: error: cannot find symbol
+	public States s;
+	       ^
+  symbol:   class States
+  location: class FinalStateDeclList
+FinalStateDeclList.java:8: error: cannot find symbol
+	public FinalStateDeclList (IdentList il,States s){
+	                                        ^
+  symbol:   class States
+  location: class FinalStateDeclList
+Initialitation.java:6: error: cannot find symbol
+	public Ident i;
+	       ^
+  symbol:   class Ident
+  location: class Initialitation
+Initialitation.java:9: error: cannot find symbol
+	public Initialitation (Ident i, SimpleStatementList ssl){
+	                       ^
+  symbol:   class Ident
+  location: class Initialitation
+StateDeclList.java:6: error: cannot find symbol
+	public States s;
+	       ^
+  symbol:   class States
+  location: class StateDeclList
+StateDeclList.java:8: error: cannot find symbol
+	public StateDeclList (IdentList il,States s){
+	                                   ^
+  symbol:   class States
+  location: class StateDeclList
+SimpleStatementList1.java:7: error: cannot find symbol
+	public Ident i;
+	       ^
+  symbol:   class Ident
+  location: class SimpleStatementList1
+SimpleStatementList1.java:8: error: cannot find symbol
+	public Clog cl;
+	       ^
+  symbol:   class Clog
+  location: class SimpleStatementList1
+SimpleStatementList1.java:10: error: cannot find symbol
+	public SimpleStatementList1 (SimpleStatementList ssl, Ident i, Clog cl){
+	                                                      ^
+  symbol:   class Ident
+  location: class SimpleStatementList1
+SimpleStatementList1.java:10: error: cannot find symbol
+	public SimpleStatementList1 (SimpleStatementList ssl, Ident i, Clog cl){
+	                                                               ^
+  symbol:   class Clog
+  location: class SimpleStatementList1
+SimpleStatementList2.java:5: error: cannot find symbol
+	public Ident i;
+	       ^
+  symbol:   class Ident
+  location: class SimpleStatementList2
+SimpleStatementList2.java:6: error: cannot find symbol
+	public Clog cl;
+	       ^
+  symbol:   class Clog
+  location: class SimpleStatementList2
+SimpleStatementList2.java:8: error: cannot find symbol
+	public SimpleStatementList2 (Ident i, Clog cl){
+	                             ^
+  symbol:   class Ident
+  location: class SimpleStatementList2
+SimpleStatementList2.java:8: error: cannot find symbol
+	public SimpleStatementList2 (Ident i, Clog cl){
+	                                      ^
+  symbol:   class Clog
+  location: class SimpleStatementList2
+Statement3.java:5: error: cannot find symbol
+	public Ident i;
+	       ^
+  symbol:   class Ident
+  location: class Statement3
+Statement3.java:8: error: cannot find symbol
+	public Statement3 (Ident i, ExpLog el){
+	                   ^
+  symbol:   class Ident
+  location: class Statement3
+25 errors
+FuchosMB:AST fucho$ 
