@@ -1,10 +1,11 @@
 package AST;
 import Errors.*;
 
-public class InitialState implements Ident{
-	public Ident i;
+public class InitialState
+{
+	public String i;
 
-	public InitialState (Ident i){
+	public InitialState (String i){
 		this.i = i;
 	}
 }

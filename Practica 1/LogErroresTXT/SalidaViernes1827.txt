@@ -1,0 +1,25 @@
+FuchosMB:AST fucho$ pwd
+/Users/fucho/GitHub/pfat/Practica 1/java/AST
+FuchosMB:AST fucho$ javac -d ../../class -cp .. *.java
+SimpleStatementList1.java:8: error: cannot find symbol
+	public Clog cl;
+	       ^
+  symbol:   class Clog
+  location: class SimpleStatementList1
+SimpleStatementList1.java:10: error: cannot find symbol
+	public SimpleStatementList1 (SimpleStatementList ssl, String i, Clog cl){
+	                                                                ^
+  symbol:   class Clog
+  location: class SimpleStatementList1
+SimpleStatementList2.java:6: error: cannot find symbol
+	public Clog cl;
+	       ^
+  symbol:   class Clog
+  location: class SimpleStatementList2
+SimpleStatementList2.java:8: error: cannot find symbol
+	public SimpleStatementList2 (String i, Clog cl){
+	                                       ^
+  symbol:   class Clog
+  location: class SimpleStatementList2
+4 errors
+FuchosMB:AST fucho$ 
