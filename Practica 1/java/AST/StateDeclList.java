@@ -3,10 +3,8 @@ import Errors.*;
 
 public class StateDeclList implements IdentList{
 	public IdentList il;
-	public States s;
 
-	public StateDeclList (IdentList il,States s){
+	public StateDeclList (IdentList il){
 		this.il = il;
-		this.s = s;
 	}
 }
