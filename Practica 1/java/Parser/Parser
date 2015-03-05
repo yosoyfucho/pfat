@@ -87,7 +87,7 @@ Event ::= IDENT:i   {:RESULT = new Event(i); :};
 
 FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :};
 
-TransBehaviour ::= BEHAVIOUR Statement:s   {:RESULT = new TransBehaviour(s); :};
+TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl); :};
 
 StatementList ::= Statement:s   {:RESULT = new StatementList1(s); :}
    | Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl); :};

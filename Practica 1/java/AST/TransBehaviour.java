@@ -1,10 +1,10 @@
 package AST;
 import Errors.*;
 
-public class TransBehaviour implements Statement{
-	public Statement s;
+public class TransBehaviour implements StatementList{
+	public StatementList sl;
 
-	public TransBehaviour (Statement s){
-		this.s = s;
+	public TransBehaviour (StatementList sl){
+		this.sl = sl;
 	}
 }
