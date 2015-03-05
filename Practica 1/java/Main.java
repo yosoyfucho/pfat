@@ -18,7 +18,7 @@ public class Main
       error=true;
     }
 
-    //Análisis léxico y sintáctico
+    //Analisis lexico y sintactico
 
     if (!error) {  
 	try {

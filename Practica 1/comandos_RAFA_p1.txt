@@ -1,9 +1,23 @@
+
+_____________________COMANDOS PRÁCTICA 1_________________________
+1.- Errors
 /Users/fucho/GitHub/pfat/Practica 1/java/Errors
 FuchosMB:Errors fucho$ javac -d ../../class *.java
+	javac -d ../../class *.java
 
+2.- AST
 /Users/fucho/GitHub/pfat/Practica 1/java/AST
 FuchosMB:AST fucho$ javac -d ../../class -cp .. *.java
+	javac -d ../../class -cp .. *.java
 
-
+3.- Parser
 /Users/fucho/GitHub/pfat/Practica 1/java/Parser
 FuchosMB:Parser fucho$ java -cp ../../../CUP java_cup.Main Parser
+	java -cp ../../../CUP java_cup.Main Parser
+
+4.- Lexer
+/Users/fucho/GitHub/pfat/Practica 1/java/Lexer
+MacBook-Pro:Lexer fucho$ java -cp ../../../ JLex.Main Yylex
+	java -cp ../../../ JLex.Main Yylex
+
+5.- Main
