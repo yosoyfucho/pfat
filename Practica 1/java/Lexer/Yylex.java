@@ -16,7 +16,7 @@ public class Yylex implements java_cup.runtime.Scanner {
 
 private java_cup.runtime.Symbol tok(int k, Object value) {
 //  System.out.println("Token: " + k);
-  return new java_cup.runtime.Symbol(k, yyline, 0, value); 
+  return new java_cup.runtime.Symbol(k, yyline, 0, value);
 }
 	private java.io.BufferedReader yy_reader;
 	private int yy_buffer_index;
