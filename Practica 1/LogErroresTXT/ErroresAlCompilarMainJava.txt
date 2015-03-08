@@ -1,0 +1,21 @@
+MacBook-Pro:java fucho$ javac -d ../class -cp ../../CUP:../class:. Main.java
+./Parser/parser.java:277: error: incompatible types: Boolean cannot be converted to ExpLog
+		RESULT = c; 
+		         ^
+./Parser/parser.java:373: error: incompatible types: ExpLog cannot be converted to Statement
+		RESULT = new Statement4(el,s); 
+		                        ^
+./Parser/parser.java:634: error: cannot find symbol
+		RESULT = new InputEventDec(il); 
+		             ^
+  symbol:   class InputEventDec
+  location: class CUP$parser$actions
+./Parser/parser.java:709: error: incompatible types: Transitions cannot be converted to Transition
+		RESULT = new S4(sdl,ied,oed,i,t); 
+		                              ^
+./Parser/parser.java:736: error: incompatible types: Transitions cannot be converted to Transition
+		RESULT = new S3(sdl,ied,lvd,oed,i,t); 
+		                                  ^
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+5 errors
+MacBook-Pro:java fucho$ 
