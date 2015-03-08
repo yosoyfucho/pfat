@@ -76,7 +76,7 @@ TransitionList ::= Transition:t   {:RESULT = new TransitionList1(t); :}
 
 Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new FinalState1(is,e,fs); :}
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new FinalState2(is,e,fs,tb); :}
-   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState3(is,e,fs,c); : }
+   | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new FinalState3(is,e,fs,c); :}
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new FinalState4(is,e,fs,c,tb); :};
 
 Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :};

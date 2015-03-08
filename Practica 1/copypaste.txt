@@ -1,0 +1,17 @@
+cd class
+	rm -r *
+cd ..
+cd java
+cd Errors
+	javac -d ../../class *.java
+cd ..
+cd AST
+	javac -d ../../class -cp .. *.java
+cd ..
+cd Parser
+	java -cp ../../../CUP java_cup.Main Parser
+cd ..
+cd Lexer
+	java -cp ../../../ JLex.Main Yylex
+cd ..
+	javac -d ../class -cp ../../CUP:../class:. Main.java

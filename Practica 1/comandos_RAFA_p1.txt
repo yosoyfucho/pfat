@@ -22,4 +22,4 @@ MacBook-Pro:Lexer fucho$ java -cp ../../../ JLex.Main Yylex
 
 5.- Main
 
-javac -d ../class -cp ../../CUP:../class Main.java
+javac -d ../class -cp ../../CUP:../class:. Main.java
