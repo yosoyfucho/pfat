@@ -7,11 +7,11 @@ public class S4 implements S{
 	public InputEventDecl ied;
 	public OutputEventDecl oed;
 	public Initialitation i;
-	public Transition t;
+	public Transitions t;
 
 	public S4 (StateDeclList sdl, InputEventDecl ied, 
 		OutputEventDecl oed, Initialitation i, 
-		Transition t){
+		Transitions t){
 		
 		this.sdl = sdl;
 		this.ied = ied;

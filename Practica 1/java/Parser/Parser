@@ -63,7 +63,7 @@ FinalStateDeclList ::= FINAL STATES IdentList:il {:RESULT = new FinalStateDeclLi
 
 
 
-InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDec(il); :};
+InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDecl(il); :};
 
 LocalVarDecl ::= LOCAL IdentList:il PC   {:RESULT = new LocalVarDecl(il); :};
 

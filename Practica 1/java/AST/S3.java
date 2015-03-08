@@ -8,10 +8,10 @@ public class S3 implements S{
 	public LocalVarDecl lvd;
 	public OutputEventDecl oed;
 	public Initialitation i;
-	public Transition t;	
+	public Transitions t;	
 
 	public S3 (StateDeclList sdl, InputEventDecl ied, LocalVarDecl lvd,
-		OutputEventDecl oed, Initialitation i, Transition t){
+		OutputEventDecl oed, Initialitation i, Transitions t){
 		
 		this.sdl = sdl;
 		this.ied = ied;
