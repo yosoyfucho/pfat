@@ -1,0 +1,9 @@
+PIENSO:
+
+en simpleStatementList en vez de CLOG poner un true o un false.
+
+CLOG aún no tengo claro qué es. Sí "constante lógica" pero en ejecuccion... ¿?
+
+Hay que depurarlo. 
+
+Buenas noches
