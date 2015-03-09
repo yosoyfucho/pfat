@@ -85,7 +85,7 @@ InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :};
 
 Event ::= IDENT:i   {:RESULT = new Event(i); :};
 
-FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :};
+FinalState ::= FINAL STATES IDENT:i   {:RESULT = new FinalState(i); :};
 
 TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl); :};
 
