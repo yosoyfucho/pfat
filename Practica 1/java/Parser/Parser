@@ -103,7 +103,7 @@ SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESU
 
 ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
    | IDENT:i   {:RESULT = new Variable(i); :}
-   | PAREN CLOG:c TESIS   {:RESULT = c; :}
+   | PAREN CLOG:c TESIS   {:RESULT = new Bool(c); :}
    | ExpLog:e1 AND ExpLog:e2   {:RESULT = new Bool2(e1,e2,true); :}
    | ExpLog:e1 OR ExpLog:e2   {:RESULT = new Bool2(e1,e2,false); :}
    | NOT ExpLog:e   {:RESULT = new Bool3(e); :};
