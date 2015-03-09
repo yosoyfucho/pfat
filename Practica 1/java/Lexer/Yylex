@@ -42,7 +42,7 @@ stop		{return tok(sym.STOP, null); }
 condition	{return tok(sym.CONDITION, null); }
 transition	{return tok(sym.TRANSITION, null); }
 behaviour	{return tok(sym.BEHAVIOUR, null); }
-start		{return tok(sym.START, null); }
+starts		{return tok(sym.START, null); }
 with		{return tok(sym.WITH, null); }
 if          {return tok(sym.IF, null); }
 then        {return tok(sym.THEN, null); }
