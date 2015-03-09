@@ -52,8 +52,8 @@ endif		{return tok(sym.ENDIF, null); }
 "("			{return tok(sym.PAREN, null); }
 ")"			{return tok(sym.TESIS, null); }
 ","			{return tok(sym.COMA, null); }
-"1"			{return tok(sym.CLOG, new Boolean(true)); }
-"0"			{return tok(sym.CLOG, new Boolean(false)); }
+'1'			{return tok(sym.CLOG, new Boolean(true)); }
+'0'			{return tok(sym.CLOG, new Boolean(false)); }
 
 {letra}({letra}|{digitos}|{simbolo})*	{return tok(sym.IDENT, yytext());}
 
