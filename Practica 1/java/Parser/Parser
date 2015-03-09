@@ -59,7 +59,7 @@ IdentList ::= IDENT:i   {:RESULT = new IdentList1(i); :}
 
 StateDeclList ::= STATES IdentList:il PC	{:RESULT = new StateDeclList(il);:};
 
-FinalStateDeclList ::= FINAL STATES IdentList:il {:RESULT = new FinalStateDeclList(il);:};
+FinalStateDeclList ::= FINAL STATES IdentList:il PC {:RESULT = new FinalStateDeclList(il);:};
 
 
 
@@ -81,11 +81,11 @@ Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs 
 
 Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :};
 
-InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :};
+InitialState ::= START WITH IDENT:i PC  {:RESULT = new InitialState(i); :};
 
 Event ::= IDENT:i   {:RESULT = new Event(i); :};
 
-FinalState ::= FINAL STATES IDENT:i   {:RESULT = new FinalState(i); :};
+FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :};
 
 TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl); :};
 
