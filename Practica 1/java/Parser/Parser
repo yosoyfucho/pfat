@@ -79,7 +79,7 @@ Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs 
 
 Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :};
 
-InitialState ::= START WITH IDENT:i PC  {:RESULT = new InitialState(i); :};
+InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :};
 
 Event ::= IDENT:i   {:RESULT = new Event(i); :};
 
@@ -90,9 +90,9 @@ TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl
 StatementList ::= Statement:s   {:RESULT = new StatementList1(s); :}
    | Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl); :};
 
-Statement ::= IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}
-   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :}
-   | STOP PC {: RESULT = new Statement2(); :};
+Statement ::= STOP PC {:RESULT = new Statement2(); :}
+   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}
+   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :};
 
 Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :};
 
@@ -102,6 +102,7 @@ SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESU
 ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
    | IDENT:i   {:RESULT = new Variable(i); :}
    | PAREN CLOG:c TESIS   {:RESULT = new Bool(c); :}
-   | ExpLog:e1 AND ExpLog:e2   {:RESULT = new Bool2(e1,e2,true); :}
-   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new Bool2(e1,e2,false); :}
+   | ExpLog:e1 AND ExpLog:e2   {:RESULT = new Bool2(e1,e2); :}
+   | PAREN ExpLog:e1 AND ExpLog:e2 TESIS   {:RESULT = new Bool2(e1,e2); :}
+   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new Bool2(e1,e2); :}
    | NOT ExpLog:e   {:RESULT = new Bool3(e); :};
