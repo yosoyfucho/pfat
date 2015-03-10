@@ -27,4 +27,3 @@ javac -d ../class -cp ../../CUP:../class:. Main.java
 6.- Ejecutar ejemplos
 
 java -cp ../../CUP:../class Main ./ejemplos/Ejem1/Ejem1.stm 
-Error
