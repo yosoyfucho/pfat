@@ -42,9 +42,9 @@ non terminal Initialitation Initialitation;
 non terminal SimpleStatementList SimpleStatementList;
 non terminal StatementList StatementList;
 
-precedence left OR;
-precedence left AND;
-precedence left NOT;
+precedence right OR;
+precedence right AND;
+precedence right NOT;
 
 start with S;
 
