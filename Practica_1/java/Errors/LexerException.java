@@ -7,7 +7,7 @@ public class LexerException extends CompilerExc
 	public LexerException (String txt)
 	{
 		texto = txt;
-		System.out.println("Error Léxico");
+		System.out.println("Error Léxico > " + texto);
 	}
 
 	public String toString()
