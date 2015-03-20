@@ -40,7 +40,8 @@ public class Main
     //Analisis Semantico
     if (!error)
     {
-        // Codigo para semantico aqu
+        // Codigo para semantico aqui
+        error = true;
     }
   }
 }
