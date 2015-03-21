@@ -9,6 +9,6 @@ public class DoubleDefExc extends Exception
 
 	public DoubleDefExc (String message)
 	{
-		System.out.println(message);
+		System.out.println("Error: Variable "+ message +" ya definida");
 	}
 }

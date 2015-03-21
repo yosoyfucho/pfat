@@ -7,7 +7,7 @@ public class SymbolTable()
 {
 
 	private static Vector<TableEntry> table = new Vector<TableEntry>();
-	
+
 	public static void newEntry(String name, String type) throws DoubleDefExc
 	{
 
@@ -35,7 +35,7 @@ public class SymbolTable()
 			searchEntry = table.get(i);
 			// Busca una variable con mismo nombre declarada
 			if (searchEntry.getName().equals(name))
-			{ 
+			{
 				if (searchEntry.getType().equals(type))
 				{
 					break;
@@ -50,13 +50,13 @@ public class SymbolTable()
 					{
 
 					}
-					if (searchEntry.getType().equals("inputs"))	
+					if (searchEntry.getType().equals("inputs"))
 					{
 
 					}
 					if (searchEntry.getType().equals("outputs"))
 					{
-	
+
 					}
 				}
 			}
