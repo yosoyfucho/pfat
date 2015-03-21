@@ -3,7 +3,7 @@ package Compiler;
 public class TableEntry {
 
 	private String name;
-	privete String type;
+	private String type;
 
 	public TableEntry (String name, String type)
 	{

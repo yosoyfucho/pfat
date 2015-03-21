@@ -1,6 +1,6 @@
 package Errors;
 
-public class VarNoDef extends Exception
+public class VarNoDefExc extends Exception
 {
 	public VarNoDef()
 	{
