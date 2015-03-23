@@ -8,7 +8,7 @@ javac -d class/ -cp java/ java/AST/*.java
 
 echo -e "\n [compile.sh] Ejecutando java_cup.Main parser ... \n"
 cd java/Parser
-java -cp ../../../CUP/ java_cup.Main Parser
+java -cp ../../../CUP/ java_cup.Main parser
 cd ../..
 
 echo -e "\n [compile.sh] Ejecutando JLex.Main Yylex ... \n"
