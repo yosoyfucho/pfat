@@ -27,37 +27,37 @@ simbolo = "_"
 
 %%
 
-and				{return tok(sym.AND, null); }
-begin			{return tok(sym.BEGIN, null); }
-endif			{return tok(sym.END, null); }
-or				{return tok(sym.OR, null); }
-not 			{return tok(sym.NOT, null); }
+and			{return tok(sym.AND, null); }
+begin		{return tok(sym.BEGIN, null); }
+end			{return tok(sym.END, null); }
+or			{return tok(sym.OR, null); }
+not			{return tok(sym.NOT, null); }
 state_machine	{return tok(sym.STATE_MACHINE, null); }
-states			{return tok(sym.STATES, null); }
-final			{return tok(sym.FINAL, null); }
-inputs			{return tok(sym.INPUTS, null); }
-local			{return tok(sym.LOCAL, null); }
-outputs			{return tok(sym.OUTPUTS, null); }
-stop			{return tok(sym.STOP, null); }
-condition		{return tok(sym.CONDITION, null); }
-transition		{return tok(sym.TRANSITION, null); }
-behaviour		{return tok(sym.BEHAVIOUR, null); }
-starts			{return tok(sym.START, null); }
-with			{return tok(sym.WITH, null); }
-if          	{return tok(sym.IF, null); }
-then        	{return tok(sym.THEN, null); }
-endif			{return tok(sym.ENDIF, null); }
-";"         	{return tok(sym.PC, null); }
-":="			{return tok(sym.ASIG, null); }
-"("				{return tok(sym.PAREN, null); }
-")"				{return tok(sym.TESIS, null); }
-","				{return tok(sym.COMA, null); }
-'1'				{return tok(sym.CLOG, new Boolean(true)); }
-'0'				{return tok(sym.CLOG, new Boolean(false)); }
+states		{return tok(sym.STATES, null); }
+final		{return tok(sym.FINAL, null); }
+inputs		{return tok(sym.INPUTS, null); }
+local		{return tok(sym.LOCAL, null); }
+outputs		{return tok(sym.OUTPUTS, null); }
+stop		{return tok(sym.STOP, null); }
+condition	{return tok(sym.CONDITION, null); }
+transition	{return tok(sym.TRANSITION, null); }
+behaviour	{return tok(sym.BEHAVIOUR, null); }
+starts		{return tok(sym.START, null); }
+with		{return tok(sym.WITH, null); }
+if          {return tok(sym.IF, null); }
+then        {return tok(sym.THEN, null); }
+endif		{return tok(sym.ENDIF, null); }
+";"         {return tok(sym.PC, null); }
+":="		{return tok(sym.ASIG, null); }
+"("			{return tok(sym.PAREN, null); }
+")"			{return tok(sym.TESIS, null); }
+","			{return tok(sym.COMA, null); }
+'1'			{return tok(sym.CLOG, new Boolean(true)); }
+'0'			{return tok(sym.CLOG, new Boolean(false)); }
 
 {letra}({letra}|{digitos}|{simbolo})*	{return tok(sym.IDENT, yytext());}
 
 (" "|\n|\t|\r)+	{ }
 
 
-. {throw new LexerException("Linea $" + yyline + " Caracter ilegal " + yytext()); }
+. {throw new LexerException("Caracter Ilegal en linea "+yyline); }

@@ -77,7 +77,7 @@ Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs 
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new Transition3(is,e,fs,c); :}
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new Transition4(is,e,fs,c,tb); :};
 
-Condition ::= CONDITION ExpLog:el PC   {:RESULT = new Condition(el); :};
+Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :};
 
 InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :};
 
@@ -90,9 +90,9 @@ TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl
 StatementList ::= Statement:s   {:RESULT = new StatementList1(s); :}
    | Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl); :};
 
-Statement ::= STOP PC {:RESULT = new Statement1(); :}
-   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement2(i,el); :}
-   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement3(el,s); :};
+Statement ::= STOP PC {:RESULT = new Statement2(); :}
+   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}
+   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :};
 
 Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :};
 
@@ -101,7 +101,9 @@ SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESU
 
 ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
    | IDENT:i   {:RESULT = new Variable(i); :}
-   | PAREN ExpLog:e1 TESIS   {:RESULT = new ParenExpLogTesis(e1); :} 
-   | ExpLog:e1 AND ExpLog:e2   {:RESULT = new ExpLogAnd(e1,e2); :}
-   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new ExpLogOr(e1,e2); :}
-   | NOT ExpLog:e   {:RESULT = new NotExpLog(e); :};
+   | PAREN CLOG:c TESIS   {:RESULT = new Bool(c); :}
+   | PAREN IDENT:i TESIS   {:RESULT = new Variable(i); :}
+   | ExpLog:e1 AND ExpLog:e2   {:RESULT = new Bool2(e1,e2); :}
+   | PAREN ExpLog:e1 AND ExpLog:e2 TESIS   {:RESULT = new Bool2(e1,e2); :}
+   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new Bool2(e1,e2); :}
+   | NOT ExpLog:e   {:RESULT = new Bool3(e); :};
