@@ -1,6 +1,9 @@
 package AST;
 import Errors.*;
 
+/*
+Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :};
+*/
 
 public class Initialitation implements SimpleStatementList{
 	public String i;

@@ -1,5 +1,9 @@
 package AST;
 import Errors.*;
+/*
+Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs
+								TESIS PC   {:RESULT = new Transition1(is,e,fs); :}
+*/
 
 public class Transition1 implements Transition{
 	public InitialState is;
