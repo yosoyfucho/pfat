@@ -1,9 +1,14 @@
 package AST;
 import Errors.*;
 
+/*
+S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd
+			OutputEventDecl:oed Initialitation:i Transitions:t
+			{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
+*/
 public class S1 implements S{
-	
-	public StateDeclList sdl; 
+
+	public StateDeclList sdl;
 	public FinalStateDeclList fsdl;
 	public InputEventDecl ied;
 	public LocalVarDecl lvd;
@@ -11,7 +16,7 @@ public class S1 implements S{
 	public Initialitation i;
 	public Transitions t;
 
-	public S1 (StateDeclList sdl, FinalStateDeclList fsdl, 
+	public S1 (StateDeclList sdl, FinalStateDeclList fsdl,
 		InputEventDecl ied, LocalVarDecl lvd, OutputEventDecl oed,
 		Initialitation i, Transitions t){
 		this.sdl = sdl;
@@ -20,6 +25,6 @@ public class S1 implements S{
 		this.lvd = lvd;
 		this.oed = oed;
 		this.i = i;
-		this.t = t;	
+		this.t = t;
 	}
 }

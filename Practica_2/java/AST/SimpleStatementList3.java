@@ -1,6 +1,8 @@
 package AST;
 import Errors.*;
 
+// No esta en el parser
+
 public class SimpleStatementList3 implements SimpleStatementList{
 	public StatementList sl;
 

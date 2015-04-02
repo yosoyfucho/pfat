@@ -1,6 +1,10 @@
 package AST;
 import Errors.*;
 
+/*
+InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :};
+*/
+
 public class InitialState
 {
 	public String i;

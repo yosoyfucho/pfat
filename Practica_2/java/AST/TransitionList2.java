@@ -1,5 +1,8 @@
 package AST;
 import Errors.*;
+/*
+TransitionList ::= Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :};
+*/
 
 public class TransitionList2 implements TransitionList{
 	public Transition t;
