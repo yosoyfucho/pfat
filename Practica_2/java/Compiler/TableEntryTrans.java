@@ -14,7 +14,7 @@ public class TableEntryTrans {
 		this.nameIS = nameIS;
 		this.nameFS = nameFS;
     this.event = event;
-		this.typeIS = typeIS;
+		//this.typeIS = typeIS;
 	}
 
 	public String getNameIS()

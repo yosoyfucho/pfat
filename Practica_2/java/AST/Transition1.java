@@ -26,7 +26,7 @@ public class Transition1 implements Transition
 		(SymbolTable.searchByName(fs.computeType())!=null))
 		{
 			if ( SymbolTable.searchByName(is.computeType()).getType().equals("state") &&
-			SymbolTable.searchByName(is.computeType()).getType().equals("finalState") &&
+			SymbolTable.searchByName(fs.computeType()).getType().equals("finalState") &&
 			TransSymbolTable.search(is.computeType(),i.computeType())==null )
 			{
 				TransSymbolTable.add(is.computeType(),i.computeType(),fs.computeType());
