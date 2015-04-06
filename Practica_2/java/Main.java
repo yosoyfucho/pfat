@@ -1,0 +1,72 @@
+import Parser.*;
+import Lexer.*;
+import java.io.*;
+import AST.*;
+import Errors.*;
+import Compiler.*;
+
+public class Main
+{
+  public static void main(String args[]) throws Exception{
+    java.io.BufferedReader in;
+    Yylex sc;
+    parser p;
+
+    S pr = null;
+
+    java_cup.runtime.Symbol sroot;
+    boolean error=false;
+
+    //El primer parametro es el nombre del fichero con el programa
+    if (args.length < 1) {
+      System.out.println(
+      "Uso: java Main <nombre_fichero>");
+      error=true;
+    }
+
+    //Analisis lexico y sintactico
+
+    if (!error)
+    {
+      try {
+        in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
+        sc = new Yylex(in);
+        p = new parser(sc);
+        sroot = p.parse();
+        pr =  (S)sroot.value;
+        System.out.println("Analisis lexico y sintactico correctos");
+      }
+      catch(IOException e) {
+        System.out.println("Error abriendo fichero: " + args[0]);
+        error= true;
+      }
+    }
+
+    //Analisis Semantico
+    if (!error)
+    {
+        try  // Codigo para semantico aqui
+        {
+        pr.computeType();
+        error = true;
+        System.out.println("Analisis semantico correcto");
+        }
+        catch(DoubleDefExc e)
+        {
+          System.out.println("Se ha producido un error de doble definicion de nombre");
+        }
+        catch(DoubleTranExc e)
+        {
+          System.out.println("Se ha producido un error de doble definicion de transicion");
+        }
+        catch(TranException e)
+        {
+          System.out.println("Se ha producido un error de estado no definido");
+        }
+        catch(VarNoDefExc e)
+        {
+          System.out.println("Se ha producido un error de variable no definida");
+        }
+    }
+  }
+}
