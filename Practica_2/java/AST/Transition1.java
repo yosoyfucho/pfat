@@ -21,12 +21,15 @@ public class Transition1 implements Transition
 
 	public void computeType() throws CompilerExc
 	{
+
 		if ( (SymbolTable.searchByName(is.computeType())!=null) &&
 		(SymbolTable.searchByName(i.computeType())!=null) &&
 		(SymbolTable.searchByName(fs.computeType())!=null))
 		{
+
 			if ( SymbolTable.searchByName(is.computeType()).getType().equals("state") &&
-			SymbolTable.searchByName(is.computeType()).getType().equals("finalState") &&
+			( SymbolTable.searchByName(fs.computeType()).getType().equals("finalState") ||
+			SymbolTable.searchByName(fs.computeType()).getType().equals("state") ) &&
 			TransSymbolTable.search(is.computeType(),i.computeType())==null )
 			{
 				TransSymbolTable.add(is.computeType(),i.computeType(),fs.computeType());
