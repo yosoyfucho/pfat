@@ -21,7 +21,7 @@ public class LocalVarDecl
 		{
 			if (SymbolTable.search(localVar[i],"local")==null)
 			{
-				SymbolTable.add(localVar[i],"local");
+				SymbolTable.add(localVar[i],"local",false);
 			}	
 			else
 			{

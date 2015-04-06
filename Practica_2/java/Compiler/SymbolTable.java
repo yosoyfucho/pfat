@@ -46,8 +46,6 @@ Devuelve null si no existe.
 		return aux;
 	}
 
-
-
 	public static TableEntry searchByName (String name)
 	{
 		TableEntry aux = null;
@@ -75,13 +73,13 @@ un nombre (name)
 Si el nombre ya existe en la tabla arroja una excepcion
 
 */
-	public static void add (String name, String tipo) throws DoubleDefExc, DoubleStatExc
+	public static void add (String name, String tipo, boolean init) throws DoubleDefExc, DoubleStatExc
 	{
 
 		TableEntry newEntry = search(name,tipo);
 		if (newEntry == null)
 		{
-			newEntry = new TableEntry(name,tipo);
+			newEntry = new TableEntry(name,tipo,init);
 
 			variables.add(newEntry);
 		}

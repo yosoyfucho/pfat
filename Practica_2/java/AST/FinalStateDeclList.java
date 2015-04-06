@@ -24,7 +24,7 @@ public class FinalStateDeclList
 		{
 			if (SymbolTable.search(finalStates[i],"finalState")==null)
 			{
-				SymbolTable.add(finalStates[i],"finalState");
+				SymbolTable.add(finalStates[i],"finalState",false);
 			}	
 			else
 			{

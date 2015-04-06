@@ -24,13 +24,12 @@ public class StateDeclList
 		{
 			if (SymbolTable.search(states[i],"state")==null)
 			{
-				SymbolTable.add(states[i],"state");
+				SymbolTable.add(states[i],"state",false);
 			}	
 			else
 			{
 				throw new DoubleDefExc();
 			}
-		}	
-		
+		}		
 	}
 }

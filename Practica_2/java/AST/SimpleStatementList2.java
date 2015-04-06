@@ -6,7 +6,8 @@ import Errors.*;
 SimpleStatementList ::= IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :};
 */
 
-public class SimpleStatementList2 implements SimpleStatementList{
+public class SimpleStatementList2 implements SimpleStatementList
+{
 	public String i;
 	public Boolean cl;
 
@@ -17,7 +18,18 @@ public class SimpleStatementList2 implements SimpleStatementList{
 
 	public void computeType() throws CompilerExc
 	{
-		if (SymbolTable.searchByName(this.i)==null)
+		if (SymbolTable.searchByName(this.i)!=null)
+		{
+			if (SymbolTable.searchByName(this.i).getInit())
+			{
+				throw new DoubleStatExc();
+			}
+			else
+			{
+				SymbolTable.searchByName(this.i).setInit(true);
+			}
+		}
+		else
 		{
 			throw new VarNoDefExc();
 		}

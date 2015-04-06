@@ -24,7 +24,7 @@ public class OutputEventDecl
 		{
 			if (SymbolTable.search(outputVar[i],"output")==null)
 			{
-				SymbolTable.add(outputVar[i],"output");
+				SymbolTable.add(outputVar[i],"output",false);
 			}	
 			else
 			{

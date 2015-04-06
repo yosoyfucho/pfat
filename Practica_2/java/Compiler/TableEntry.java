@@ -6,11 +6,11 @@ public class TableEntry {
 	private String type;
 	private boolean initia;
 
-	public TableEntry (String name, String type)
+	public TableEntry (String name, String type, boolean init)
 	{
 		this.name = name;
 		this.type = type;
-		initia = false;
+		this.initia = init;
 	}
 
 	public void setInit(boolean initia)

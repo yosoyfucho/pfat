@@ -25,7 +25,7 @@ public class InputEventDecl
 		{
 			if (SymbolTable.search(eventos[i],"event")==null)
 			{
-				SymbolTable.add(eventos[i],"event");
+				SymbolTable.add(eventos[i],"event",false);
 			}	
 			else
 			{
