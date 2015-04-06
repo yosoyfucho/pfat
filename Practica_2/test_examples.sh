@@ -1,7 +1,7 @@
 # script ejecucion ejemplos Practica 2 - PFAT
 clear
 
-echo -e "\n--- Pruebas Practica 1 ---\n"
+echo -e "\n--- Pruebas Practica 2 ---\n"
 
 for ((i=1; i<=10; i++))
 do
@@ -30,6 +30,19 @@ for ((i=1; i<=3; i++))
 do
 	echo -e "\n>>> Ejecutando errSint$i.stm ... \n"
 	java -cp class/:../CUP/ Main ../Ejemplos/ErrSint$i/errSint$i.stm
+	echo ""
+	read -n 1 -s -p ">>> Pulsa una tecla..."
+	echo -e "\n\n---"
+done
+
+clear
+
+echo -e "\n--- Pruebas Errores Semantico ---\n"
+
+for ((i=1; i<=14; i++))
+do
+	echo -e "\n>>> Ejecutando errSem$i.stm ... \n"
+	java -cp class/:../CUP/ Main ../Ejemplos/ErrSem$i/errSem$i.stm
 	echo ""
 	read -n 1 -s -p ">>> Pulsa una tecla..."
 	echo -e "\n\n---"

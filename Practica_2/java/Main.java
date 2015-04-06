@@ -3,6 +3,7 @@ import Lexer.*;
 import java.io.*;
 import AST.*;
 import Errors.*;
+import Compiler.*;
 
 public class Main
 {
@@ -10,6 +11,9 @@ public class Main
     java.io.BufferedReader in;
     Yylex sc;
     parser p;
+
+    S pr = null;
+
     java_cup.runtime.Symbol sroot;
     boolean error=false;
 
@@ -29,6 +33,7 @@ public class Main
         sc = new Yylex(in);
         p = new parser(sc);
         sroot = p.parse();
+        pr =  (S)sroot.value;
         System.out.println("Analisis lexico y sintactico correctos");
       }
       catch(IOException e) {
@@ -40,8 +45,11 @@ public class Main
     //Analisis Semantico
     if (!error)
     {
-        // Codigo para semantico aqui
+          // Codigo para semantico aqui
+        pr.computeType();
         error = true;
+        System.out.println("Analisis semantico correcto");
+
     }
   }
 }
