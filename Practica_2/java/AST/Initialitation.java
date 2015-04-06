@@ -18,10 +18,17 @@ public class Initialitation implements SimpleStatementList
 
 	public void computeType() throws CompilerExc
 	{
+		TableEntry e = SymbolTable.searchByName(this.i);
+		if (!e.getType().equals("state"))
+		{
+			throw new TranException();
+		}
+
 		ssl.computeType();
 		if ( !SymbolTable.searchByName(this.i).getType().equals("state") )
 		{
 			throw new TranException();
 		}
 	}
+
 }

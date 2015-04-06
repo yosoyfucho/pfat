@@ -27,10 +27,10 @@ Devuelve null si no existe.
 		while (i < variables.size())
 		{
 			aux = variables.get(i);
-			
+
 			if (aux.getName().equals(name))
 			{
-				if( (type.equals("state") || type.equals("finalState")) && 
+				if( (type.equals("state") || type.equals("finalState")) &&
 					(aux.getType().equals("state") || aux.getType().equals("finalState")) )
 					break;
 				if( (type.equals("local") || type.equals("output")) &&
@@ -55,7 +55,7 @@ Devuelve null si no existe.
 		while (i < variables.size())
 		{
 			aux = variables.get(i);
-			
+
 			if (aux.getName().equals(name))
 			{
 				break;
@@ -75,13 +75,14 @@ un nombre (name)
 Si el nombre ya existe en la tabla arroja una excepcion
 
 */
-	public static void add (String name, String tipo) throws DoubleDefExc
+	public static void add (String name, String tipo) throws DoubleDefExc, DoubleStatExc
 	{
 
 		TableEntry newEntry = search(name,tipo);
 		if (newEntry == null)
 		{
 			newEntry = new TableEntry(name,tipo);
+
 			variables.add(newEntry);
 		}
 		else
