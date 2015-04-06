@@ -4,7 +4,7 @@ public class CompilerExc extends Exception
 {
 	public CompilerExc()
 	{
-		System.out.println("Error");
+		System.out.println("Error en la compilacion");
 	}
 
 	public CompilerExc (String message)

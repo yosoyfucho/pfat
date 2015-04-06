@@ -45,10 +45,28 @@ public class Main
     //Analisis Semantico
     if (!error)
     {
-          // Codigo para semantico aqui
+        try  // Codigo para semantico aqui
+        {
         pr.computeType();
         error = true;
         System.out.println("Analisis semantico correcto");
+        }
+        catch(DoubleDefExc e)
+        {
+          System.out.println("Se ha producido un error de doble definicion de nombre");
+        }
+        catch(DoubleTranExc e)
+        {
+          System.out.println("Se ha producido un error de doble definicion de transicion");
+        }
+        catch(TranException e)
+        {
+          System.out.println("Se ha producido un error de estado no definido");
+        }
+        catch(VarNoDefExc e)
+        {
+          System.out.println("Se ha producido un error de variable no definida");
+        }
 
     }
   }
