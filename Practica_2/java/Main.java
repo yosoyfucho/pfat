@@ -67,7 +67,6 @@ public class Main
         {
           System.out.println("Se ha producido un error de variable no definida");
         }
-
     }
   }
 }

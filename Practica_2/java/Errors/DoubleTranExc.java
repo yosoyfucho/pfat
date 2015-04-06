@@ -4,7 +4,7 @@ public class DoubleTranExc extends CompilerExc
 {
 	public DoubleTranExc()
 	{
-		System.out.println("Error: Transici ya definida");
+		System.out.println("Error: Transicion ya definida");
 	}
 
 	public DoubleTranExc (String message)
