@@ -7,7 +7,7 @@ import Errors.*;
 
 public class TransSymbolTable
 {
-	
+
 	private static Vector<TableEntryTrans> transitions = new Vector<TableEntryTrans>();
 
 /*
@@ -19,18 +19,18 @@ Devuelve null si no existe.
 
 */
 
-	public static TableEntryTrans search (String nameIS, String event)
+	public static TableEntryTrans search (String nameIS, String nameFS)
 	{
 		TableEntryTrans aux = null;
 		int i = 0;
 		while (i < transitions.size())
 		{
 			aux = transitions.get(i);
-			if (aux.getNameIS().equals(nameIS) && aux.getEvent().equals(event))
+			if (aux.getNameIS().equals(nameIS) && aux.getNameFS().equals(nameFS))
 			{
 				break;
 			}
-			
+
 			aux = null;
 			i++;
 		}
@@ -44,7 +44,7 @@ Función que agrega una nueva entrada a la tabla de transiciones, donde guardamo
 inicial y final y comprobamos que el estado inicial no sea final y que no exista otra transicion que
 empiece y acabe igual.
 En caso de que el estado inicial sea final mandará una excepción de tipo TranExpception
-En casao de que la transición esté repetida mandará una excepción de tipo DoubleTranExc
+En caso de que la transición esté repetida mandará una excepción de tipo DoubleTranExc
 
 */
 	public static void add (String nameIS, String event, String nameFS)	throws TranException,DoubleTranExc
