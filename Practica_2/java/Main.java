@@ -67,6 +67,10 @@ public class Main
         {
           System.out.println("Se ha producido un error de variable no definida");
         }
+        catch(DoubleStatExc e)
+        {
+          System.out.println("Se ha producido un error de doble definicion");
+        }
     }
   }
 }
