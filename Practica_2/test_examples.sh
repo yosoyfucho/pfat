@@ -1,4 +1,4 @@
-# script ejecucion ejemplos Practica 1 - PFAT
+# script ejecucion ejemplos Practica 2 - PFAT
 clear
 
 echo -e "\n--- Pruebas Practica 1 ---\n"
@@ -12,7 +12,7 @@ do
 	echo -e "\n\n---"
 done
 
-clear 
+clear
 
 echo -e "\n--- Pruebas Errores Sintacticos ---\n"
 
@@ -22,7 +22,7 @@ echo ""
 read -n 1 -s -p ">>> Pulsa una tecla..."
 echo -e "\n\n---"
 
-clear 
+clear
 
 echo -e "\n--- Pruebas Errores Sintacticos ---\n"
 
