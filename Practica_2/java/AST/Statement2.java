@@ -20,5 +20,12 @@ public class Statement2 implements Statement
 		{
 			throw new VarNoDefExc();
 		}
+		else
+		{
+			if (!SymbolTable.searchByName(this.i).getInit())
+			{
+					throw new DoubleInitVarExc();
+			}
+		}
 	}
 }
