@@ -23,6 +23,6 @@ public class Statement3 implements Statement
 
 	public String computeTyp() throws CompilerExc
 	{
-		return null;
+		return "";
 	}
 }
