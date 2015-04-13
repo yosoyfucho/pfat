@@ -86,12 +86,12 @@ TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl
 
 Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :};
 
-Statement ::=  IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement2(i,el); :}
+Statement ::= STOP PC {:RESULT = new Statement1(); :} 
+   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement2(i,el); :}
    | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement3(el,s); :};
 
 StatementList ::= Statement:s   {:RESULT = new StatementList1(s); :}
-   | Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl); :}
-   | STOP PC {:RESULT = new StatementList3(); :};
+   | Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl); :};
 
 SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList1(ssl,i,cl); :}
    | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :};

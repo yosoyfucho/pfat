@@ -18,20 +18,22 @@ public class SimpleStatementList2 implements SimpleStatementList
 
 	public void computeType() throws CompilerExc
 	{
-		if (SymbolTable.searchByName(this.i)!=null)
-		{
-			if (SymbolTable.searchByName(this.i).getInit())
+
+			if (SymbolTable.searchByName(this.i)!=null)
 			{
-				throw new DoubleStatExc();
+				if (SymbolTable.searchByName(this.i).getInit())
+				{
+					throw new DoubleStatExc();
+				}
+				else
+				{
+					SymbolTable.searchByName(this.i).setInit(true);
+				}
 			}
 			else
 			{
-				SymbolTable.searchByName(this.i).setInit(true);
+				throw new VarNoDefExc();
 			}
-		}
-		else
-		{
-			throw new VarNoDefExc();
-		}
 	}
+
 }

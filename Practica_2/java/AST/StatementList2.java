@@ -8,8 +8,8 @@ Statement ::= Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl)
 
 public class StatementList2 implements StatementList
 {
-	public Statement t;
-	public StatementList tl;
+	public final Statement t;
+	public final StatementList tl;
 
 	public StatementList2 (Statement t, StatementList tl)
 	{
@@ -19,7 +19,12 @@ public class StatementList2 implements StatementList
 
 	public void computeType() throws CompilerExc
 	{
+		if ((this.t).equals("STOP"))
+				throw new StopExcep();
+		else
+		{
 		t.computeType();
 		tl.computeType();
+		}
 	}
 }
