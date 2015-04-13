@@ -15,14 +15,10 @@ public class Statement3 implements Statement
 	public void computeType() throws CompilerExc
 	{
 		el.computeType();
-		/*if ( s.computeType().equals("stop") )
-		{
-
-		}*/
 	}
 
 	public String computeTyp() throws CompilerExc
 	{
-		return null;
+		return "";
 	}
 }

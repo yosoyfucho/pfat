@@ -31,6 +31,6 @@ public class Statement2 implements Statement
 
 	public String computeTyp() throws CompilerExc
 	{
-		return null;
+		return "";
 	}
 }

@@ -19,11 +19,12 @@ public class StatementList2 implements StatementList
 
 	public void computeType() throws CompilerExc
 	{
-		if ((t.computeTyp()).equals("STOP"))
-				throw new StopExcep();
-		else
+		if (t.computeTyp().equals("STOP"))
 		{
-		tl.computeType();
+			throw new StopExcep();
 		}
+		t.computeType();
+		tl.computeType();
+		
 	}
 }
