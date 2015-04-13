@@ -4,8 +4,8 @@ import Errors.*;
 
 public class Statement2 implements Statement
 {
-	public String i;
-	public ExpLog el;
+	public final String i;
+	public final ExpLog el;
 
 	public Statement2 (String i, ExpLog el)
 	{
@@ -27,5 +27,10 @@ public class Statement2 implements Statement
 					throw new DoubleInitVarExc();
 			}
 		}
+	}
+
+	public String computeTyp() throws CompilerExc
+	{
+		return null;
 	}
 }

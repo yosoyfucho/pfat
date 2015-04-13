@@ -17,7 +17,12 @@ public class Statement3 implements Statement
 		el.computeType();
 		/*if ( s.computeType().equals("stop") )
 		{
-			
+
 		}*/
+	}
+
+	public String computeTyp() throws CompilerExc
+	{
+		return null;
 	}
 }
