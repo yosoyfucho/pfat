@@ -25,7 +25,7 @@ public class LocalVarDecl
 			}
 			else
 			{
-				throw new DoubleDefExc();
+				throw new DoubleDefExc(localVar[i]);
 			}
 		}
 	}

@@ -19,21 +19,21 @@ public class SimpleStatementList1 implements SimpleStatementList{
 
 	public void computeType() throws CompilerExc
 	{
+		if ( SymbolTable.searchByName(this.i)==null )
+		{
+			throw new VarNoDefExc(this.i);
+		}
+		if ( SymbolTable.searchLocalOrOutputByName(this.i)==null )
+		{
+			throw new TypIncExc(this.i);
+		}
+		if ( SymbolTable.searchLocalOrOutputByName(this.i).getInit() )
+		{
+			throw new DoubleInitVarExc(this.i);
+		}
+		
+		SymbolTable.searchLocalOrOutputByName(this.i).setInit(true);
+		
 		ssl.computeType();
-		if (SymbolTable.searchByName(this.i)!=null)
-		{
-			if (SymbolTable.searchByName(this.i).getInit())
-			{
-				throw new DoubleStatExc();
-			}
-			else
-			{
-				SymbolTable.searchByName(this.i).setInit(true);
-			}
-		}
-		else
-		{
-			throw new VarNoDefExc();
-		}
 	}
 }

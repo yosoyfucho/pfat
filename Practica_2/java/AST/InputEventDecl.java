@@ -29,7 +29,7 @@ public class InputEventDecl
 			}	
 			else
 			{
-				throw new DoubleDefExc();
+				throw new DoubleDefExc(eventos[i]);
 			}
 		}	
 		

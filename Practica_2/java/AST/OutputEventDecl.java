@@ -28,7 +28,7 @@ public class OutputEventDecl
 			}	
 			else
 			{
-				throw new DoubleDefExc();
+				throw new DoubleDefExc(outputVar[i]);
 			}
 		}	
 		

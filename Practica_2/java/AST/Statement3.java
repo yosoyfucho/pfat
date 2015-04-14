@@ -15,6 +15,7 @@ public class Statement3 implements Statement
 	public void computeType() throws CompilerExc
 	{
 		el.computeType();
+		s.computeType();
 	}
 
 	public String computeTyp() throws CompilerExc

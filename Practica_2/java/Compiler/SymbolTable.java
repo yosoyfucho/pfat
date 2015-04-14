@@ -65,15 +65,27 @@ Devuelve null si no existe.
 		return aux;
 	}
 
-/*
-public static void newEntryTable (String name, int type)
+	public static TableEntry searchLocalOrOutputByName (String name)
+	{
+		TableEntry aux = null;
+		int i = 0;
+		while (i < variables.size())
+		{
+			aux = variables.get(i);
 
-Funcion que crea una nueva entrada en la tabla especificada por type y por
-un nombre (name)
-Si el nombre ya existe en la tabla arroja una excepcion
+			if (aux.getName().equals(name) && 
+				(aux.getType().equals("local") || aux.getType().equals("output")) )
+			{
+				break;
+			}
 
-*/
-	public static void add (String name, String tipo, boolean init) throws DoubleDefExc, DoubleStatExc
+			aux = null;
+			i++;
+		}
+		return aux;
+	}
+
+	public static void add (String name, String tipo, boolean init) throws DoubleDefExc
 	{
 
 		TableEntry newEntry = search(name,tipo);

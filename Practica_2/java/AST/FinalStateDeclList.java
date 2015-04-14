@@ -28,7 +28,7 @@ public class FinalStateDeclList
 			}	
 			else
 			{
-				throw new DoubleDefExc();
+				throw new DoubleDefExc(finalStates[i]);
 			}
 		}	
 		

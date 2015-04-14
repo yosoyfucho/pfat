@@ -26,28 +26,46 @@ public class Transition2 implements Transition
 
 	public void computeType() throws CompilerExc
 	{
-		tb.computeType();
-		if ( (SymbolTable.searchByName(is.computeType())!=null) &&
-			(SymbolTable.searchByName(i.computeType())!=null) &&
-			(SymbolTable.searchByName(fs.computeType())!=null))
+		if ( SymbolTable.searchByName(is.computeType())==null )
 		{
-			if ( SymbolTable.searchByName(is.computeType()).getType().equals("state") &&
-			( SymbolTable.searchByName(fs.computeType()).getType().equals("finalState") ||
-			SymbolTable.searchByName(fs.computeType()).getType().equals("state") ) &&
-			TransSymbolTable.search(is.computeType(),i.computeType())==null )
-			{
-				TransSymbolTable.add(is.computeType(),i.computeType(),fs.computeType());
-			}
-			else
-			{
-				throw new DoubleTranExc();
-
-			}
+			throw new VarNoDefExc(is.computeType());
+		}
+		else if ( SymbolTable.searchByName(i.computeType())==null )
+		{
+			throw new VarNoDefExc(i.computeType());
+		}
+		else if ( SymbolTable.searchByName(fs.computeType())==null )
+		{
+			throw new VarNoDefExc(fs.computeType());
 		}
 		else
 		{
-			throw new VarNoDefExc();
-
+			if ( !SymbolTable.searchByName(is.computeType()).getType().equals("state") )
+			{
+				throw new TranException(is.computeType());
+			}
+			else if ( !SymbolTable.searchByName(i.computeType()).getType().equals("event") )
+			{
+				throw new TranException(i.computeType());
+			}
+			else if ( !( SymbolTable.searchByName(fs.computeType()).getType().equals("finalState") ||
+			SymbolTable.searchByName(fs.computeType()).getType().equals("state") ) )
+			{
+				throw new TranException(fs.computeType());
+			}
+			else
+			{
+				if ( TransSymbolTable.search(is.computeType(),i.computeType())==null )
+				{
+					TransSymbolTable.add(is.computeType(),i.computeType(),fs.computeType());
+				}
+				else
+				{
+					throw new DoubleTranExc(is.computeType() + "," + i.computeType());
+				}
+			}
 		}
+		
+		tb.computeType();
 	}
 }

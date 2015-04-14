@@ -14,11 +14,19 @@ public class Variable implements ExpLog
 		this.i = i;
 	}
 
-	public void computeType() throws CompilerExc
+	public void computeType() throws CompilerExc, VarNoAsigExc
 	{
 		if ( SymbolTable.searchByName(this.i)==null )
 		{
-			throw new VarNoDefExc();
+			throw new VarNoDefExc(this.i);
+		}
+		if ( SymbolTable.searchLocalOrOutputByName(this.i)==null )
+		{
+			throw new TypIncExc(this.i);
+		}
+		if ( !SymbolTable.searchLocalOrOutputByName(this.i).getInit() )
+		{
+			throw new VarNoAsigExc(this.i);
 		}
 	}
 }

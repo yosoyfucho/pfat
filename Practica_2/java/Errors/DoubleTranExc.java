@@ -4,11 +4,12 @@ public class DoubleTranExc extends CompilerExc
 {
 	public DoubleTranExc()
 	{
-		System.out.println("Error: Transicion ya definida");
+		System.out.println("Error: Double Transition Exception");
 	}
 
 	public DoubleTranExc (String message)
 	{
-		System.out.println("Error: Estados en la transicion "+ message +" ya definidos");
+		System.out.println("Error: Double Transition Exception");
+		System.out.println("Error: Estados en la transicion '" + message + "' ya definidos");
 	}
 }

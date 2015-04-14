@@ -2,9 +2,9 @@ package AST;
 import Compiler.*;
 
 import Errors.*;
- /*
-ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
-*/
+
+ /* ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :} */
+
 public class Bool implements ExpLog 
 {
 	public boolean c;
@@ -18,7 +18,7 @@ public class Bool implements ExpLog
 	{
 		if ( !(this.c == false || this.c == true) )
 		{
-			throw new VarNoDefExc();
+			throw new AsigIncExc(""+this.c);
 		}
 	}
 }

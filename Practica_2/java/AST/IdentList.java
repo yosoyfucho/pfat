@@ -4,5 +4,5 @@ import Errors.*;
 
 public interface IdentList
 {
-		public String computeType() throws CompilerExc;
+	public String computeType() throws CompilerExc;
 }

@@ -21,7 +21,7 @@ public class StatementList2 implements StatementList
 	{
 		if (t.computeTyp().equals("STOP"))
 		{
-			throw new StopExcep();
+			throw new StopExc();
 		}
 		t.computeType();
 		tl.computeType();

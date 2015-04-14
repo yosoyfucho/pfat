@@ -4,5 +4,5 @@ import Errors.*;
 
 public interface ExpLog 
 {
-	public void computeType() throws CompilerExc;
+	public void computeType() throws CompilerExc;	
 }

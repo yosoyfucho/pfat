@@ -17,7 +17,6 @@ public class StateDeclList
 
 	public void computeType() throws CompilerExc
 	{
-
 		String[] states = il.computeType().split(",");
 
 		for (int i=0;i<states.length;i++)
@@ -25,11 +24,11 @@ public class StateDeclList
 			if (SymbolTable.search(states[i],"state")==null)
 			{
 				SymbolTable.add(states[i],"state",false);
-			}	
+			}
 			else
 			{
-				throw new DoubleDefExc();
+				throw new DoubleDefExc(states[i]);
 			}
-		}		
+		}
 	}
 }

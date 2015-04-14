@@ -4,11 +4,12 @@ public class DoubleDefExc extends CompilerExc
 {
 	public DoubleDefExc()
 	{
-		System.out.println("Error: Variable ya definida");
+		System.out.println("Error: Double Definition Variable Exception");
 	}
 
-	public DoubleDefExc (String message)
+	public DoubleDefExc (String ident)
 	{
-		System.out.println("Error: Variable "+ message +" ya definida");
+		System.out.println("Error: Double Definition Variable Exception");
+		System.out.println("Error: Variable '" + ident + "' definida");
 	}
 }
