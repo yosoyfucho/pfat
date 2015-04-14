@@ -1,66 +1,61 @@
+# Script compilar/ejecutar Practica_2
+
 clear
-echo -e "\n [compile.sh] eliminado contenido class/ ... \n"
+
+echo -e "\n [compile.sh] Eliminando class/ ... \n"
 cd class
-rm -r *
-echo -e "\n [compile.sh] compilando Errors/ ... \n"
-cd ../java/Errors
-javac -d ../../class *.java
-echo -e "\n [compile.sh] compilando AST/ ... \n"
-cd ../AST
-javac -d ../../class -cp .. *.java
-echo -e "\n [compile.sh] ejecutando Parser/ ... \n"
-cd ../Parser
-java -cp ../../../CUP java_cup.Main Parser
-echo -e "\n [compile.sh] ejecutando Lexer/ ... \n"
-cd ../Lexer
+pwd
+echo -e "\n va a borrar los siguientes archivos \n"
+echo ""
+ls -al
+
+read -n 1 -s -p ">>> Pulsa una tecla para borrar o ctrl+c para salir..."
+rm -r -f *
+cd ..
+clear
+
+echo -e "\n [compile.sh] Compilando package Errors/ ... \n"
+javac -d class/ java/Errors/*.java
+echo ""
+read -n 1 -s -p ">>> Pulsa una tecla..."
+
+clear
+
+echo -e "\n [compile.sh] Compilando package Compiler/ ... \n"
+javac -d class/ -cp java/ java/Compiler/*.java
+echo ""
+read -n 1 -s -p ">>> Pulsa una tecla..."
+
+clear
+echo -e "\n [compile.sh] Compilando package AST/ ... \n"
+javac -d class/ -cp java/ java/AST/*.java
+echo ""
+read -n 1 -s -p ">>> Pulsa una tecla..."
+
+clear
+
+echo -e "\n [compile.sh] Ejecutando java_cup.Main parser ... \n"
+cd java/Parser
+java -cp ../../../CUP/ java_cup.Main parser
+echo ""
+read -n 1 -s -p ">>> Pulsa una tecla..."
+
+clear
+
+cd ../..
+echo -e "\n [compile.sh] Ejecutando JLex.Main Yylex ... \n"
+cd java/Lexer
 java -cp ../../../ JLex.Main Yylex
-echo -e "\n [compile.sh] compilando Main.java ... \n"
-cd ..
-javac -d ../class -cp ../../CUP:../class:. Main.java
-cd ..
-echo -e "\n [compile.sh] probando ejemplos ... \n\n"
-echo -e "\n [compile.sh] probando ejemplo 1 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem1/ejem1.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 2 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem2/ejem2.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 3 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem3/ejem3.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 4 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem4/ejem4.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 5 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem5/ejem5.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 6 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem6/ejem6.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 7 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem7/ejem7.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 8 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem8/ejem8.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 9 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem9/ejem9.stm
-echo -e "\n"
-echo -e "\n [compile.sh] probando ejemplo 10 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/Ejem10/ejem10.stm
-echo -e "\n\n"
-echo -e "\n [compile.sh] probando Errores Sintacticos ... \n\n"
-echo -e "\n [compile.sh] probando Error Sintactico 1 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/ErrSint1/errSint1.stm
-echo -e "\n Es normal la captura de excepcion\n\n"
-echo -e "\n [compile.sh] probando Error Sintactico 2 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/ErrSint2/errSint2.stm
-echo -e "\n Es normal la captura de excepion\n\n"
-echo -e "\n [compile.sh] probando Error Sintactico 3 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/ErrSint3/errSint3.stm
-echo -e "\n Es normal la captura de excepion\n\n"
-echo -e "\n\n"
-echo -e "\n [compile.sh] probando Errores Lexicos ... \n\n"
-echo -e "\n [compile.sh] probando Error Lexico 1 ... \n"
-java -cp ../CUP:class Main ../Ejemplos/ErrLex1/errLex1.stm
-echo -e "\n Es normal la captura de excepcion\n\n"
+echo ""
+read -n 1 -s -p ">>> Pulsa una tecla..."
+
+clear
+
+cd ../..
+echo -e "\n [compile.sh] Compilando Main.java ... \n"
+# Genera los .class de java/Parser | java/Lexer | Main.java
+javac -d class/ -cp ../CUP/:java java/Main.java
+echo ""
+read -n 1 -s -p ">>> Pulsa una tecla..."
+
+clear

@@ -48,14 +48,21 @@ precedence right NOT;
 
 start with S;
 
+Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :};
+
 S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
    |  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}
    |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S3(sdl,ied,lvd,oed,i,t); :}
    |  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied OutputEventDecl:oed Initialitation:i Transitions:t	{:RESULT = new S4(sdl,ied,oed,i,t); :};
 
-
 IdentList ::= IDENT:i   {:RESULT = new IdentList1(i); :}
    | IDENT:i COMA IdentList:il   {:RESULT = new IdentList2(i,il); :};
+
+InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :};
+
+FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :};
+
+Event ::= IDENT:i   {:RESULT = new Event(i); :};
 
 StateDeclList ::= STATES IdentList:il PC	{:RESULT = new StateDeclList(il);:};
 
@@ -67,43 +74,33 @@ LocalVarDecl ::= LOCAL IdentList:il PC   {:RESULT = new LocalVarDecl(il); :};
 
 OutputEventDecl ::= OUTPUTS IdentList:il PC   {:RESULT = new OutputEventDecl(il); :};
 
-Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :};
-
-TransitionList ::= Transition:t   {:RESULT = new TransitionList1(t); :}
-   | Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :};
-
 Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC   {:RESULT = new Transition1(is,e,fs); :}
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC TransBehaviour:tb   {:RESULT = new Transition2(is,e,fs,tb); :}
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c   {:RESULT = new Transition3(is,e,fs,c); :}
    | TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs TESIS PC Condition:c TransBehaviour:tb   {:RESULT = new Transition4(is,e,fs,c,tb); :};
 
-Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :};
-
-InitialState ::= IDENT:i   {:RESULT = new InitialState(i); :};
-
-Event ::= IDENT:i   {:RESULT = new Event(i); :};
-
-FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :};
+TransitionList ::= Transition:t   {:RESULT = new TransitionList1(t); :}
+   | Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :};
 
 TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl); :};
 
+Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :};
+
+Statement ::= STOP PC {:RESULT = new Statement1(); :} 
+   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement2(i,el); :}
+   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement3(el,s); :};
+
 StatementList ::= Statement:s   {:RESULT = new StatementList1(s); :}
    | Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl); :};
-
-Statement ::= STOP PC {:RESULT = new Statement2(); :}
-   | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}
-   | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement4(el,s); :};
-
-Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :};
 
 SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList1(ssl,i,cl); :}
    | IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :};
 
 ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
    | IDENT:i   {:RESULT = new Variable(i); :}
-   | PAREN CLOG:c TESIS   {:RESULT = new Bool(c); :}
-   | PAREN IDENT:i TESIS   {:RESULT = new Variable(i); :}
-   | ExpLog:e1 AND ExpLog:e2   {:RESULT = new Bool2(e1,e2); :}
-   | PAREN ExpLog:e1 AND ExpLog:e2 TESIS   {:RESULT = new Bool2(e1,e2); :}
-   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new Bool2(e1,e2); :}
-   | NOT ExpLog:e   {:RESULT = new Bool3(e); :};
+   | PAREN ExpLog:el TESIS {:RESULT = new ExpLog1(el); :}
+   | ExpLog:e1 AND ExpLog:e2   {:RESULT = new ExpLog2(e1,e2); :}
+   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new ExpLog2(e1,e2); :}
+   | NOT ExpLog:el   {:RESULT = new ExpLog1(el); :};
+
+Condition ::= CONDITION ExpLog:el PC   {:RESULT = new Condition(el); :};

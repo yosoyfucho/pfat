@@ -1,4 +1,5 @@
 package AST;
+import Compiler.*;
 import Errors.*;
 /*
 S ::=  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied LocalVarDecl:lvd
@@ -24,5 +25,15 @@ public class S3 implements S{
 		this.oed = oed;
 		this.i = i;
 		this.t = t;
+	}
+
+	public void computeType() throws CompilerExc
+	{
+		sdl.computeType();
+		ied.computeType();
+		lvd.computeType();
+		oed.computeType();
+		i.computeType();
+		t.computeType();
 	}
 }

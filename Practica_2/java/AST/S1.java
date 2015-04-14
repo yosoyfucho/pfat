@@ -1,4 +1,5 @@
 package AST;
+import Compiler.*;
 import Errors.*;
 
 /*
@@ -26,5 +27,16 @@ public class S1 implements S{
 		this.oed = oed;
 		this.i = i;
 		this.t = t;
+	}
+
+	public void computeType() throws CompilerExc
+	{
+		sdl.computeType();
+		fsdl.computeType();
+		ied.computeType();
+		lvd.computeType();
+		oed.computeType();
+		i.computeType();
+		t.computeType();
 	}
 }

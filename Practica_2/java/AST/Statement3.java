@@ -1,16 +1,25 @@
 package AST;
+import Compiler.*;
 import Errors.*;
 
-/*
-Statement ::= IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement3(i,el); :}
-*/
-
-public class Statement3 implements Statement{
-	public String i;
+public class Statement3 implements Statement
+{
 	public ExpLog el;
+	public Statement s;
 
-	public Statement3 (String i, ExpLog el){
-		this.i = i;
+	public Statement3 (ExpLog el, Statement s){
+		this.s = s;
 		this.el = el;
+	}
+
+	public void computeType() throws CompilerExc
+	{
+		el.computeType();
+		s.computeType();
+	}
+
+	public String computeTyp() throws CompilerExc
+	{
+		return "";
 	}
 }
