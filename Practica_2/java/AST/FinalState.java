@@ -20,4 +20,8 @@ public class FinalState
 		return this.i;
 	}
 
+	public String generateCode() throws IOException
+	{
+		return this.i;
+	}
 }

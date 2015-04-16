@@ -5,7 +5,7 @@ import Errors.*;
 Explog ::= PAREN IDENT:i TESIS   {:RESULT = new Variable(i); :}
 */
 
-public class Variable implements ExpLog 
+public class Variable implements ExpLog
 {
 	public final String i;
 
@@ -28,5 +28,10 @@ public class Variable implements ExpLog
 		{
 			throw new VarNoAsigExc(this.i);
 		}
+	}
+
+	public void generateCode() throws IOException
+	{
+		return "( " + i +" )";
 	}
 }

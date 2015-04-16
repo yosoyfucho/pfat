@@ -23,5 +23,15 @@ public class IdentList2 implements IdentList
 		return this.i + "," + il.computeType();
 	}
 
+	public String generateArguments()
+	{
+		return i.generateArguments() ", " + il.generateArguments();
+	}
 
+	public void generateLocalVariables(BufferedWriter w) throws IOException
+	{
+		w.write(" " + i.generateLocalVariables() + ";");
+		w.newLine();
+		il.generateLocalVariables(w);
+	}
 }

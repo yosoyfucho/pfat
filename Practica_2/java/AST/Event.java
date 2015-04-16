@@ -20,4 +20,11 @@ public class Event
 	{
 		return this.i;
 	}
+
+	public String generateCode() throws IOException
+	{
+		return this.i;
+	}
+
+
 }

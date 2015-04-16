@@ -3,11 +3,11 @@ import Compiler.*;
 import Errors.*;
 
 /*
-Explog ::= ExpLog:e1 AND ExpLog:e2   {:RESULT = new andExpLog(e1,e2); :}
+Explog ::= ExpLog:e1 OR ExpLog:e2   {:RESULT = new Explog2(e1,e2); :}
 */
 
 
-public class ExpLog2 implements ExpLog
+public class ExpLog3 implements ExpLog
 {
 	public ExpLog e1;
 	public ExpLog e2;
@@ -26,7 +26,7 @@ public class ExpLog2 implements ExpLog
 
 	public String generateCode() throws IOException
 	{
-		return "( "+ e1.generateCode() + " && "+e2.generateCode() +" )";
+		return "( "+ e1.generateCode() + " || "+e2.generateCode() +" )";
 	}
 
 }

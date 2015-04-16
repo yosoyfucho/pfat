@@ -25,12 +25,17 @@ public class FinalStateDeclList
 			if (SymbolTable.search(finalStates[i],"finalState")==null)
 			{
 				SymbolTable.add(finalStates[i],"finalState",false);
-			}	
+			}
 			else
 			{
 				throw new DoubleDefExc(finalStates[i]);
 			}
-		}	
-		
+		}
+
+	}
+
+	public String generateResult(BufferedReader w) throws IOException
+	{
+		w.write("");
 	}
 }
