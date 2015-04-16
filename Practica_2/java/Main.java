@@ -49,8 +49,39 @@ public class Main
         pr.computeType();
         error = true;
         System.out.println("Analisis semantico correcto");
-
-
     }
+
+    // Generacion de Codigo
+    if (!error)
+    {
+      String nameFich = (String)pr.obtenerNomb();
+      String ficheroJava = nameFich + ".java";
+      BufferedWriter w = new BufferedWriter(new FileWriter(ficheroJava));
+      try{
+        w.write("import java.util.*;");
+        w.newLine();
+        w.write("import java.io.*;");
+        w.newLine();
+        w.newLine();
+        w.write("public class " + nameFich + " {");
+        w.newLine();
+        w.write("public static void main(String args[]){");
+        w.newLine();
+        w.newLine();
+        pr.generateCode(w);
+        w.newLine();
+        w.write("}");
+        w.newLine();
+        w.write("}");
+        w.newLine();
+        w.close();
+        System.out.println("Fichero " + ficheroJava + " con codigo generado");
+      }catch (IOException e){
+        System.out.println("Error abriendo fichero: " + ficheroJava);
+        error = true;
+      }
+    }
+
+
   }
 }

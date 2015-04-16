@@ -34,4 +34,10 @@ public class IdentList2 implements IdentList
 		w.newLine();
 		il.generateLocalVariables(w);
 	}
+
+	public void generateResult(BufferedWriter w) throws IOException
+	{
+		i.generateResult(w);
+		il.generateResult(w);
+	}
 }

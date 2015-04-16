@@ -19,4 +19,12 @@ public class IdentList1 implements IdentList
 		return this.i;
 	}
 
+	public String generateCode() throws IOException
+	{
+		return this.i;
+	}
+
+	public String generateArguments();
+	public void generateLocalVariables(BufferedWriter w) throws IOException;
+	public void generateResult(BufferedWriter w) throws IOException;
 }
