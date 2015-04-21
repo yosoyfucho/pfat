@@ -25,13 +25,18 @@ public class OutputEventDecl
 			if (SymbolTable.search(outputVar[i],"output")==null)
 			{
 				SymbolTable.add(outputVar[i],"output",false);
-			}	
+			}
 			else
 			{
 				throw new DoubleDefExc(outputVar[i]);
 			}
-		}	
-		
+		}
+
+	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		w.write("public Variable " + il.generateCode() + ";");
 	}
 
 }

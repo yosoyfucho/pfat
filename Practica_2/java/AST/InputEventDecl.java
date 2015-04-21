@@ -26,12 +26,19 @@ public class InputEventDecl
 			if (SymbolTable.search(eventos[i],"event")==null)
 			{
 				SymbolTable.add(eventos[i],"event",false);
-			}	
+			}
 			else
 			{
 				throw new DoubleDefExc(eventos[i]);
 			}
-		}	
-		
+		}
+
 	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		w.write("public Event " + il.generateCode() + ";");
+	}
+
+
 }

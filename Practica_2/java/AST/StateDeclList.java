@@ -31,4 +31,10 @@ public class StateDeclList
 			}
 		}
 	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		w.write("public InitialState " + il.generateCode() + ";");
+	}
+
 }

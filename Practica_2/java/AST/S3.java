@@ -36,4 +36,15 @@ public class S3 implements S{
 		i.computeType();
 		t.computeType();
 	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		sdl.generateCode(w);
+		fsdl.generateCode(w);
+		ied.generateCode(w);
+		lvd.generateCode(w);
+		oed.generateCode(w);
+		i.generateCode(w);
+		t.generateCode(w);
+	}
 }

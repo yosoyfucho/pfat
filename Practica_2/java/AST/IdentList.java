@@ -9,9 +9,9 @@ public interface IdentList
 	public void generateLocalVariables(BufferedWriter w) throws IOException;
 
 	//
-	public void generateResult(BufferedWriter w) throws IOException;
+	public String generateResult(BufferedWriter w) throws IOException;
 
 	//Escribir codigo
-	public String generateCode() throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 
 }

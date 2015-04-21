@@ -34,8 +34,9 @@ public class FinalStateDeclList
 
 	}
 
-	public String generateResult(BufferedReader w) throws IOException
+	public void generateCode(BufferedWritter w) throws IOException
 	{
-		w.write("");
+		w.write("public FinalState " + il.generateCode() + ";");
 	}
+
 }

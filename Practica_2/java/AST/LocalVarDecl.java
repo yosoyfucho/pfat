@@ -29,4 +29,10 @@ public class LocalVarDecl
 			}
 		}
 	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		w.write("public Variable " + il.generateCode() + ";");
+	}
+
 }
