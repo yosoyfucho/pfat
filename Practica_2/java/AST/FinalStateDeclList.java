@@ -38,5 +38,4 @@ public class FinalStateDeclList
 	{
 		w.write("public FinalState " + il.generateCode() + ";");
 	}
-
 }

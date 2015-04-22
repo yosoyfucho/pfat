@@ -32,6 +32,6 @@ public class Variable implements ExpLog
 
 	public void generateCode() throws IOException
 	{
-		return "( " + i +" )";
+		return this.i;
 	}
 }

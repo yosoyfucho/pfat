@@ -61,4 +61,16 @@ public class Transition1 implements Transition
 			}
 		}
 	}
+
+	public void GenerateCode (BufferedWritter w) throws IOException
+	{
+		w.write("transition (" + this.is.GenerateCode() + "," + this.i.GenerateCode() + "," + this.fs.GenerateCode() + ");");
+
+		if ( TransSymbolTable.search(is.computeType(),i.computeType() )
+		{
+			currenState = this.fs.GenerateCode();
+		}
+
+	}
+
 }

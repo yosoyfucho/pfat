@@ -26,4 +26,9 @@ public class Initialitation implements SimpleStatementList
 		ssl.computeType();
 	}
 
+	public void GenerateCode(BufferedWritter w) throws IOException
+	{
+		// Marcar current state
+		ssl.GenerateCode(w);
+	}
 }

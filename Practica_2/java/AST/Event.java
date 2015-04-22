@@ -4,7 +4,6 @@ import Errors.*;
 
 /*
 Event ::= IDENT:i   {:RESULT = new Event(i); :};
-
 */
 
 public class Event
@@ -25,6 +24,4 @@ public class Event
 	{
 		return this.i;
 	}
-
-
 }

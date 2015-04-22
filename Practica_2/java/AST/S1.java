@@ -7,8 +7,8 @@ S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ie
 			OutputEventDecl:oed Initialitation:i Transitions:t
 			{:RESULT = new S1(sdl,fsdl,ied,lvd,oed,i,t); :}
 */
-public class S1 implements S{
-
+public class S1 implements S
+{
 	public StateDeclList sdl;
 	public FinalStateDeclList fsdl;
 	public InputEventDecl ied;
@@ -17,9 +17,9 @@ public class S1 implements S{
 	public Initialitation i;
 	public Transitions t;
 
-	public S1 (StateDeclList sdl, FinalStateDeclList fsdl,
-		InputEventDecl ied, LocalVarDecl lvd, OutputEventDecl oed,
-		Initialitation i, Transitions t){
+	public S1 (StateDeclList sdl, FinalStateDeclList fsdl, InputEventDecl ied, 
+		LocalVarDecl lvd, OutputEventDecl oed, Initialitation i, Transitions t)
+	{
 		this.sdl = sdl;
 		this.fsdl = fsdl;
 		this.ied = ied;
@@ -50,5 +50,4 @@ public class S1 implements S{
 		i.generateCode(w);
 		t.generateCode(w);
 	}
-
 }

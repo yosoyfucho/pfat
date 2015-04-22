@@ -1,16 +1,18 @@
 package Compiler;
 
-public class TableEntry {
-
+public class TableEntry 
+{
 	private String name;
 	private String type;
-	private boolean initia;
+	private Boolean initia;
+	private Object valor;
 
-	public TableEntry (String name, String type, boolean init)
+	public TableEntry (String name, String type, Boolean init, Object valor)
 	{
 		this.name = name;
 		this.type = type;
 		this.initia = init;
+		this.valor = valor;
 	}
 
 	public void setInit(boolean initia)
@@ -33,4 +35,8 @@ public class TableEntry {
 		return type;
 	}
 
+	public Object getValue()
+	{
+		return valor;
+	}
 }

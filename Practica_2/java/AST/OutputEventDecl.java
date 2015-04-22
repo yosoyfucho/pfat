@@ -20,7 +20,7 @@ public class OutputEventDecl
 
 		String[] outputVar = il.computeType().split(",");
 
-		for (int i=0;i<outputVar.length;i++)
+		for (int i=0; i<outputVar.length; i++)
 		{
 			if (SymbolTable.search(outputVar[i],"output")==null)
 			{
@@ -36,7 +36,6 @@ public class OutputEventDecl
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
-		w.write("public Variable " + il.generateCode() + ";");
+		w.write("public Event " + il.generateCode() + ";");
 	}
-
 }

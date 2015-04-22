@@ -3,7 +3,7 @@ import Compiler.*;
 import Errors.*;
 
 /*
-Explog ::= ExpLog:e1 OR ExpLog:e2   {:RESULT = new Explog2(e1,e2); :}
+ExpLog ::= ExpLog:e1 OR ExpLog:e2   {:RESULT = new Explog2(e1,e2); :}
 */
 
 
@@ -26,7 +26,6 @@ public class ExpLog3 implements ExpLog
 
 	public String generateCode() throws IOException
 	{
-		return "( "+ e1.generateCode() + " || "+e2.generateCode() +" )";
+		return e1.generateCode() + " || " + e2.generateCode();
 	}
-
 }

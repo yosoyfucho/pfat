@@ -16,9 +16,9 @@ public class S3 implements S{
 	public Initialitation i;
 	public Transitions t;
 
-	public S3 (StateDeclList sdl, InputEventDecl ied, LocalVarDecl lvd,
-		OutputEventDecl oed, Initialitation i, Transitions t){
-
+	public S3 (StateDeclList sdl, InputEventDecl ied, LocalVarDecl lvd,	OutputEventDecl oed, 
+		Initialitation i, Transitions t)
+	{
 		this.sdl = sdl;
 		this.ied = ied;
 		this.lvd = lvd;

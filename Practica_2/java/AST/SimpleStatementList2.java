@@ -35,4 +35,8 @@ public class SimpleStatementList2 implements SimpleStatementList
 		SymbolTable.searchLocalOrOutputByName(this.i).setInit(true);
 	}
 
+	public void GenerateCode(BufferedWritter w)
+	{
+		w.write(this.i + "=" + this.cl + ";");
+	}
 }

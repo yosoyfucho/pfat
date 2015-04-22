@@ -19,4 +19,6 @@ public class Condition implements ExpLog
 	{
 		el.computeType();
 	}
+
+	//Falta codigo
 }

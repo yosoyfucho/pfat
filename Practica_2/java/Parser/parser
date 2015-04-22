@@ -101,6 +101,6 @@ ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
    | PAREN ExpLog:el TESIS {:RESULT = new ExpLog1(el); :}
    | ExpLog:e1 AND ExpLog:e2   {:RESULT = new ExpLog2(e1,e2); :}
    | ExpLog:e1 OR ExpLog:e2   {:RESULT = new ExpLog3(e1,e2); :}
-   | NOT ExpLog:el   {:RESULT = new ExpLog1(el); :};
+   | NOT ExpLog:el   {:RESULT = new ExpLog4(el); :};
 
 Condition ::= CONDITION ExpLog:el PC   {:RESULT = new Condition(el); :};

@@ -36,5 +36,4 @@ public class StateDeclList
 	{
 		w.write("public InitialState " + il.generateCode() + ";");
 	}
-
 }

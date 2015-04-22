@@ -67,6 +67,13 @@ public class Main
         w.newLine();
         w.write("public static void main(String args[]){");
         w.newLine();
+        w.write("String salida = '0';");
+        w.write("int estad = 0;");
+        w.write("for (String s : args ) ");
+        w.write("{");
+        w.write("  System.out.println(\"Voy a hacer la transicion por evento \"+s+\". Estoy en \"+estado);");
+        w.write("  Transison.hazTrans(estado,s,salida);");
+        w.write("}");
         w.newLine();
         pr.generateCode(w);
         w.newLine();

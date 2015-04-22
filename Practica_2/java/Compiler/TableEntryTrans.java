@@ -3,8 +3,8 @@ package Compiler;
 public class TableEntryTrans {
 
 	private String nameIS;
-  private String nameFS;
-	private String event;
+  	private String event;
+  	private String nameFS;
 
 	public TableEntryTrans (String nameIS, String event, String nameFS)
 

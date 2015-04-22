@@ -34,5 +34,4 @@ public class LocalVarDecl
 	{
 		w.write("public Variable " + il.generateCode() + ";");
 	}
-
 }

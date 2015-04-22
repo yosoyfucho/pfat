@@ -3,7 +3,7 @@ import Compiler.*;
 import Errors.*;
 
 /*
-Explog ::= NOT ExpLog:el   {:RESULT = new notExpLog(el); :};
+ExpLog ::= PAREN ExpLog:el TESIS {:RESULT = new ExpLog1(el); :};
 */
 
 public class ExpLog1 implements ExpLog
@@ -19,10 +19,8 @@ public class ExpLog1 implements ExpLog
 		e.computeType();
 	}
 
-
 	public String generateCode() throws IOException
 	{
-		return "NOT "+ e;
+		return "("+ e + ")";
 	}
-
 }
