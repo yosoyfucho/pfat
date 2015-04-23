@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 InputEventDecl ::= INPUTS IdentList:il PC   {:RESULT = new InputEventDecl(il); :};
@@ -32,7 +33,7 @@ public class InputEventDecl
 		}
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] events = il.generateCode().split(",");
 

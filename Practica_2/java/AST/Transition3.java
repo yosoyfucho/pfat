@@ -1,6 +1,9 @@
+
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
+import java.util.*;
 
 /*
 Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs
@@ -68,7 +71,7 @@ public class Transition3 implements Transition
 		c.computeType();
 	}
 
-	public void generateCode (BufferedWritter w) throws IOException
+	public void generateCode (BufferedWriter w) throws IOException
 	{
 		w.write("if ( currentState.equals(" + this.is + ") && inputEvent.equals(" + this.i + "))");
 		w.newLine();
@@ -76,13 +79,13 @@ public class Transition3 implements Transition
 		w.newLine();
 		w.write("	currentState = " + this.fs + ";");
 		w.newLine();
-		w.write("	" + c.generateCode(w));
+		w.write("	");
+		c.generateCode(w);
 		w.newLine();
-		w.write("	" + tb.generateCode(w));
-		w.newLine();
-		Vector<String> ouputsEvents = new Vector<String>;
-		ouputsEvents = getOutputEvents();
-		for (String output : ouputsEvents)
+
+		OutputEventDecl oed = new OutputEventDecl();
+
+		for (String output : oed.getOutputEvents())
 		{
 			w.write("	output.insertaResultado(currentState," + output + " , nEventos-1);");
 			w.newLine();

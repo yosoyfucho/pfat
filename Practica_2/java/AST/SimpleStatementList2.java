@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 SimpleStatementList ::= IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :};
@@ -35,7 +36,7 @@ public class SimpleStatementList2 implements SimpleStatementList
 		SymbolTable.searchLocalOrOutputByName(this.i).setInit(true);
 	}
 
-	public void GenerateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		w.write(this.i + "=" + this.cl + ";");
 	}

@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 Statement ::= Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl); :};
@@ -11,7 +12,7 @@ public class StatementList2 implements StatementList
 	public final Statement s;
 	public final StatementList sl;
 
-	public StatementList2 (Statement t, StatementList tl)
+	public StatementList2 (Statement s, StatementList sl)
 	{
 		this.s = s;
 		this.sl = sl;
@@ -27,7 +28,7 @@ public class StatementList2 implements StatementList
 		sl.computeType();		
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		s.generateCode(w);
 		sl.generateCode(w);

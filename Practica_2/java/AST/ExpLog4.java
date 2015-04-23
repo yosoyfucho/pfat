@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 ExpLog ::= NOT ExpLog:el   {:RESULT = new ExpLog4(el);
@@ -20,8 +21,8 @@ public class ExpLog4 implements ExpLog
 		el.computeType();
 	}
 
-	public String generateCode(BufferedWriter w) throws IOException
+	public String generateCode() throws IOException
 	{
-		w.write("!" + el.generateCode());
+		return "!" + el.generateCode();
 	}
 }

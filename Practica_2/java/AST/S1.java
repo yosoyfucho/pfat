@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied LocalVarDecl:lvd
@@ -40,7 +41,7 @@ public class S1 implements S
 		t.computeType();
 	}
 	
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		sdl.generateCode(w);
 		fsdl.generateCode(w);

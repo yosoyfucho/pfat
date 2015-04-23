@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 /*
 Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :};
 */

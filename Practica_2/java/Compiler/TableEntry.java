@@ -5,14 +5,12 @@ public class TableEntry
 	private String name;
 	private String type;
 	private Boolean initia;
-	private Object valor;
 
-	public TableEntry (String name, String type, Boolean init, Object valor)
+	public TableEntry (String name, String type, Boolean init)
 	{
 		this.name = name;
 		this.type = type;
 		this.initia = init;
-		this.valor = valor;
 	}
 
 	public void setInit(boolean initia)
@@ -33,10 +31,5 @@ public class TableEntry
 	public String getType()
 	{
 		return type;
-	}
-
-	public Object getValue()
-	{
-		return valor;
 	}
 }

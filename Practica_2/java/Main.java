@@ -1,15 +1,21 @@
 import Parser.*;
 import Lexer.*;
-import java.io.*;
-import AST.*;
-import Errors.*;
 import Compiler.*;
+import AST.*;
+import GeneratedCodeLib.*;
+import Errors.*;
+
+import java.io.*;
+
+
 
 public class Main
 {
-  public static void main(String args[]) throws Exception{
+
+  public static void main(String args[]) throws Exception
+  {
     java.io.BufferedReader in;
-    Yylex sc;
+    Lexer.Yylex sc;
     parser p;
 
     S pr = null;
@@ -18,7 +24,8 @@ public class Main
     boolean error=false;
 
     //El primer parametro es el nombre del fichero con el programa
-    if (args.length < 1) {
+    if (args.length < 1) 
+    {
       System.out.println(
       "Uso: java Main <nombre_fichero>");
       error=true;
@@ -28,9 +35,10 @@ public class Main
 
     if (!error)
     {
-      try {
+      try 
+      {
         in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
-        sc = new Yylex(in);
+        sc = new Lexer.Yylex(in);
         p = new parser(sc);
         sroot = p.parse();
         pr =  (S)sroot.value;
@@ -45,57 +53,61 @@ public class Main
     //Analisis Semantico
     if (!error)
     {
-
-        pr.computeType();
-        error = true;
-        System.out.println("Analisis semantico correcto");
+      pr.computeType();
+      error = false;
+      System.out.println("Analisis semantico correcto");
     }
 
     // Generacion de Codigo
     if (!error)
     {
-      String nameFich = (String)pr.obtenerNomb();
-      String ficheroJava = nameFich + ".java";
+      String nameFich = args[0];
+      String ficheroJava = args[1] + ".java";
+      System.out.println("voy a generar el fichero!!!");
       BufferedWriter w = new BufferedWriter(new FileWriter(ficheroJava));
+      System.out.println("deberia de haber creado el fichero!!!");
+
       try
       {
         w.write("import java.util.*;");
         w.newLine();
         w.write("import java.io.*;");
         w.newLine();
+        w.write("import GeneratedCodeLib.*;");
         w.newLine();
         w.write("public class " + nameFich + " {");
         w.newLine();
         w.write("public static void main(String args[]){");
         w.newLine();
-        w.write("BufferedReader r = new BufferedReader();")
-        w.write("BufferedWriter w = new BufferedWriter();")
-        w.write("Vector<String> entradas = new Vector<String>;")
-        w.write("entradas.obtener(r);")
-        w.write("int numEventos = entradas.size();")
+        w.write("BufferedReader r = new BufferedReader();");
+        w.newLine();
+        w.write("BufferedWriter w = new BufferedWriter();");
+        w.newLine();
+        w.write("String[] entradas = new String[entradas.obtener(r).length];");
+        w.newLine();        
+        w.write("int numEventos = entradas.obtener(r).length;");
         // String estados iniciales
         // String estado final
-        w.write("for (String inputEvent : entradas ) ");
+        w.newLine();
+        w.write("for (String inputEvent : entradas.obtener(r)");
+        w.newLine();
         w.write("{");
-        w.write("  System.out.println(\"Voy a hacer la transicion por evento \"+s+\". Estoy en \"+estado);");
-        // w.write("  Transison.hazTrans(estado,s,salida);");
-        w.write("}");
         w.newLine();
         pr.generateCode(w);
         w.newLine();
-        w.write("}");
+        w.write("}");        
         w.newLine();
         w.write("}");
         w.newLine();
         w.close();
-        System.out.println("Fichero " + ficheroJava + " con codigo generado");
       }
-      catch (IOException e){
+      catch (IOException e)
+      {
         System.out.println("Error abriendo fichero: " + ficheroJava);
         error = true;
       }
     }
-
-
+    System.out.println("putooooooooooooooooooo!!!");
   }
+
 }

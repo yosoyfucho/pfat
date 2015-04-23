@@ -1,12 +1,15 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import Errors.*;
+import Errors.*;
+import java.io.*;
 
 /*
 Condition ::= CONDITION PAREN ExpLog:el TESIS PC   {:RESULT = new Condition(el); :};
 */
 
-public class Condition implements ExpLog
+public class Condition
 {
 	public ExpLog el;
 
@@ -20,9 +23,9 @@ public class Condition implements ExpLog
 		el.computeType();
 	}
 
-	public void GenerateCode (BufferedWritter w) throws IOException
+	public void generateCode (BufferedWriter w) throws IOException
 	{
-		w.write("if ( " + el.generateCode(w) + " )");
+		w.write("if ( " + el.generateCode() + " )");
 		w.newLine();
 		w.write("{");
 		w.newLine();

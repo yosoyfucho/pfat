@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 ExpLog ::= ExpLog:e1 OR ExpLog:e2   {:RESULT = new Explog2(e1,e2); :}
@@ -12,7 +13,7 @@ public class ExpLog3 implements ExpLog
 	public ExpLog e1;
 	public ExpLog e2;
 
-	public ExpLog2 (ExpLog e1, ExpLog e2)
+	public ExpLog3 (ExpLog e1, ExpLog e2)
 	{
 		this.e1 = e1;
 		this.e2 = e2;
@@ -24,8 +25,8 @@ public class ExpLog3 implements ExpLog
 		e2.computeType();
 	}
 
-	public String generateCode(BufferedWriter w) throws IOException
+	public String generateCode() throws IOException
 	{
-		w.write(e1.generateCode() + " || " + e2.generateCode());
+		return e1.generateCode() + " || " + e2.generateCode();
 	}
 }

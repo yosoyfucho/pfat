@@ -1,6 +1,8 @@
 package AST;
+
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 ExpLog ::= PAREN ExpLog:el TESIS {:RESULT = new ExpLog1(el); :};
@@ -19,8 +21,8 @@ public class ExpLog1 implements ExpLog
 		e.computeType();
 	}
 
-	public String generateCode(BufferedWriter w) throws IOException
+	public String generateCode() throws IOException
 	{
-		w.write("("+ e.generateCode() + ")");
+		return "("+ e.generateCode() + ")";
 	}
 }

@@ -1,7 +1,8 @@
 package AST;
-import Compiler.*;
 
+import Compiler.*;
 import Errors.*;
+import java.io.*;
 
  /* ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :} */
 
@@ -26,11 +27,11 @@ public class Bool implements ExpLog
 	{
 		if(c)
 		{
-			w.write("true");
+			return Boolean.toString(true);
 		}
 		else
 		{
-			w.write("false");
+			return Boolean.toString(false);
 		}
 	}
 }

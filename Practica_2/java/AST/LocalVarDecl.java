@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 /*
 LocalVarDecl ::= LOCAL IdentList:il PC   {:RESULT = new LocalVarDecl(il); :};
 */
@@ -30,7 +31,7 @@ public class LocalVarDecl
 		}
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] localVar = il.generateCode().split(",");
 

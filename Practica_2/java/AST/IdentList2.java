@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 IdentList ::= IDENT:i COMA IdentList:il   {:RESULT = new IdentList2(i,il); :};

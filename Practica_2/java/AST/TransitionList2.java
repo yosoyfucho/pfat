@@ -1,6 +1,8 @@
 package AST;
-import Compiler.*;
+import java.io.*;
 import Errors.*;
+import Compiler.*;
+
 /*
 TransitionList ::= Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :};
 */
@@ -22,7 +24,7 @@ public class TransitionList2 implements TransitionList
 		tl.computeType();
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		w.write("for (String inputEvent : entradas)");
 		w.newLine();
@@ -30,6 +32,9 @@ public class TransitionList2 implements TransitionList
 		w.newLine();
 		t.generateCode(w);
 		tl.generateCode(w);
+		w.newLine();
+		w.write("nEventos--;");
+		w.newLine();
 		w.write("}");
 		w.newLine();
 	}

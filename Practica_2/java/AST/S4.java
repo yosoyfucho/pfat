@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 S ::=  STATE_MACHINE StateDeclList:sdl InputEventDecl:ied OutputEventDecl:oed
@@ -34,7 +35,7 @@ public class S4 implements S
 		t.computeType();
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		sdl.generateCode(w);
 		ied.generateCode(w);

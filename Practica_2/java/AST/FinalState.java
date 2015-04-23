@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :};

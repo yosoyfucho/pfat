@@ -18,6 +18,7 @@ public class Prueba
 
 		int nEventos = entradas.size();
 
+
 		public String s1 = "s1";
 		public String s2 = "s2";
 		public String s3 = "s3";
@@ -100,6 +101,7 @@ public class Prueba
 				}
 			}
 
+			
 			nEventos--;
 		}
 	}

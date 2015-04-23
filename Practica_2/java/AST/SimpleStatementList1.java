@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 SimpleStatementList ::= SimpleStatementList:ssl IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList1(ssl,i,cl); :}
@@ -39,9 +40,9 @@ public class SimpleStatementList1 implements SimpleStatementList
 		ssl.computeType();
 	}
 
-	public void GenerateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
-		ssl.GenerateCode(w);
+		ssl.generateCode(w);
 		w.write(this.i + "=" + this.cl + ";");
 	}
 }

@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 FinalStateDeclList ::= FINAL STATES IdentList:il PC {:RESULT = new FinalStateDeclList(il);:};
@@ -34,7 +35,7 @@ public class FinalStateDeclList
 
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		
 		String[] finalStates = il.generateCode().split(",");
@@ -43,7 +44,7 @@ public class FinalStateDeclList
 		{
 			w.write("public String" + finalStates[i] + " = \"" + finalStates[i] + "\";");
 		}
-		w.write("public String finalState = " + il.computeType() + ";")
+		w.write("public String finalState = " + il.generateCode() + ";");
 	}
 
 

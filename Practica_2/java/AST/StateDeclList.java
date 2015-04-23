@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 StateDeclList ::= STATES IdentList:il PC	{:RESULT = new StateDeclList(il);:};
@@ -32,7 +33,7 @@ public class StateDeclList
 		}
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] states = il.generateCode().split(",");
 

@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 // Statement ::= IDENT:i ASIG ExpLog:el PC
 
@@ -35,9 +36,9 @@ public class Statement2 implements Statement
 		return "";
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
-		w.write(this.i + " = " + el.generateCode + ";");
+		w.write(this.i + " = " + el.generateCode() + ";");
 		w.newLine();
 	}
 }

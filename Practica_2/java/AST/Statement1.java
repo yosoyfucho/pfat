@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 // Statement ::= STOP PC
 
@@ -16,7 +17,7 @@ public class Statement1 implements Statement
 
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
 		w.write("	break;");
 		w.newLine();

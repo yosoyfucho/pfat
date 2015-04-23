@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 ExpLog ::= ExpLog:e1 AND ExpLog:e2   {:RESULT = new andExpLog(e1,e2); :}
@@ -24,8 +25,8 @@ public class ExpLog2 implements ExpLog
 		e2.computeType();
 	}
 
-	public String generateCode(BufferedWriter w) throws IOException
+	public String generateCode() throws IOException
 	{
-		w.write(e1.generateCode() + " && " + e2.generateCode());
+		return e1.generateCode() + " && " + e2.generateCode();
 	}
 }

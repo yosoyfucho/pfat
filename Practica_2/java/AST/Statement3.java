@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 // Statement ::= IF ExpLog:el THEN Statement:s ENDIF PC
 
@@ -25,13 +26,15 @@ public class Statement3 implements Statement
 		return "";
 	}
 
-	public void generateCode(BufferedWritter w) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
-		w.write("if ( " + el.generateCode(w) + " )");
+		w.write("if ( " + el.generateCode() + " )");
 		w.newLine();
 		w.write("{");
 		w.newLine();
-		w.write("	" + s.generateCode(w) + ";");
+		w.write("	");
+		s.generateCode(w);
+		w.write(";");
 		w.newLine();
 		w.write("}");
 		w.newLine();
