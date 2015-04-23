@@ -20,8 +20,8 @@ public class ExpLog4 implements ExpLog
 		el.computeType();
 	}
 
-	public String generateCode() throws IOException
+	public String generateCode(BufferedWriter w) throws IOException
 	{
-		return "!" + el.generateCode();
+		w.write("!" + el.generateCode());
 	}
 }

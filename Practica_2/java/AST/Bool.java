@@ -26,11 +26,11 @@ public class Bool implements ExpLog
 	{
 		if(c)
 		{
-			return true;
+			w.write("true");
 		}
 		else
 		{
-			return false;
+			w.write("false");
 		}
 	}
 }

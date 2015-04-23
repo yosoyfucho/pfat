@@ -1,6 +1,10 @@
 package AST;
+
+import java.io.*;
+import java.util.*;
 import Compiler.*;
 import Errors.*;
+
 /*
 Explog ::= PAREN IDENT:i TESIS   {:RESULT = new Variable(i); :}
 */
@@ -30,8 +34,8 @@ public class Variable implements ExpLog
 		}
 	}
 
-	public void generateCode() throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
-		return this.i;
+		w.write(this.i);
 	}
 }

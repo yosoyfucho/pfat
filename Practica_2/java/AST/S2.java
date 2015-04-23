@@ -43,7 +43,6 @@ public class S2 implements S
 		sdl.generateCode(w);
 		fsdl.generateCode(w);
 		ied.generateCode(w);
-		lvd.generateCode(w);
 		oed.generateCode(w);
 		i.generateCode(w);
 		t.generateCode(w);

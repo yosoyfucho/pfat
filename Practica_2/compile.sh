@@ -21,6 +21,13 @@ read -n 1 -s -p ">>> Pulsa una tecla..."
 
 clear
 
+echo -e "\n [compile.sh] Compilando package GenerateCodeLib/ ... \n"
+javac -Xlint -d class/ -cp java/:../CUP/:../../../ java/GenerateCodeLib/*.java
+echo ""
+read -n 1 -s -p ">>> Pulsa una tecla..."
+
+clear
+
 echo -e "\n [compile.sh] Compilando package Compiler/ ... \n"
 javac -d class/ -cp java/ java/Compiler/*.java
 echo ""

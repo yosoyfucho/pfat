@@ -27,7 +27,13 @@ public class Statement3 implements Statement
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
-		//Codigo
-		s.generateCode(w);
+		w.write("if ( " + el.generateCode(w) + " )");
+		w.newLine();
+		w.write("{");
+		w.newLine();
+		w.write("	" + s.generateCode(w) + ";");
+		w.newLine();
+		w.write("}");
+		w.newLine();
 	}
 }

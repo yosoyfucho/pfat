@@ -68,32 +68,17 @@ public class Main
         w.newLine();
         w.write("public static void main(String args[]){");
         w.newLine();
-        w.write("String salida = '0';");
-        w.write("int estad = 0;");
         w.write("BufferedReader r = new BufferedReader();")
         w.write("BufferedWriter w = new BufferedWriter();")
-        w.write("Vector <String> entradas = new Vector<String>;")
+        w.write("Vector<String> entradas = new Vector<String>;")
         w.write("entradas.obtener(r);")
         w.write("int numEventos = entradas.size();")
         // String estados iniciales
         // String estado final
-
         w.write("for (String inputEvent : entradas ) ");
         w.write("{");
         w.write("  System.out.println(\"Voy a hacer la transicion por evento \"+s+\". Estoy en \"+estado);");
         // w.write("  Transison.hazTrans(estado,s,salida);");
-
-
-
-
-
-
-
-
-
-
-
-
         w.write("}");
         w.newLine();
         pr.generateCode(w);

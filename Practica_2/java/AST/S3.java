@@ -40,7 +40,6 @@ public class S3 implements S{
 	public void generateCode(BufferedWritter w) throws IOException
 	{
 		sdl.generateCode(w);
-		fsdl.generateCode(w);
 		ied.generateCode(w);
 		lvd.generateCode(w);
 		oed.generateCode(w);

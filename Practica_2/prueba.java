@@ -6,22 +6,6 @@ public class Prueba
 	public static void main()
 	{
 
-		public String s1 = "s1";
-		public String s2 = "s2";
-		public String s3 = "s3";
-		public String s4 = "s4";
-
-		public String a = "a";
-		public String b = "b";
-		public String c = "c";
-
-		public boolean sal;
-
-		public String currentState = s1;
-		public String finalState = s4;
-
-		sal = false;
-
 		BuffererReader r = new BuffererReader();
 		
 		Vector<String> entradas = new Vector<String>;
@@ -34,8 +18,27 @@ public class Prueba
 
 		int nEventos = entradas.size();
 
+		public String s1 = "s1";
+		public String s2 = "s2";
+		public String s3 = "s3";
+
+		public String s4 = "s4";
+		public String finalState = s4;
+
+		public String a = "a";
+		public String b = "b";
+		public String c = "c";
+
+		public boolean sal;
+
+		public String currentState = s1;		
+
+		sal = false;
+
+
 		for (String inputEvent : entradas)
 		{
+
 			if (currentState.equals(s1) && inputEvent.equals(a))
 			{
 				currentState = s2;

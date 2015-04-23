@@ -18,4 +18,9 @@ public class Transitions implements TransitionList
 	{
 		tl.computeType();
 	}
+
+	public void generateCode(BufferedWriter w) throws IOException
+	{
+		tl.generateCode(w);
+	}
 }

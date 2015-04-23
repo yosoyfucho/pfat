@@ -43,6 +43,7 @@ public class FinalStateDeclList
 		{
 			w.write("public String" + finalStates[i] + " = \"" + finalStates[i] + "\";");
 		}
+		w.write("public String finalState = " + il.computeType() + ";")
 	}
 
 

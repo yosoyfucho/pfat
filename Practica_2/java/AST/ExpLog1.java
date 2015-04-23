@@ -19,8 +19,8 @@ public class ExpLog1 implements ExpLog
 		e.computeType();
 	}
 
-	public String generateCode() throws IOException
+	public String generateCode(BufferedWriter w) throws IOException
 	{
-		return "("+ e + ")";
+		w.write("("+ e.generateCode() + ")");
 	}
 }

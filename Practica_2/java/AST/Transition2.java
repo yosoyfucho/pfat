@@ -73,8 +73,27 @@ public class Transition2 implements Transition
 
 	public void GenerateCode (BufferedWritter w) throws IOException
 	{
-		w.write("public Transition (" + this.is.GenerateCode() + "," + this.i.GenerateCode() 
-			+ "," + this.fs.GenerateCode() + ") = new Transition();");
-		tb.GenerateCode(w);
+		w.write("if ( currentState.equals(" + this.is + ") && inputEvent.equals(" + this.i + "))");
+		w.newLine();
+		w.write("{");
+		w.newLine();
+		w.write("	currentState = " + this.fs + ";");
+		w.newLine();
+		w.write("	" + tb.generateCode(w));
+		
+		Vector<String> ouputsEvents = new Vector<String>;
+		ouputsEvents = getOutputEvents();
+		for (String output : ouputsEvents)
+		{
+			w.write("	output.insertaResultado(currentState," + output + " , nEventos-1);");
+			w.newLine();
+		}
+		
+		w.write("	if ((currentState.equals(finalState))");
+		w.newLine();
+		w.write("	{");
+		w.write("		output.generarResultado();");
+		w.write("	}");
+		w.write("}");		
 	}
 }

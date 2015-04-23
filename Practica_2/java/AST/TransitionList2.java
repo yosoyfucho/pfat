@@ -24,7 +24,13 @@ public class TransitionList2 implements TransitionList
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
+		w.write("for (String inputEvent : entradas)");
+		w.newLine();
+		w.write("{");
+		w.newLine();
 		t.generateCode(w);
 		tl.generateCode(w);
+		w.write("}");
+		w.newLine();
 	}
 }

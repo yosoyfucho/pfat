@@ -20,5 +20,12 @@ public class Condition implements ExpLog
 		el.computeType();
 	}
 
-	//Falta codigo
+	public void GenerateCode (BufferedWritter w) throws IOException
+	{
+		w.write("if ( " + el.generateCode(w) + " )");
+		w.newLine();
+		w.write("{");
+		w.newLine();
+	}
+
 }

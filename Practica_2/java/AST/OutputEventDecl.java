@@ -43,4 +43,9 @@ public class OutputEventDecl
 			w.write("public boolean" + outputVar[i] + ";");
 		}
 	}
+
+	public String [] getOutputEvents() throws IOException
+	{
+		return il.generateCode().split(",");
+	}
 }

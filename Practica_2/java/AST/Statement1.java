@@ -18,6 +18,7 @@ public class Statement1 implements Statement
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
-
+		w.write("	break;");
+		w.newLine();
 	}
 }

@@ -24,8 +24,8 @@ public class ExpLog2 implements ExpLog
 		e2.computeType();
 	}
 
-	public String generateCode() throws IOException
+	public String generateCode(BufferedWriter w) throws IOException
 	{
-		return e1.generateCode() + " && " + e2.generateCode();
+		w.write(e1.generateCode() + " && " + e2.generateCode());
 	}
 }
