@@ -36,7 +36,7 @@ public class LocalVarDecl
 
 		for (int i=0;i<localVar.length;i++)
 		{
-			w.write("public Variable " + localVar[i] + " = new Variable();");
+			w.write("public boolean" + localVar[i] + ";");
 		}
 	}
 }

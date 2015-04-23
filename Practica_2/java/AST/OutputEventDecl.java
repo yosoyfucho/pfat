@@ -40,7 +40,7 @@ public class OutputEventDecl
 
 		for (int i=0;i<outputVar.length;i++)
 		{
-			w.write("public Variable " + outputVar[i] + " = new Variable();");
+			w.write("public boolean" + outputVar[i] + ";");
 		}
 	}
 }

@@ -38,7 +38,7 @@ public class StateDeclList
 
 		for (int i=0;i<states.length;i++)
 		{
-			w.write("public InitialState " + states[i] + " = new InitialState();");
+			w.write("public String" + states[i] + " = \"" + states[i] + "\";");
 		}
 	}
 }

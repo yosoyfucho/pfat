@@ -23,6 +23,7 @@ public class Prueba
 		sal = false;
 
 		BuffererReader r = new BuffererReader();
+		
 		Vector<String> entradas = new Vector<String>;
 		
 		entradas = obtener(BufferedReader br);

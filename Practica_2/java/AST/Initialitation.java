@@ -28,7 +28,7 @@ public class Initialitation implements SimpleStatementList
 
 	public void GenerateCode(BufferedWritter w) throws IOException
 	{
-		// Marcar current state
+		w.write("public String currentState = " + this.i + ";");
 		ssl.GenerateCode(w);
 	}
 }

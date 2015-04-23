@@ -41,7 +41,9 @@ public class FinalStateDeclList
 
 		for (int i=0;i<finalStates.length;i++)
 		{
-			w.write("public FinalState " + finalStates[i] + " = new FinalState();");
+			w.write("public String" + finalStates[i] + " = \"" + finalStates[i] + "\";");
 		}
 	}
+
+
 }
