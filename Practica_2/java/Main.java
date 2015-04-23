@@ -24,7 +24,7 @@ public class Main
     boolean error=false;
 
     //El primer parametro es el nombre del fichero con el programa
-    if (args.length < 1) 
+    if (args.length < 1)
     {
       System.out.println(
       "Uso: java Main <nombre_fichero>");
@@ -35,7 +35,7 @@ public class Main
 
     if (!error)
     {
-      try 
+      try
       {
         in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
         sc = new Lexer.Yylex(in);
@@ -84,7 +84,7 @@ public class Main
         w.write("BufferedWriter w = new BufferedWriter();");
         w.newLine();
         w.write("String[] entradas = new String[entradas.obtener(r).length];");
-        w.newLine();        
+        w.newLine();
         w.write("int numEventos = entradas.obtener(r).length;");
         // String estados iniciales
         // String estado final
@@ -95,7 +95,7 @@ public class Main
         w.newLine();
         pr.generateCode(w);
         w.newLine();
-        w.write("}");        
+        w.write("}");
         w.newLine();
         w.write("}");
         w.newLine();
