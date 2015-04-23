@@ -8,9 +8,9 @@ TESIS PC   {:RESULT = new Transition1(is,e,fs); :}
 
 public class Transition1 implements Transition
 {
-	public InitialState is;
-	public Event i;
-	public FinalState fs;
+	public final InitialState is;
+	public final Event i;
+	public final FinalState fs;
 
 	public Transition1 (InitialState is, Event i, FinalState fs)
 	{
