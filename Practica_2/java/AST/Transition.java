@@ -8,5 +8,5 @@ public interface Transition
 	public Event i;
 	public FinalState fs;
 
-	public void computeType() throws CompilerExc;
+	public void computeType(BufferedWrriter w) throws CompilerExc;
 }

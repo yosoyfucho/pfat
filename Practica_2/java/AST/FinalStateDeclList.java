@@ -36,6 +36,12 @@ public class FinalStateDeclList
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
-		w.write("public FinalState " + il.generateCode() + ";");
+		
+		String[] finalStates = il.generateCode().split(",");
+
+		for (int i=0;i<finalStates.length;i++)
+		{
+			w.write("public FinalState " + finalStates[i] + " = new FinalState();");
+		}
 	}
 }

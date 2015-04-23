@@ -69,4 +69,10 @@ public class Transition4 implements Transition
 		c.computeType();
 	}
 	
+	public void GenerateCode (BufferedWritter w) throws IOException
+	{
+		w.write("public Transition (" + this.is.GenerateCode() + "," + this.i.GenerateCode() 
+			+ "," + this.fs.GenerateCode() + ") = new Transition();");
+		tb.GenerateCode(w);
+	}
 }

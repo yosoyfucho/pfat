@@ -32,6 +32,11 @@ public class LocalVarDecl
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
-		w.write("public Variable " + il.generateCode() + ";");
+		String[] localVar = il.generateCode().split(",");
+
+		for (int i=0;i<localVar.length;i++)
+		{
+			w.write("public Variable " + localVar[i] + " = new Variable();");
+		}
 	}
 }

@@ -18,4 +18,9 @@ public class TransBehaviour implements StatementList
 	{
 		sl.computeType();
 	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		sl.generateCode(w);
+	}
 }

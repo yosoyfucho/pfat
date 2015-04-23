@@ -21,4 +21,10 @@ public class TransitionList2 implements TransitionList
 		t.computeType();
 		tl.computeType();
 	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		t.generateCode(w);
+		tl.generateCode(w);
+	}
 }

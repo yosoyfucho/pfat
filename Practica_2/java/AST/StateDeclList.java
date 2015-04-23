@@ -34,6 +34,11 @@ public class StateDeclList
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
-		w.write("public InitialState " + il.generateCode() + ";");
+		String[] states = il.generateCode().split(",");
+
+		for (int i=0;i<states.length;i++)
+		{
+			w.write("public InitialState " + states[i] + " = new InitialState();");
+		}
 	}
 }

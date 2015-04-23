@@ -35,7 +35,7 @@ public class SimpleStatementList2 implements SimpleStatementList
 		SymbolTable.searchLocalOrOutputByName(this.i).setInit(true);
 	}
 
-	public void GenerateCode(BufferedWritter w)
+	public void GenerateCode(BufferedWritter w) throws IOException
 	{
 		w.write(this.i + "=" + this.cl + ";");
 	}

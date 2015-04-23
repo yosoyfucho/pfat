@@ -8,23 +8,28 @@ Statement ::= Statement:s StatementList:sl   {:RESULT = new StatementList2(s,sl)
 
 public class StatementList2 implements StatementList
 {
-	public final Statement t;
-	public final StatementList tl;
+	public final Statement s;
+	public final StatementList sl;
 
 	public StatementList2 (Statement t, StatementList tl)
 	{
-		this.t = t;
-		this.tl = tl;
+		this.s = s;
+		this.sl = sl;
 	}
 
 	public void computeType() throws CompilerExc
 	{
-		if (t.computeTyp().equals("STOP"))
+		if (s.computeTyp().equals("STOP"))
 		{
 			throw new StopExc();
 		}
-		t.computeType();
-		tl.computeType();
-		
+		s.computeType();
+		sl.computeType();		
+	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		s.generateCode(w);
+		sl.generateCode(w);
 	}
 }

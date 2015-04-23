@@ -39,7 +39,7 @@ public class SimpleStatementList1 implements SimpleStatementList
 		ssl.computeType();
 	}
 
-	public void GenerateCode(BufferedWritter w)
+	public void GenerateCode(BufferedWritter w) throws IOException
 	{
 		ssl.GenerateCode(w);
 		w.write(this.i + "=" + this.cl + ";");

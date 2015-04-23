@@ -3,9 +3,11 @@ import Compiler.*;
 import Errors.*;
 
 /*
-Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs
-								TESIS PC TransBehaviour:tb
-								{:RESULT = new Transition2(is,e,fs,tb); :}
+Transition ::= TRANSITION 
+				PAREN 
+				InitialState:is COMA Event:e COMA FinalState:fs	
+				TESIS PC
+				TransBehaviour:tb {:RESULT = new Transition2(is,e,fs,tb); :}
 */
 
 
@@ -67,5 +69,12 @@ public class Transition2 implements Transition
 		}
 		
 		tb.computeType();
+	}
+
+	public void GenerateCode (BufferedWritter w) throws IOException
+	{
+		w.write("public Transition (" + this.is.GenerateCode() + "," + this.i.GenerateCode() 
+			+ "," + this.fs.GenerateCode() + ") = new Transition();");
+		tb.GenerateCode(w);
 	}
 }

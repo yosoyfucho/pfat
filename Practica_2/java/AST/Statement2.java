@@ -2,7 +2,7 @@ package AST;
 import Compiler.*;
 import Errors.*;
 
-/*IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement2(i,el); :}*/
+// Statement ::= IDENT:i ASIG ExpLog:el PC
 
 public class Statement2 implements Statement
 {
@@ -33,5 +33,10 @@ public class Statement2 implements Statement
 	public String computeTyp() throws CompilerExc
 	{
 		return "";
+	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		
 	}
 }

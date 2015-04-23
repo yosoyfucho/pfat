@@ -2,6 +2,8 @@ package AST;
 import Compiler.*;
 import Errors.*;
 
+// Statement ::= IF ExpLog:el THEN Statement:s ENDIF PC
+
 public class Statement3 implements Statement
 {
 	public ExpLog el;
@@ -21,5 +23,11 @@ public class Statement3 implements Statement
 	public String computeTyp() throws CompilerExc
 	{
 		return "";
+	}
+
+	public void generateCode(BufferedWritter w) throws IOException
+	{
+		//Codigo
+		s.generateCode(w);
 	}
 }

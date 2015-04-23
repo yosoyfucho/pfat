@@ -34,6 +34,11 @@ public class InputEventDecl
 
 	public void generateCode(BufferedWritter w) throws IOException
 	{
-		w.write("public Event " + il.generateCode() + ";");
+		String[] events = il.generateCode().split(",");
+
+		for (int i=0;i<events.length;i++)
+		{
+			w.write("public Event " + events[i] + " = new Event();");
+		}
 	}
 }
