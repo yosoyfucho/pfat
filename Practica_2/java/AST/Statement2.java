@@ -40,6 +40,6 @@ public class Statement2 implements Statement
 	{
 		String indentacion="\t\t\t\t\t\t\t\t";
 		w.write(indentacion+this.i + " = " + el.generateCode() + ";");
-
+		w.newLine();
 	}
 }
