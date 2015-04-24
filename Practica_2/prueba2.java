@@ -49,7 +49,7 @@ public class Prueba
 		*/
 		sal = false;
 
-		
+
 		output.insertaResultado(sal, false, nEventos-1);
 
 		for (String inputEvent : entradas)
@@ -127,23 +127,23 @@ public class Prueba
 				sal:='0'
 			*/
 			if (currentState.equals(s4) && inputEvent.equals(b))
-				{
-					currentState = s1;
-					sal = false;
-					output.insertaResultado(sal, false, nEventos-1);
-				}
+			{
+				currentState = s1;
+				sal = false;
+				output.insertaResultado(sal, false, nEventos-1);
+			}
 
-				/*
-					transition(s4,c,s1)
-					behaviour
-					sal:='0'
-				*/
-				if (currentState.equals(s4) && inputEvent.equals(c))
-				{
-					currentState = s1;
-					sal = false;
-					output.insertaResultado(sal, false, nEventos-1);
-				}
+			/*
+				transition(s4,c,s1)
+				behaviour
+				sal:='0'
+			*/
+			if (currentState.equals(s4) && inputEvent.equals(c))
+			{
+				currentState = s1;
+				sal = false;
+				output.insertaResultado(sal, false, nEventos-1);
+			}
 		}
 
 		output.generarResultado();
