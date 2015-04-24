@@ -53,6 +53,7 @@ public class Main
     //Analisis Semantico
     if (!error)
     {
+      error = true;
       pr.computeType();
       error = false;
       System.out.println("Analisis semantico correcto");
@@ -90,7 +91,7 @@ public class Main
          w.write("Salida output = new Salida(w);");
          w.newLine();
          w.write("int nEventos = 0;");
-         w.newLine();    
+         w.newLine();
          pr.generateCode(w);
          w.newLine();
          w.write("output.generarResultado();");
@@ -107,7 +108,7 @@ public class Main
         error = true;
       }
     }
-    System.out.println("putooooooooooooooooooo!!!");
+    System.out.println("Generacion de codigo finalizada.");
   }
 
 }
