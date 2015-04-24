@@ -44,7 +44,8 @@ public class Main
         pr =  (S)sroot.value;
         System.out.println("Analisis lexico y sintactico correctos");
       }
-      catch(IOException e) {
+      catch(IOException e) 
+      {
         System.out.println("Error abriendo fichero: " + args[0]);
         error= true;
       }
@@ -53,6 +54,7 @@ public class Main
     //Analisis Semantico
     if (!error)
     {
+      error = true;
       pr.computeType();
       error = false;
       System.out.println("Analisis semantico correcto");
@@ -88,7 +90,7 @@ public class Main
          w.write("Salida output = new Salida(w);");
          w.newLine();
          w.write("int nEventos = 0;");
-         w.newLine();    
+         w.newLine();
          pr.generateCode(w);
          w.write("if (currentState.equals(finalState))");         
          w.newLine();

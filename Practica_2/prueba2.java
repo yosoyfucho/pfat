@@ -11,15 +11,17 @@ public class prueba2
 
 		BuffererReader r = new BuffererReader();
 
-		Vector<String> entradas = new Vector<String>;
+		Entradas entries = new Entradas();
 
-		entradas = obtener(BufferedReader br);
+		Vector<String> leidas = new Vector<String>;
+
+		leidas = entries.obtener(BufferedReader br);
 
 		BufferedWriter w = new BufferedWriter();
 
 		Salida output = new Salida(w);
 
-		int nEventos = entradas.size();
+		int nEventos = leidas.size();
 
 		/*
 		states s1,s2,s3,s4
@@ -55,7 +57,7 @@ public class prueba2
 
 		output.insertaResultado(sal, false, nEventos-1);
 
-		for (String inputEvent : entradas)
+		for (String inputEvent : leidas)
 		{
 
 			nEventos++;
