@@ -39,5 +39,6 @@ public class SimpleStatementList2 implements SimpleStatementList
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		w.write(this.i + "=" + this.cl + ";");
+		w.newLine();
 	}
 }

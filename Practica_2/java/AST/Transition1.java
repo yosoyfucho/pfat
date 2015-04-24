@@ -73,18 +73,6 @@ public class Transition1 implements Transition
 		w.newLine();
 		w.write("	currentState = " + this.fs + ";");
 		w.newLine();
-		
-		for ( String output : OutputEventDecl.getOutputEvents() )
-		{
-			w.write("	output.insertaResultado(currentState," + output + " , nEventos-1);");
-			w.newLine();
-		}
-		
-		w.write("	if ((currentState.equals(finalState))");
-		w.newLine();
-		w.write("	{");
-		w.write("		output.generarResultado();");
-		w.write("	}");
 		w.write("}");
 	}
 

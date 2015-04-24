@@ -27,8 +27,6 @@ public class Condition
 	{
 		w.write("if ( " + el.generateCode() + " )");
 		w.newLine();
-		w.write("{");
-		w.newLine();
 	}
 
 }

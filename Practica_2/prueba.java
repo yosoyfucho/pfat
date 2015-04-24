@@ -1,5 +1,7 @@
 package GenerateCodeLib;
 
+import java.io.*;
+
 public class Prueba
 {
 	
@@ -8,16 +10,15 @@ public class Prueba
 
 		BuffererReader r = new BuffererReader();
 		
-		Vector<String> entradas = new Vector<String>;
-		
-		entradas = obtener(BufferedReader br);
+		Vector<String> entradas = new Vector<String>();
+
+		entradas = Entradas.obtener(BufferedReader br);
 
 		BufferedWriter w = new BufferedWriter();
 
 		Salida output = new Salida(w);
 
-		int nEventos = entradas.size();
-
+		int nEventos = 0;
 
 		public String s1 = "s1";
 		public String s2 = "s2";

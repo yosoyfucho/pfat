@@ -26,16 +26,7 @@ public class TransitionList2 implements TransitionList
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		w.write("for (String inputEvent : entradas.obtener(r))");
-		w.newLine();
-		w.write("{");
-		w.newLine();
 		t.generateCode(w);
 		tl.generateCode(w);
-		w.newLine();
-		w.write("nEventos--;");
-		w.newLine();
-		w.write("}");
-		w.newLine();
 	}
 }

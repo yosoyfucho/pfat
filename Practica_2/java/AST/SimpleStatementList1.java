@@ -44,5 +44,6 @@ public class SimpleStatementList1 implements SimpleStatementList
 	{
 		ssl.generateCode(w);
 		w.write(this.i + "=" + this.cl + ";");
+		w.newLine();
 	}
 }
