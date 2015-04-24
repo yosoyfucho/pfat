@@ -43,9 +43,7 @@ public class SimpleStatementList1 implements SimpleStatementList
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		ssl.generateCode(w);
-		w.newLine();
 		w.write(this.i + "=" + this.cl + ";");
 		w.newLine();
-		w.write("output.insertaResultado(\"" + this.i + "\", " + this.cl + ", nEventos-1);");
 	}
 }

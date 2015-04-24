@@ -20,8 +20,8 @@ public class TransitionList1 implements TransitionList
 		t.computeType();
 	}
 
-	public void generateCode(BufferedWriter w, int nTransitions) throws IOException
+	public void generateCode(BufferedWriter w) throws IOException
 	{
-		t.generateCode(w, nTransitions);
+		t.generateCode(w);
 	}
 }

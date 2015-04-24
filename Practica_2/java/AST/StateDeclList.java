@@ -39,7 +39,7 @@ public class StateDeclList
 
 		for (String state : states)
 		{
-			w.write("public String " + state + " = \"" + state + "\";");
+			w.write("String " + state + " = \"" + state + "\";");
 			w.newLine();
 		}
 	}

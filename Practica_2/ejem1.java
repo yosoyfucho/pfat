@@ -1,17 +1,17 @@
 import java.util.*;
 import java.io.*;
 import GeneratedCodeLib.*;
-public class ../Ejemplos/Ejem1/ejem1.stm
+public class ejem1
 {
-public static void main(String args[])
+	public static void main(String args[])
 {
-BufferedReader r = new BufferedReader(new FileReader(args[0]));
-BufferedWriter w = new BufferedWriter(new FileWriter(args[1]));
-Vector<String> entradas = Entradas.obtener(r);
-Salida output = new Salida(w);
-int numEventos = 0;
-boolean transNotFound = false;
-int nEventos = 0;
+		iBufferedReader r = new BufferedReader(new FileReader(args[0]));
+		BufferedWriter w = new BufferedWriter(new FileWriter(args[1]));
+		Vector<String> entradas = Entradas.obtener(r);
+		Salida output = new Salida(w);
+		int numEventos = 0;
+		boolean transNotFound = false;
+		int nEventos = 0;
 String s1 = "s1";
 String s2 = "s2";
 String s3 = "s3";
@@ -24,7 +24,6 @@ int nSalidas = 1;
 boolean sal;
 String currentState = s1;
 sal=false;
-
 for (String inputEvent : entradas)
 {
 nEventos++;
@@ -58,16 +57,16 @@ currentState = s4;
 transNotFound = true;
 sal = true;
 }
-for(int i=0; i<nSalidas; i++)
-{
-output.insertaResultado(, , nEventos-1)
-}
-if (currentState.equals(finalState))
-{
-break;
-}
-transNotFound = true;
-}
-output.generarResultado();
-}
+		for(int i=0; i<nSalidas; i++)
+indentacion{
+		 output.insertaResultado(, , nEventos-1)
+		}
+		if (currentState.equals(finalState))
+		{
+		 break;
+		}
+		transNotFound = false;
+		}
+		output.generarResultado();
+	}
 }

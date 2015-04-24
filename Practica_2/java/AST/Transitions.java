@@ -22,14 +22,12 @@ public class Transitions
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		int nTransitions=0;
-		w.newLine();
 		w.write("for (String inputEvent : entradas)");
 		w.newLine();
 		w.write("{");
 		w.newLine();
 		w.write("nEventos++;");
 		w.newLine();
-		tl.generateCode(w, nTransitions);
+		tl.generateCode(w);
 	}
 }

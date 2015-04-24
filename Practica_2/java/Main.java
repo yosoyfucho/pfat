@@ -12,121 +12,181 @@ import java.io.*;
 public class Main
 {
 
-  public static void main(String args[]) throws Exception
-  {
-    java.io.BufferedReader in;
-    Lexer.Yylex sc;
-    parser p;
+	public static void main(String args[]) throws Exception
+	{
+		java.io.BufferedReader in;
+		Lexer.Yylex sc;
+		parser p;
 
-    S pr = null;
+		S pr = null;
 
-    java_cup.runtime.Symbol sroot;
-    boolean error=false;
+		java_cup.runtime.Symbol sroot;
+		boolean error=false;
 
-    //El primer parametro es el nombre del fichero con el programa
-    if (args.length < 1)
-    {
-      System.out.println(
-      "Uso: java Main <nombre_fichero>");
-      error=true;
-    }
+		//El primer parametro es el nombre del fichero con el programa
+		if (args.length < 1)
+		{
+			System.out.println("Uso: java Main <nombre_fichero>");
+			error=true;
+		}
 
-    //Analisis lexico y sintactico
+		//Analisis lexico y sintactico
 
-    if (!error)
-    {
-      try
-      {
-        in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
-        sc = new Lexer.Yylex(in);
-        p = new parser(sc);
-        sroot = p.parse();
-        pr =  (S)sroot.value;
-        System.out.println("Analisis lexico y sintactico correctos");
-      }
-      catch(IOException e) 
-      {
-        System.out.println("Error abriendo fichero: " + args[0]);
-        error= true;
-      }
-    }
+		if (!error)
+		{
+			try
+			{
+		  		in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
+		  		sc = new Lexer.Yylex(in);
+		  		p = new parser(sc);
+		  		sroot = p.parse();
+		  		pr =  (S)sroot.value;
+		  		System.out.println("Analisis lexico y sintactico correctos");
+			}
+			catch(IOException e) 
+			{
+		  		System.out.println("Error abriendo fichero: " + args[0]);
+		  		error= true;
+			}
+		}
 
-    //Analisis Semantico
-    if (!error)
-    {
-      error = true;
-      pr.computeType();
-      error = false;
-      System.out.println("Analisis semantico correcto");
-    }
+		//Analisis Semantico
+		if (!error)
+		{
+		error = true;
+		pr.computeType();
+		error = false;
+		System.out.println("Analisis semantico correcto");
+		}
 
-    // Generacion de Codigo
-    if (!error)
-    {
-      String nameFich = args[0];
-      String ficheroJava = args[1] + ".java";
-      BufferedWriter w = new BufferedWriter(new FileWriter(ficheroJava));
+		// Generacion de Codigo
+		if (!error)
+		{
 
-      try
-      {
-        w.write("import java.util.*;");
-        w.newLine();
-        w.write("import java.io.*;");
-        w.newLine();
-        w.write("import GeneratedCodeLib.*;");
-        w.newLine();
-        w.write("public class " + nameFich + " {");
-        w.newLine();
-        w.write("public static void main(String args[]){");
-        w.newLine();
-        w.write("BufferedReader r = new BufferedReader();");
-        w.newLine();
-        w.write("Vector<String> entradas = Entradas.obtener(r);");
-        w.newLine();
-        w.write("int numEventos = 0;");
-        w.newLine();
-        w.write("BufferedWriter w = new BufferedWriter();");
-        w.newLine();
-        w.write("Salida output = new Salida(w);");
-        w.newLine();
-        w.write("int nEventos = 0;");
-        w.newLine();
-        
-        pr.generateCode(w);
+			String nameFich = new String();
+			String indentacion = "\t";
 
-        w.write("for(int i=0; i<nSalidas; i++)");
-        w.newLine();
-        w.write("{");
-        w.newLine();
-        w.write("output.insertaResultado(, , nEventos-1)");
-        w.newLine();
-        w.write("}");
-        w.newLine();
+			if (args[0].contains("/"))
+    		{
+      			String [] aux = args[0].split("/");
+      			int auxiliar = aux.length - 1;
+      			String aux2 = aux[auxiliar];
+     			String [] aux3 = aux2.split("\\.");
+      			nameFich = aux3[0];
+    		}
+    		else
+    		{
+     			String [] aux4 = args[0].split("\\.");
+      			nameFich = aux4[0];
+    		}
 
-        w.write("if (currentState.equals(finalState))");         
-        w.newLine();
-        w.write("{");
-        w.newLine();
-        w.write("break;");
-        w.newLine();
-        w.write("}");
-        w.newLine();
-        w.write("}"); //for
-        w.newLine();
-        w.write("output.generarResultado();");
-        w.newLine();
-        w.write("}"); //public static void main
-        w.newLine();
-        w.write("}"); //public class
-        w.newLine();
-        w.close();
-      }
-      catch (IOException e)
-      {
-        System.out.println("Error abriendo fichero: " + ficheroJava);
-        error = true;
-      }
-      System.out.println("Generacion de codigo correcto");
-    }
-  }
+			String ficheroJava = nameFich + ".java";
+			java.io.BufferedWriter w = new java.io.BufferedWriter(new java.io.FileWriter(ficheroJava));
+			//int indent = "\t";
+
+			/*
+			java.io.BufferedReader in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
+      	java.io.BufferedWriter out = new java.io.BufferedWriter(new java.io.FileWriter(args[1]));
+
+      	BuffererReader r = new BuffererReader();
+		
+			Vector<String> entradas = Entradas.obtener(r);
+
+			Salida output = new Salida(out);
+			*/
+
+			try
+			{
+				w.write("import java.util.*;");
+				w.newLine();
+				w.write("import java.io.*;");
+				w.newLine();
+				w.write("import GeneratedCodeLib.*;");
+				w.newLine();
+				System.out.println("El valor de nameFich es:"+nameFich);
+				w.write("public class " + nameFich);
+				w.newLine();
+				w.write("{");
+				w.newLine();
+
+				w.write(indentacion+"public static void main(String args[])");
+				w.newLine();
+				indentacion+=indentacion;
+				w.write("{");
+				w.newLine();
+				w.write(indentacion+"iBufferedReader r = new BufferedReader(new FileReader(args[0]));");
+				w.newLine();
+				w.write(indentacion+"BufferedWriter w = new BufferedWriter(new FileWriter(args[1]));");
+				w.newLine();
+				w.write(indentacion+"Vector<String> entradas = Entradas.obtener(r);");
+				w.newLine();
+
+
+
+				w.write(indentacion+"Salida output = new Salida(w);");
+				w.newLine();
+				w.write(indentacion+"int numEventos = 0;");
+				w.newLine();
+				w.write(indentacion+"boolean transNotFound = false;");
+
+				w.newLine();
+				w.write(indentacion+"int nEventos = 0;");
+				w.newLine();
+
+				pr.generateCode(w); 
+
+				w.write(indentacion+"for(int i=0; i<nSalidas; i++)");
+				w.newLine();
+				w.write("indentacion{");
+				w.newLine();
+
+
+
+
+				
+
+
+
+				////////////////////////////////////////////////////
+				w.write(indentacion+ " "+ "output.insertaResultado(, , nEventos-1)");
+				////////////////////////////////////////////////////
+				w.newLine();
+				w.write(indentacion+"}");
+				w.newLine();
+				
+				w.write(indentacion+"if (currentState.equals(finalState))");         
+				w.newLine();
+				w.write(indentacion+"{");
+				w.newLine();
+				w.write(indentacion+ " " +"break;");
+				w.newLine();
+				w.write(indentacion+"}");
+				w.newLine();
+
+				w.write(indentacion+"transNotFound = false;");
+				w.newLine();
+
+				w.write(indentacion+"}"); //for
+				w.newLine();
+				
+				w.write(indentacion+"output.generarResultado();");
+				w.newLine();
+				
+				indentacion = "	";
+				w.write(indentacion+"}"); //public static void main
+				w.newLine();
+				
+				w.write("}"); //public class
+			  	w.newLine();
+			  	
+			  	w.close();
+			}
+			catch (IOException e)
+			{
+			  	System.out.println("Error abriendo fichero: " + ficheroJava);
+			  	error = true;
+			}
+			System.out.println("Generacion de codigo correcto");
+		}
+	}
 }

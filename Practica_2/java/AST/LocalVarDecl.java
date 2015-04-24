@@ -37,7 +37,7 @@ public class LocalVarDecl
 
 		for (String local : localVar)
 		{
-			w.write("public boolean " + local + ";");
+			w.write("boolean " + local + ";");
 			w.newLine();
 		}
 	}

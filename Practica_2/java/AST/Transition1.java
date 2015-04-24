@@ -65,21 +65,15 @@ public class Transition1 implements Transition
 		}
 	}
 
-	public void generateCode (BufferedWriter w, int nTransitions) throws IOException
+	public void generateCode (BufferedWriter w) throws IOException
 	{
-		if (nTransitions==0)
-		{
-			w.write("if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
-		}
-		else
-		{
-			w.write("else if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
-		}
-		nTransitions++;
+		w.write("if (currentState.equals(" + is.generateCode() + ")	&& inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
 		w.newLine();
 		w.write("{");
 		w.newLine();
-		w.write("	currentState = " + fs.generateCode() + ";");
+		w.write("currentState = " + fs.generateCode() + ";");
+		w.newLine();
+		w.write("transNotFound = true;");
 		w.newLine();
 		w.write("}");
 		w.newLine();
