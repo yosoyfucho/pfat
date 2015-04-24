@@ -35,9 +35,10 @@ public class LocalVarDecl
 	{
 		String[] localVar = il.generateCode().split(",");
 
-		for (int i=0;i<localVar.length;i++)
+		for (String local : localVar)
 		{
-			w.write("public boolean" + localVar[i] + ";");
+			w.write("public boolean" + local + ";");
+			w.newLine();
 		}
 	}
 }

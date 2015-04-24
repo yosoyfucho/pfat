@@ -7,18 +7,7 @@ import Errors.*;
 
 public class SymbolTable
 {
-
 	private static Vector<TableEntry> variables = new Vector<TableEntry>();
-
-/*
-public TableEntry checkTable (String name, String type,TableEntry e)
-
-Funcion que comprueba que no existe un nombre (name) con un determinado tipo (type)
-ya en la tabla (e)
-Devuelve un objeto TableEntry con el objeto si existe
-Devuelve null si no existe.
-
-*/
 
 	public static TableEntry search (String name, String type)
 	{
@@ -87,7 +76,6 @@ Devuelve null si no existe.
 
 	public static void add (String name, String tipo, boolean init) throws DoubleDefExc
 	{
-
 		TableEntry newEntry = search(name,tipo);
 		if (newEntry == null)
 		{
@@ -100,5 +88,4 @@ Devuelve null si no existe.
 			throw new DoubleDefExc(name);
 		}
 	}
-
 }

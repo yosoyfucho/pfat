@@ -37,9 +37,10 @@ public class InputEventDecl
 	{
 		String[] events = il.generateCode().split(",");
 
-		for (int i=0;i<events.length;i++)
+		for (String inputEvent : events)
 		{
-			w.write("public String" + events[i] + " = \"" + events[i] + "\";");
+			w.write("public String" + inputEvent + " = \"" + inputEvent + "\";");
+			w.newLine();
 		}
 	}
 }

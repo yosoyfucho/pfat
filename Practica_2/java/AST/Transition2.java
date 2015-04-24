@@ -82,13 +82,10 @@ public class Transition2 implements Transition
 		w.newLine();
 		w.write("	currentState = " + this.fs + ";");
 		w.newLine();
-		
 
-		OutputEventDecl oed = new OutputEventDecl();
-
-		for (String output : oed.getOutputEvents())
+		for (String output : OutputEventDecl.getOutputEvents())
 		{
-			w.write("	output.insertaResultado(currentState," + output + " , nEventos-1);");
+			w.write("	output.insertaResultado(" + nombreVar + ", " + valorVar + ", (++nEventos)-1);");
 			w.newLine();
 		}
 		

@@ -40,11 +40,14 @@ public class FinalStateDeclList
 		
 		String[] finalStates = il.generateCode().split(",");
 
-		for (int i=0;i<finalStates.length;i++)
+		for (String finalS : finalStates)
 		{
-			w.write("public String" + finalStates[i] + " = \"" + finalStates[i] + "\";");
+			w.write("public String" + finalS + " = \"" + finalS + "\";");
+			w.newLine();
+			w.write("public String finalState = " + il.generateCode() + ";");
+			w.newLine();
 		}
-		w.write("public String finalState = " + il.generateCode() + ";");
+		
 	}
 
 

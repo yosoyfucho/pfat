@@ -35,74 +35,52 @@ public class Prueba
 		public String currentState = s1;		
 
 		sal = false;
-
+		output.insertaResultado(sal, false, nEventos-1);
 
 		for (String inputEvent : entradas)
 		{
 
+			nEventos++;
+
 			if (currentState.equals(s1) && inputEvent.equals(a))
 			{
 				currentState = s2;
-				output.insertaResultado(currentState, sal, nEventos-1);
-				if (currentState.equals(finalState))
-				{
-					 output.generarResultado();
-				}
 			}
 
 			if (currentState.equals(s2) && inputEvent.equals(c)) 
 			{
 				currentState = s1;
-				output.insertaResultado(currentState, sal, nEventos-1);
-				if (currentState.equals(finalState))
-				{
-					output.generarResultado();
-				}
 			}
 
 			if (currentState.equals(s2) && inputEvent.equals(b)) 
 			{
 				currentState = s3;
-				output.insertaResultado(currentState, sal, nEventos-1);
-				if (currentState.equals(finalState))
-				{
-					output.generarResultado();
-				}
 			}
 
 			if (currentState.equals(s3) && inputEvent.equals(a)) 
 			{
 				currentState = s2;
-				output.insertaResultado(currentState, sal, nEventos-1);
-				if (currentState.equals(finalState))
-				{
-					output.generarResultado();
-				}
 			}
 
 			if (currentState.equals(s3) && inputEvent.equals(b)) 
 			{
 				currentState = s1;
-				output.insertaResultado(currentState, sal, nEventos-1);
-				if (currentState.equals(finalState))
-				{
-					output.generarResultado();
-				}
 			}
 
 			if (currentState.equals(s3) && inputEvent.equals(c)) 
 			{
 				currentState = s4;
 				sal = true;
-				output.insertaResultado(currentState, sal, nEventos-1);
-				if (currentState.equals(finalState))
-				{
-					output.generarResultado();
-				}
+				output.insertaResultado(sal, false, nEventos-1);
 			}
 
+			if (currentState.equals(finalState))
+			{
+				break;
+			}			
 			
-			nEventos--;
 		}
+
+		output.generarResultado();
 	}
 }

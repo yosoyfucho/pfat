@@ -85,13 +85,7 @@ public class Main
         w.newLine();
         w.write("String[] entradas = new String[entradas.obtener(r).length];");
         w.newLine();
-        w.write("int numEventos = entradas.obtener(r).length;");
-        // String estados iniciales
-        // String estado final
-        w.newLine();
-        w.write("for (String inputEvent : entradas.obtener(r)");
-        w.newLine();
-        w.write("{");
+        w.write("int numEventos = 0;");
         w.newLine();
         pr.generateCode(w);
         w.newLine();

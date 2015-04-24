@@ -37,9 +37,9 @@ public class StateDeclList
 	{
 		String[] states = il.generateCode().split(",");
 
-		for (int i=0;i<states.length;i++)
+		for (String state : states)
 		{
-			w.write("public String" + states[i] + " = \"" + states[i] + "\";");
+			w.write("public String" + state + " = \"" + state + "\";");
 		}
 	}
 }

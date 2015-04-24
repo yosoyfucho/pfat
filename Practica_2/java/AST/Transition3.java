@@ -83,9 +83,7 @@ public class Transition3 implements Transition
 		c.generateCode(w);
 		w.newLine();
 
-		OutputEventDecl oed = new OutputEventDecl();
-
-		for (String output : oed.getOutputEvents())
+		for (String output : OutputEventDecl.getOutputEvents())
 		{
 			w.write("	output.insertaResultado(currentState," + output + " , nEventos-1);");
 			w.newLine();

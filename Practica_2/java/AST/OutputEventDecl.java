@@ -1,4 +1,5 @@
 package AST;
+
 import Compiler.*;
 import Errors.*;
 import java.io.*;
@@ -11,11 +12,6 @@ public class OutputEventDecl
 {
 	public IdentList il;
 
-	public OutputEventDecl()
-	{	
-
-	}	
-
 	public OutputEventDecl(IdentList il)
 	{
 		this.il = il;
@@ -23,7 +19,6 @@ public class OutputEventDecl
 
 	public void computeType() throws CompilerExc
 	{
-
 		String[] outputVar = il.computeType().split(",");
 
 		for (int i=0; i<outputVar.length; i++)
@@ -37,21 +32,16 @@ public class OutputEventDecl
 				throw new DoubleDefExc(outputVar[i]);
 			}
 		}
-
 	}
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] outputVar = il.generateCode().split(",");
 
-		for (int i=0;i<outputVar.length;i++)
+		for (String ouput : outputVar)
 		{
-			w.write("public boolean" + outputVar[i] + ";");
+			w.write("public boolean" + output + ";");
+			w.newLine();
 		}
-	}
-
-	public String[] getOutputEvents() throws IOException
-	{
-		return il.generateCode().split(",");
 	}
 }
