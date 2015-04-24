@@ -9,7 +9,7 @@ public class prueba2
 	public static void main()
 	{
 
-		BuffererReader r = new BuffererReader();
+		BuffererReader br = new BuffererReader();
 
 		Entradas entries = new Entradas();
 
