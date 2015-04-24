@@ -68,15 +68,7 @@ transNotFound = true;
 if (currentState.equals(s3) && inputEvent.equals(c) && !transNotFound){
 currentState = s4;
 transNotFound = true;
-c1 = l0;
-l0 = !l0;
-c2 = c1 && l1;
-l1 = (c1 && !l1) || (!c1 && l1);
-l2 = (c2 && !l2) || (!c2 && l2);
-s0 = l0;
-s1 = l1;
-s2 = l2;
-}
+c1 = l0;l0 = !l0;c2 = c1 && l1;l1 = (c1 && !l1) || (!c1 && l1);l2 = (c2 && !l2) || (!c2 && l2);s0 = l0;s1 = l1;s2 = l2;}
 if (currentState.equals(s4)	&& inputEvent.equals(a) && !transNotFound)
 {
 currentState = s2;
@@ -92,10 +84,9 @@ if (currentState.equals(s4)	&& inputEvent.equals(c) && !transNotFound)
 currentState = s1;
 transNotFound = true;
 }
-		for(int i=0; i<nSalidas; i++)
-indentacion{
-		 output.insertaResultado(, , nEventos-1)
-		}
+		output.insertaResultado("s0",s0,nEventos-1);
+		output.insertaResultado("s1",s1,nEventos-1);
+		output.insertaResultado("s2",s2,nEventos-1);
 		if (currentState.equals(finalState))
 		{
 		 break;
@@ -103,5 +94,5 @@ indentacion{
 		transNotFound = false;
 		}
 		output.generarResultado();
-	}
+		}
 }

@@ -39,6 +39,5 @@ public class Statement2 implements Statement
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		w.write(this.i + " = " + el.generateCode() + ";");
-		w.newLine();
 	}
 }

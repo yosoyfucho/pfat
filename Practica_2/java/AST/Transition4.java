@@ -87,6 +87,7 @@ public class Transition4 implements Transition
 		w.write("transNotFound = true;");
 		w.newLine();
 		tb.generateCode(w);
+		w.newLine();
 		w.write("}");
 		w.newLine();
 		w.write("}");

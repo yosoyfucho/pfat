@@ -53,12 +53,8 @@ transNotFound = true;
 if (currentState.equals(s3) && inputEvent.equals(c) && !transNotFound){
 currentState = s3;
 transNotFound = true;
-sal = true;
-	break;}
-		for(int i=0; i<nSalidas; i++)
-indentacion{
-		 output.insertaResultado(, , nEventos-1)
-		}
+sal = true;	break;}
+		output.insertaResultado("sal",sal,nEventos-1);
 		if (currentState.equals(finalState))
 		{
 		 break;
@@ -66,5 +62,5 @@ indentacion{
 		transNotFound = false;
 		}
 		output.generarResultado();
-	}
+		}
 }
