@@ -1,6 +1,6 @@
 package GeneratedCodeLib;
 
-public class Prueba
+public class prueba2
 {
 	/*
 	Codigo interpretado a java
