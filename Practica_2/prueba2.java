@@ -2,7 +2,10 @@ package GeneratedCodeLib;
 
 public class Prueba
 {
-
+	/*
+	Codigo interpretado a java
+	de ejem2.stm
+	*/
 	public static void main()
 	{
 
