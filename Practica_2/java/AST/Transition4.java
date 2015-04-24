@@ -74,7 +74,7 @@ public class Transition4 implements Transition
 
 	public void generateCode (BufferedWriter w) throws IOException
 	{
-		String indentacion ="\t";
+		String indentacion ="\t\t\t\t";
 		w.write(indentacion+"if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
 		w.newLine();
 		w.write(indentacion+"{");
@@ -92,7 +92,7 @@ public class Transition4 implements Transition
 		tb.generateCode(w);
 
 		w.newLine();
-		indentacion ="\t";
+		indentacion ="\t\t\t\t";
 		w.write(indentacion+"}");
 		w.newLine();
 		w.write(indentacion+"}");

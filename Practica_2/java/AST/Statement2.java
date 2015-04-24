@@ -38,7 +38,7 @@ public class Statement2 implements Statement
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		String indentacion="\t";
+		String indentacion="\t\t\t\t\t\t\t\t";
 		w.write(indentacion+this.i + " = " + el.generateCode() + ";");
 
 	}

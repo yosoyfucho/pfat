@@ -121,7 +121,7 @@ public class Main
 				w.newLine();
 
 				pr.generateCode(w);
-
+				indentacion ="\t\t\t\t";
 				String [] outputs = SymbolTable.searchByType("output").split(",");
 				for(String out : outputs)
 				{
@@ -135,8 +135,10 @@ public class Main
 				w.newLine();
 				w.write(indentacion+"{");
 				w.newLine();
+				indentacion ="\t\t\t\t\t";
 				w.write(indentacion+ " " +"break;");
 				w.newLine();
+				indentacion ="\t\t\t\t";
 				w.write(indentacion+"}");
 				w.newLine();
 
@@ -157,12 +159,13 @@ public class Main
 					////////////////////////////////////////////////////
 					w.newLine();
 				}
+				indentacion="\t\t";
 				w.write(indentacion+"}");
 				w.newLine();
 
 				w.write(indentacion+"output.generarResultado();");
 				w.newLine();
-
+				indentacion="\t";
 				w.write(indentacion+"}"); //public static void main
 				w.newLine();
 

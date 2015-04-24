@@ -22,7 +22,7 @@ public class Transitions
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		String indentacion ="\t";
+		String indentacion ="\t\t";
 		w.write(indentacion+"for (String inputEvent : entradas)");
 		w.newLine();
 		w.write(indentacion+"{");
