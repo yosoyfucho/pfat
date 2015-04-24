@@ -5,7 +5,7 @@ public class ejem9
 {
 	public static void main(String args[])
 {
-		iBufferedReader r = new BufferedReader(new FileReader(args[0]));
+		BufferedReader r = new BufferedReader(new FileReader(args[0]));
 		BufferedWriter w = new BufferedWriter(new FileWriter(args[1]));
 		Vector<String> entradas = Entradas.obtener(r);
 		Salida output = new Salida(w);
@@ -53,7 +53,8 @@ transNotFound = true;
 if (currentState.equals(s3) && inputEvent.equals(c) && !transNotFound){
 currentState = s3;
 transNotFound = true;
-sal = true;	break;}
+sal = true;	break;
+}
 		output.insertaResultado("sal",sal,nEventos-1);
 		if (currentState.equals(finalState))
 		{

@@ -5,7 +5,7 @@ public class ejem6
 {
 	public static void main(String args[])
 {
-		iBufferedReader r = new BufferedReader(new FileReader(args[0]));
+		BufferedReader r = new BufferedReader(new FileReader(args[0]));
 		BufferedWriter w = new BufferedWriter(new FileWriter(args[1]));
 		Vector<String> entradas = Entradas.obtener(r);
 		Salida output = new Salida(w);
@@ -16,8 +16,8 @@ String s1 = "s1";
 String s2 = "s2";
 String s3 = "s3";
 String s4 = "s4";
-String s5 = "s5";
-String finalState = s5;
+	String s5 = "s5";
+	String finalState = s5;
 String a = "a";
 String b = "b";
 String c = "c";
@@ -39,11 +39,13 @@ transNotFound = true;
 if (currentState.equals(s2) && inputEvent.equals(c) && !transNotFound){
 currentState = s1;
 transNotFound = true;
-s1 = false;s2 = false;}
+s1 = false;s2 = false;
+}
 if (currentState.equals(s2) && inputEvent.equals(a) && !transNotFound){
 currentState = s2;
 transNotFound = true;
-s1 = false;s2 = false;}
+s1 = false;s2 = false;
+}
 if (currentState.equals(s2)	&& inputEvent.equals(b) && !transNotFound)
 {
 currentState = s3;
@@ -52,11 +54,13 @@ transNotFound = true;
 if (currentState.equals(s3) && inputEvent.equals(a) && !transNotFound){
 currentState = s2;
 transNotFound = true;
-s1 = false;s2 = false;}
+s1 = false;s2 = false;
+}
 if (currentState.equals(s3) && inputEvent.equals(b) && !transNotFound){
 currentState = s1;
 transNotFound = true;
-s1 = false;s2 = false;}
+s1 = false;s2 = false;
+}
 if (currentState.equals(s3) && inputEvent.equals(c) && !transNotFound){
 currentState = s4;
 transNotFound = true;
@@ -68,10 +72,11 @@ if ( !s1 )
 {
 	s1 = true;
 }
+
 }
 if (currentState.equals(s4) && inputEvent.equals(d) && !transNotFound)
 {
-if  (s2)
+	if  (s2)
 {
 currentState = s5;
 transNotFound = true;
@@ -79,7 +84,7 @@ transNotFound = true;
 }
 if (currentState.equals(s4) && inputEvent.equals(a) && !transNotFound)
 {
-if  (!s2)
+	if  (!s2)
 {
 currentState = s2;
 transNotFound = true;
@@ -87,19 +92,21 @@ transNotFound = true;
 }
 if (currentState.equals(s4) && inputEvent.equals(b) && !transNotFound)
 {
-if  (!s2)
+	if  (!s2)
 {
 currentState = s1;
 transNotFound = true;
-s1 = false;}
+s1 = false;
+}
 }
 if (currentState.equals(s4) && inputEvent.equals(c) && !transNotFound)
 {
-if  (!s2)
+	if  (!s2)
 {
 currentState = s1;
 transNotFound = true;
-s1 = false;}
+s1 = false;
+}
 }
 		output.insertaResultado("s1",s1,nEventos-1);
 		output.insertaResultado("s2",s2,nEventos-1);

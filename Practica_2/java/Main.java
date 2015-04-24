@@ -102,7 +102,7 @@ public class Main
 				indentacion+=indentacion;
 				w.write("{");
 				w.newLine();
-				w.write(indentacion+"iBufferedReader r = new BufferedReader(new FileReader(args[0]));");
+				w.write(indentacion+"BufferedReader r = new BufferedReader(new FileReader(args[0]));");
 				w.newLine();
 				w.write(indentacion+"BufferedWriter w = new BufferedWriter(new FileWriter(args[1]));");
 				w.newLine();

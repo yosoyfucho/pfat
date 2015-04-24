@@ -40,18 +40,12 @@ public class FinalStateDeclList
 
 		String[] finalStates = il.generateCode().split(",");
 
-		String indentacion ="\t"
+		String indentacion ="\t";
 		for (String finalS : finalStates)
 		{
-<<<<<<< Updated upstream
-			w.write("String " + finalS + " = \"" + finalS + "\";");
+			w.write(indentacion+"String " + finalS + " = \"" + finalS + "\";");
 			w.newLine();
-			w.write("String finalState = " + il.generateCode() + ";");
-=======
-			w.write(indentacion+"public String " + finalS + " = \"" + finalS + "\";");
-			w.newLine();
-			w.write(indentacion+"public String finalState = " + il.generateCode() + ";");
->>>>>>> Stashed changes
+			w.write(indentacion+"String finalState = " + il.generateCode() + ";");
 			w.newLine();
 		}
 
