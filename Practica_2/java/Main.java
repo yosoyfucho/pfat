@@ -43,7 +43,7 @@ public class Main
 		  		pr =  (S)sroot.value;
 		  		System.out.println("Analisis lexico y sintactico correctos");
 			}
-			catch(IOException e) 
+			catch(IOException e)
 			{
 		  		System.out.println("Error abriendo fichero: " + args[0]);
 		  		error= true;
@@ -99,8 +99,9 @@ public class Main
 
 				w.write(indentacion+"public static void main(String args[]) throws IOException,Exception");
 				w.newLine();
+				w.write(indentacion+"{");
 				indentacion+=indentacion;
-				w.write("{");
+
 				w.newLine();
 				w.write(indentacion+"BufferedReader r = new BufferedReader(new FileReader(args[0]));");
 				w.newLine();
@@ -118,8 +119,8 @@ public class Main
 				w.newLine();
 				w.write(indentacion+"String finalState = \"\";");
 				w.newLine();
-				
-				pr.generateCode(w); 
+
+				pr.generateCode(w);
 
 				String [] outputs = SymbolTable.searchByType("output").split(",");
 				for(String out : outputs)
@@ -130,7 +131,7 @@ public class Main
 					w.newLine();
 				}
 
-				w.write(indentacion+"if (currentState.equals(finalState))");         
+				w.write(indentacion+"if (currentState.equals(finalState))");
 				w.newLine();
 				w.write(indentacion+"{");
 				w.newLine();
@@ -144,8 +145,8 @@ public class Main
 
 				w.write(indentacion+"}"); //for
 				w.newLine();
-				
-				w.write(indentacion+"if (escape)");         
+
+				w.write(indentacion+"if (escape)");
 				w.newLine();
 				w.write(indentacion+"{");
 				w.newLine();
@@ -164,10 +165,10 @@ public class Main
 
 				w.write(indentacion+"}"); //public static void main
 				w.newLine();
-				
+
 				w.write("}"); //public class
 			  	w.newLine();
-			  	
+
 			  	w.close();
 			}
 			catch (IOException e)

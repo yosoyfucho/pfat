@@ -29,7 +29,7 @@ public class Initialitation implements SimpleStatementList
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		String indentacion ="\t";
+		String indentacion ="\t\t";
 		w.write(indentacion+"String currentState = " + this.i + "_s;");
 		w.newLine();
 		ssl.generateCode(w);

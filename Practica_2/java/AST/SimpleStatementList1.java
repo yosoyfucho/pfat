@@ -34,16 +34,17 @@ public class SimpleStatementList1 implements SimpleStatementList
 		{
 			throw new DoubleInitVarExc(this.i);
 		}
-		
+
 		SymbolTable.searchLocalOrOutputByName(this.i).setInit(true);
-		
+
 		ssl.computeType();
 	}
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
+		String indentacion="\t\t";
 		ssl.generateCode(w);
-		w.write(this.i + "=" + this.cl + ";");
+		w.write(indentacion+this.i + "=" + this.cl + ";");
 		w.newLine();
 	}
 }

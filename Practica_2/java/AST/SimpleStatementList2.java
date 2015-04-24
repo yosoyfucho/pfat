@@ -32,13 +32,14 @@ public class SimpleStatementList2 implements SimpleStatementList
 		{
 			throw new DoubleInitVarExc(this.i);
 		}
-				
+
 		SymbolTable.searchLocalOrOutputByName(this.i).setInit(true);
 	}
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		w.write(this.i + "=" + this.cl + ";");
+		String indentacion="\t\t";
+		w.write(indentacion+this.i + "=" + this.cl + ";");
 		w.newLine();
 	}
 }

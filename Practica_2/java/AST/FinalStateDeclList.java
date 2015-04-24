@@ -40,7 +40,7 @@ public class FinalStateDeclList
 
 		String[] finalStates = il.generateCode().split(",");
 
-		String indentacion ="\t";
+		String indentacion ="\t\t";
 		for (String finalS : finalStates)
 		{
 

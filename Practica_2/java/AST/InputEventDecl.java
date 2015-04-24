@@ -36,7 +36,7 @@ public class InputEventDecl
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] events = il.generateCode().split(",");
-		String indentacion="\t";
+		String indentacion="\t\t";
 		for (String inputEvent : events)
 		{
 			w.write(indentacion+"String " + inputEvent + " = \"" + inputEvent + "\";");

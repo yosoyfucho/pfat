@@ -37,7 +37,7 @@ public class OutputEventDecl
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] outputVar = il.generateCode().split(",");
-		String indentacion ="\t";
+		String indentacion ="\t\t";
 		for (String output : outputVar)
 		{
 			w.write(indentacion+"boolean " + output + ";");
