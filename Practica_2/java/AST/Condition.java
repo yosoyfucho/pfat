@@ -26,6 +26,7 @@ public class Condition
 	public void generateCode (BufferedWriter w) throws IOException
 	{
 		String indentacion ="\t";
+		indentacion += indentacion;
 		w.write(indentacion+"if  " + el.generateCode());
 	}
 

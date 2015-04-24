@@ -6,9 +6,9 @@ import java.io.*;
 import java.util.*;
 
 /*
-Transition ::= TRANSITION 
-				PAREN 
-				InitialState:is COMA Event:e COMA FinalState:fs	
+Transition ::= TRANSITION
+				PAREN
+				InitialState:is COMA Event:e COMA FinalState:fs
 				TESIS PC
 				TransBehaviour:tb {:RESULT = new Transition2(is,e,fs,tb); :}
 */
@@ -70,22 +70,25 @@ public class Transition2 implements Transition
 				}
 			}
 		}
-		
+
 		tb.computeType();
 	}
 
 	public void generateCode (BufferedWriter w) throws IOException
 	{
-		w.write("if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
-		w.write("{");
+		String indentacion = "\t";
+		w.write(indentacion+"if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
+		w.write(indentacion+"{");
 		w.newLine();
-		w.write("currentState = " + fs.generateCode() + ";");
+		indentacion += indentacion;
+		w.write(indentacion+"currentState = " + fs.generateCode() + ";");
 		w.newLine();
-		w.write("transNotFound = true;");
+		w.write(indentacion+"transNotFound = true;");
 		w.newLine();
 		tb.generateCode(w);
+		indentacion = "\t";
 		w.newLine();
-		w.write("}");		
+		w.write(indentacion+"}");
 		w.newLine();
 	}
 }

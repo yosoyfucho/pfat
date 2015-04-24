@@ -36,10 +36,10 @@ public class InputEventDecl
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] events = il.generateCode().split(",");
-
+		String indentacion="\t";
 		for (String inputEvent : events)
 		{
-			w.write("String " + inputEvent + " = \"" + inputEvent + "\";");
+			w.write(indentacion+"String " + inputEvent + " = \"" + inputEvent + "\";");
 			w.newLine();
 		}
 	}

@@ -71,26 +71,29 @@ public class Transition4 implements Transition
 		tb.computeType();
 		c.computeType();
 	}
-	
+
 	public void generateCode (BufferedWriter w) throws IOException
 	{
-		w.write("if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
+		String indentacion ="\t";
+		w.write(indentacion+"if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
 		w.newLine();
-		w.write("{");
+		w.write(indentacion+"{");
 		w.newLine();
 		c.generateCode(w);
 		w.newLine();
-		w.write("{");
+		indentacion +=indentacion;
+		w.write(indentacion+"{");
 		w.newLine();
-		w.write("currentState = " + fs.generateCode() + ";");
+		indentacion +=indentacion;
+		w.write(indentacion+"currentState = " + fs.generateCode() + ";");
 		w.newLine();
-		w.write("transNotFound = true;");
+		w.write(indentacion+"transNotFound = true;");
 		w.newLine();
 		tb.generateCode(w);
+
 		w.newLine();
-		w.write("}");
-		w.newLine();
-		w.write("}");
+		indentacion ="\t";
+		w.write(indentacion+"}");
 		w.newLine();
 	}
 }

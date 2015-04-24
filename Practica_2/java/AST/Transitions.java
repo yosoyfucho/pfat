@@ -22,11 +22,13 @@ public class Transitions
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		w.write("for (String inputEvent : entradas)");
+		String indentacion ="\t";
+		w.write(indentacion+"for (String inputEvent : entradas)");
 		w.newLine();
-		w.write("{");
+		w.write(indentacion+"{");
+		indentacion += indentacion;
 		w.newLine();
-		w.write("nEventos++;");
+		w.write(indentacion+"nEventos++;");
 		w.newLine();
 		tl.generateCode(w);
 	}

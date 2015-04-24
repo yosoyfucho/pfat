@@ -27,7 +27,7 @@ public class Statement2 implements Statement
 		{
 			throw new TypIncExc(this.i);
 		}
-		
+
 		el.computeType();
 	}
 
@@ -38,6 +38,8 @@ public class Statement2 implements Statement
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		w.write(this.i + " = " + el.generateCode() + ";");
+		String indentacion="\t";
+		w.write(indentacion+this.i + " = " + el.generateCode() + ";");
+
 	}
 }

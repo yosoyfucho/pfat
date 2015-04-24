@@ -28,14 +28,15 @@ public class Statement3 implements Statement
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
-		w.write("if ( " + el.generateCode() + " )");
+		String indentacion="\t";
+		w.write(indentacion+"if ( " + el.generateCode() + " )");
 		w.newLine();
-		w.write("{");
+		w.write(indentacion+"{");
 		w.newLine();
 		w.write("	");
 		s.generateCode(w);
 		w.newLine();
-		w.write("}");
+		w.write(indentacion+"}");
 		w.newLine();
 	}
 }
