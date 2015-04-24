@@ -34,10 +34,10 @@ public class LocalVarDecl
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] localVar = il.generateCode().split(",");
-
+		String indentacion ="\t";
 		for (String local : localVar)
 		{
-			w.write("boolean " + local + ";");
+			w.write(indentacion+"boolean " + local + ";");
 			w.newLine();
 		}
 	}

@@ -27,7 +27,7 @@ public class Transition3 implements Transition
 
 	public void computeType() throws CompilerExc
 	{
-		
+
 		if ( SymbolTable.searchByName(is.computeType())==null )
 		{
 			throw new VarNoDefExc(is.computeType());
@@ -67,28 +67,35 @@ public class Transition3 implements Transition
 				}
 			}
 		}
-		
+
 		c.computeType();
 	}
 
 	public void generateCode (BufferedWriter w) throws IOException
 	{
-		w.write("if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
+		String indentacion ="\t";
+		w.write(indentacion+"if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
 		w.newLine();
-		w.write("{");
+		w.write(indentacion+"{");
 		w.newLine();
 		c.generateCode(w);
 		w.newLine();
-		w.write("{");
+		indentacion += indentacion;
+
+		w.write(indentacion+"{");
 		w.newLine();
-		w.write("currentState = " + fs.generateCode() + ";");
+		indentacion += indentacion;
+
+		w.write(indentacion+"currentState = " + fs.generateCode() + ";");
 		w.newLine();
-		w.write("transNotFound = true;");
+		w.write(indentacion+"transNotFound = true;");
 		w.newLine();
-		w.write("}");
+		indentacion ="\t\t";
+		w.write(indentacion+"}");
 		w.newLine();
-		w.write("}");
+		indentacion="\t";
+		w.write(indentacion+"}");
 		w.newLine();
 	}
-	
+
 }

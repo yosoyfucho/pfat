@@ -36,10 +36,10 @@ public class StateDeclList
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] states = il.generateCode().split(",");
-
+		String indentacion = "\t";
 		for (String state : states)
 		{
-			w.write("String " + state + " = \"" + state + "\";");
+			w.write(indentacion+"String " + state + " = \"" + state + "\";");
 			w.newLine();
 		}
 	}
