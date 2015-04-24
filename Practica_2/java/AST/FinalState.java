@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 FinalState ::= IDENT:i   {:RESULT = new FinalState(i); :};
@@ -20,4 +21,8 @@ public class FinalState
 		return this.i;
 	}
 
+	public String generateCode() throws IOException
+	{
+		return this.i+"_s";
+	}
 }

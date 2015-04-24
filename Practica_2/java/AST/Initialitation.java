@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 Initialitation ::= START WITH IDENT:i PC SimpleStatementList:ssl   {:RESULT = new Initialitation(i,ssl); :};
@@ -26,4 +27,11 @@ public class Initialitation implements SimpleStatementList
 		ssl.computeType();
 	}
 
+	public void generateCode(BufferedWriter w) throws IOException
+	{
+		String indentacion ="\t\t";
+		w.write(indentacion+"String currentState = " + this.i + "_s;");
+		w.newLine();
+		ssl.generateCode(w);
+	}
 }

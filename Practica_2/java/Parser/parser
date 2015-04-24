@@ -86,7 +86,7 @@ TransBehaviour ::= BEHAVIOUR StatementList:sl   {:RESULT = new TransBehaviour(sl
 
 Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :};
 
-Statement ::= STOP PC {:RESULT = new Statement1(); :} 
+Statement ::= STOP PC {:RESULT = new Statement1(); :}
    | IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement2(i,el); :}
    | IF ExpLog:el THEN Statement:s ENDIF PC   {:RESULT = new Statement3(el,s); :};
 
@@ -100,7 +100,7 @@ ExpLog ::= CLOG:c   {:RESULT = new Bool(c); :}
    | IDENT:i   {:RESULT = new Variable(i); :}
    | PAREN ExpLog:el TESIS {:RESULT = new ExpLog1(el); :}
    | ExpLog:e1 AND ExpLog:e2   {:RESULT = new ExpLog2(e1,e2); :}
-   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new ExpLog2(e1,e2); :}
-   | NOT ExpLog:el   {:RESULT = new ExpLog1(el); :};
+   | ExpLog:e1 OR ExpLog:e2   {:RESULT = new ExpLog3(e1,e2); :}
+   | NOT ExpLog:el   {:RESULT = new ExpLog4(el); :};
 
 Condition ::= CONDITION ExpLog:el PC   {:RESULT = new Condition(el); :};

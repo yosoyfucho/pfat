@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 SimpleStatementList ::= IDENT:i ASIG CLOG:cl PC   {:RESULT = new SimpleStatementList2(i,cl); :};
@@ -31,8 +32,14 @@ public class SimpleStatementList2 implements SimpleStatementList
 		{
 			throw new DoubleInitVarExc(this.i);
 		}
-				
+
 		SymbolTable.searchLocalOrOutputByName(this.i).setInit(true);
 	}
 
+	public void generateCode(BufferedWriter w) throws IOException
+	{
+		String indentacion="\t\t";
+		w.write(indentacion+this.i + "=" + this.cl + ";");
+		w.newLine();
+	}
 }

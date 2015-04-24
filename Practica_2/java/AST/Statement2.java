@@ -1,8 +1,9 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
-/*IDENT:i ASIG ExpLog:el PC   {:RESULT = new Statement2(i,el); :}*/
+// Statement ::= IDENT:i ASIG ExpLog:el PC
 
 public class Statement2 implements Statement
 {
@@ -26,12 +27,19 @@ public class Statement2 implements Statement
 		{
 			throw new TypIncExc(this.i);
 		}
-		
+
 		el.computeType();
 	}
 
 	public String computeTyp() throws CompilerExc
 	{
 		return "";
+	}
+
+	public void generateCode(BufferedWriter w) throws IOException
+	{
+		String indentacion="\t\t\t\t\t\t\t\t";
+		w.write(indentacion+this.i + " = " + el.generateCode() + ";");
+		w.newLine();
 	}
 }

@@ -1,11 +1,15 @@
 package AST;
+
 import Compiler.*;
 import Errors.*;
+import java.io.*;
+import java.util.*;
+
 /*
 Explog ::= PAREN IDENT:i TESIS   {:RESULT = new Variable(i); :}
 */
 
-public class Variable implements ExpLog 
+public class Variable implements ExpLog
 {
 	public final String i;
 
@@ -28,5 +32,10 @@ public class Variable implements ExpLog
 		{
 			throw new VarNoAsigExc(this.i);
 		}
+	}
+
+	public String generateCode() throws IOException
+	{
+		return this.i;
 	}
 }

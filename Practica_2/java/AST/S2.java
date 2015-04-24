@@ -1,6 +1,7 @@
 package AST;
 import Compiler.*;
 import Errors.*;
+import java.io.*;
 
 /*
 S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ied
@@ -8,8 +9,8 @@ S ::=  STATE_MACHINE StateDeclList:sdl FinalStateDeclList:fsdl InputEventDecl:ie
 			{:RESULT = new S2(sdl,fsdl,ied,oed,i,t); :}
 */
 
-public class S2 implements S{
-
+public class S2 implements S
+{
 	public StateDeclList sdl;
 	public FinalStateDeclList fsdl;
 	public InputEventDecl ied;
@@ -17,10 +18,9 @@ public class S2 implements S{
 	public Initialitation i;
 	public Transitions t;
 
-	public S2 (StateDeclList sdl,FinalStateDeclList fsdl,
-	InputEventDecl ied, OutputEventDecl oed,
-	Initialitation i, Transitions t){
-
+	public S2 (StateDeclList sdl,FinalStateDeclList fsdl, InputEventDecl ied, 
+		OutputEventDecl oed, Initialitation i, Transitions t)
+	{
 		this.sdl = sdl;
 		this.fsdl = fsdl;
 		this.ied = ied;
@@ -37,5 +37,15 @@ public class S2 implements S{
 		oed.computeType();
 		i.computeType();
 		t.computeType();
+	}
+
+	public void generateCode(BufferedWriter w) throws IOException
+	{
+		sdl.generateCode(w);
+		fsdl.generateCode(w);
+		ied.generateCode(w);
+		oed.generateCode(w);
+		i.generateCode(w);
+		t.generateCode(w);
 	}
 }

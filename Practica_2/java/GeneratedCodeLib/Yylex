@@ -1,0 +1,32 @@
+package GeneratedCodeLib;
+
+%%
+%{
+private java_cup.runtime.Symbol tok(int k, Object value) {
+  //System.out.println("Token\n");
+  return new java_cup.runtime.Symbol(k, yyline, 0, value); 
+}
+%}
+
+%public
+%cup
+%line
+%eofval{
+{return tok(0, null); }
+%eofval}
+%yylexthrow{
+EntradaException 
+%yylexthrow} 
+
+letra= [a-zA-Z]
+
+
+%%
+
+","		{return tok(1, null); }
+{letra}({letra}|[0-9]|_)*	{return tok(2, yytext()); }
+(" "|\n|\t|\r)+	{ }
+.		{ throw new EntradaException(yyline); }
+
+
+
