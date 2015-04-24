@@ -1,83 +1,114 @@
-package GenerateCodeLib;
-
 import java.io.*;
+import java.util.*;
+import GeneratedCodeLib.*;
 
-public class Prueba
+/*
+cd GeneratedCodeLib
+javac -d ../class -cp ../../git_repository/pfat/CUP *.java
+cd ..
+javac -d class/ prueba.java -cp .
+java -cp class/:../git_repository/pfat/CUP prueba ent1.txt sal1.txt
+*/
+
+public class prueba
 {
-	
-	public static void main()
-	{
-      	
+	public static void main(String args[]) throws IOException, Exception
+	{      	
       	java.io.BufferedReader in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
       	java.io.BufferedWriter out = new java.io.BufferedWriter(new java.io.FileWriter(args[1]));
 
-      	BuffererReader r = new BuffererReader();
-		
-		Vector<String> entradas = Entradas.obtener(r);
+		Vector<String> entradas = GeneratedCodeLib.Entradas.obtener(in);
 
 		Salida output = new Salida(out);
 
 		int nEventos = 0;
 
-		public String s1 = "s1";
-		public String s2 = "s2";
-		public String s3 = "s3";
+		String s1 = "s1";
+		String s2 = "s2";
+		String s3 = "s3";
 
-		public String s4 = "s4";
-		public String finalState = s4;
+		String s4 = "s4";
+		String finalState = s4;
 
-		public String a = "a";
-		public String b = "b";
-		public String c = "c";
+		String a = "a";
+		String b = "b";
+		String c = "c";
 
-		public boolean sal;
+		boolean sal;
 
-		public String currentState = s1;		
+		String currentState = s1;
+
+		boolean transNotFound = false;	
 
 		sal = false;
-		output.insertaResultado(sal, false, nEventos-1);
 
 		for (String inputEvent : entradas)
 		{
 
 			nEventos++;
 
-			if (currentState.equals(s1) && inputEvent.equals(a))
+			System.out.println("Llega evento: ["+inputEvent+"]");
+
+			if (currentState.equals(s1) && inputEvent.equals(a) && !transNotFound)
 			{
+				System.out.println("Transicion_1: Estado["+s1+"] a Estado["+s2+"]");
 				currentState = s2;
+				transNotFound = true;
+				System.out.println("Estado Actual: ["+currentState+"]");
 			}
 
-			if (currentState.equals(s2) && inputEvent.equals(c)) 
+			else if (currentState.equals(s2) && inputEvent.equals(c) && !transNotFound) 
 			{
+				System.out.println("Transicion_2 Estado["+s2+"] a Estado["+s1+"]");
 				currentState = s1;
+				transNotFound = true;
+				System.out.println("Estado Actual: ["+currentState+"]");
 			}
 
-			if (currentState.equals(s2) && inputEvent.equals(b)) 
+			else if (currentState.equals(s2) && inputEvent.equals(b) && !transNotFound) 
 			{
+				System.out.println("Transicion_3 Estado["+s2+"] a Estado["+s3+"]");
 				currentState = s3;
+				transNotFound = true;
+				System.out.println("Estado Actual: ["+currentState+"]");
 			}
 
-			if (currentState.equals(s3) && inputEvent.equals(a)) 
+			else if (currentState.equals(s3) && inputEvent.equals(a) && !transNotFound) 
 			{
+				System.out.println("Transicion_4 Estado["+s3+"] a Estado["+s2+"]");
 				currentState = s2;
+				transNotFound = true;
+				System.out.println("Estado Actual: ["+currentState+"]");
 			}
 
-			if (currentState.equals(s3) && inputEvent.equals(b)) 
+			else if (currentState.equals(s3) && inputEvent.equals(b) && !transNotFound) 
 			{
+				System.out.println("Transicion_5 Estado["+s3+"] a Estado["+s1+"]");
 				currentState = s1;
+				transNotFound = true;
+				System.out.println("Estado Actual: ["+currentState+"]");
 			}
 
-			if (currentState.equals(s3) && inputEvent.equals(c)) 
+			else if (currentState.equals(s3) && inputEvent.equals(c) && !transNotFound) 
 			{
+				System.out.println("Transicion_6 Estado["+s3+"] a Estado["+s4+"]");
 				currentState = s4;
+				transNotFound = true;
 				sal = true;
-				output.insertaResultado(sal, false, nEventos-1);
+				System.out.println("Estado Actual: ["+currentState+"]");
 			}
+
+			transNotFound = false;
+
+			output.insertaResultado("sal", sal, nEventos-1);
 
 			if (currentState.equals(finalState))
 			{
+				System.out.println("Estado final alcanzado");
 				break;
 			}			
+
+			
 			
 		}
 
