@@ -7,16 +7,15 @@ public class Prueba
 	
 	public static void main()
 	{
+      	
+      	java.io.BufferedReader in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
+      	java.io.BufferedWriter out = new java.io.BufferedWriter(new java.io.FileWriter(args[1]));
 
-		BuffererReader r = new BuffererReader();
+      	BuffererReader r = new BuffererReader();
 		
-		Vector<String> entradas = new Vector<String>();
+		Vector<String> entradas = Entradas.obtener(r);
 
-		entradas = Entradas.obtener(BufferedReader br);
-
-		BufferedWriter w = new BufferedWriter();
-
-		Salida output = new Salida(w);
+		Salida output = new Salida(out);
 
 		int nEventos = 0;
 

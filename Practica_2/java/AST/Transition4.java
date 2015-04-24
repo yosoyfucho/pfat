@@ -72,9 +72,17 @@ public class Transition4 implements Transition
 		c.computeType();
 	}
 	
-	public void generateCode (BufferedWriter w) throws IOException
+	public void generateCode (BufferedWriter w, int nTransitions) throws IOException
 	{
-		w.write("if ( currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
+		if (nTransitions==0)
+		{
+			w.write("if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
+		}
+		else
+		{
+			w.write("else if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
+		}
+		nTransitions++;
 		w.newLine();
 		w.write("{");
 		w.newLine();

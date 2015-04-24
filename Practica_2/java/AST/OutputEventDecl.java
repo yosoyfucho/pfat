@@ -37,10 +37,11 @@ public class OutputEventDecl
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		String[] outputVar = il.generateCode().split(",");
-
+		w.write("int nSalidas = " + outputVar.length + ";");
+		w.newLine();
 		for (String output : outputVar)
 		{
-			w.write("public boolean " + output + ";");
+			w.write("boolean " + output + ";");
 			w.newLine();
 		}
 	}

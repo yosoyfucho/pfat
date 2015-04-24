@@ -6,7 +6,7 @@ import java.io.*;
 Transitions ::= BEGIN TransitionList:tl END   {:RESULT = new Transitions(tl); :};
 */
 
-public class Transitions implements TransitionList
+public class Transitions
 {
 	public TransitionList tl;
 
@@ -22,6 +22,7 @@ public class Transitions implements TransitionList
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
+		int nTransitions=0;
 		w.newLine();
 		w.write("for (String inputEvent : entradas)");
 		w.newLine();
@@ -29,6 +30,6 @@ public class Transitions implements TransitionList
 		w.newLine();
 		w.write("nEventos++;");
 		w.newLine();
-		tl.generateCode(w);
+		tl.generateCode(w, nTransitions);
 	}
 }

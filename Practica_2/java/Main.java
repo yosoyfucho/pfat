@@ -69,46 +69,57 @@ public class Main
 
       try
       {
-         w.write("import java.util.*;");
-         w.newLine();
-         w.write("import java.io.*;");
-         w.newLine();
-         w.write("import GeneratedCodeLib.*;");
-         w.newLine();
-         w.write("public class " + nameFich + " {");
-         w.newLine();
-         w.write("public static void main(String args[]){");
-         w.newLine();
-         w.write("BufferedReader r = new BufferedReader();");
-         w.newLine();
-         w.write("Vector<String> entradas = Entradas.obtener(r);");
-         w.newLine();
-         w.write("int numEventos = 0;");
-         w.newLine();
-         w.write("BufferedWriter w = new BufferedWriter();");
-         w.newLine();
-         w.write("Salida output = new Salida(w);");
-         w.newLine();
-         w.write("int nEventos = 0;");
-         w.newLine();
-         pr.generateCode(w);
-         w.write("if (currentState.equals(finalState))");         
-         w.newLine();
-         w.write("{");
-         w.newLine();
-         w.write("break;");
-         w.newLine();
-         w.write("}");
-         w.newLine();
-         w.write("}"); //for
-         w.newLine();
-         w.write("output.generarResultado();");
-         w.newLine();
-         w.write("}"); //public static void main
-         w.newLine();
-         w.write("}"); //public class
-         w.newLine();
-         w.close();
+        w.write("import java.util.*;");
+        w.newLine();
+        w.write("import java.io.*;");
+        w.newLine();
+        w.write("import GeneratedCodeLib.*;");
+        w.newLine();
+        w.write("public class " + nameFich + " {");
+        w.newLine();
+        w.write("public static void main(String args[]){");
+        w.newLine();
+        w.write("BufferedReader r = new BufferedReader();");
+        w.newLine();
+        w.write("Vector<String> entradas = Entradas.obtener(r);");
+        w.newLine();
+        w.write("int numEventos = 0;");
+        w.newLine();
+        w.write("BufferedWriter w = new BufferedWriter();");
+        w.newLine();
+        w.write("Salida output = new Salida(w);");
+        w.newLine();
+        w.write("int nEventos = 0;");
+        w.newLine();
+        
+        pr.generateCode(w);
+
+        w.write("for(int i=0; i<nSalidas; i++)");
+        w.newLine();
+        w.write("{");
+        w.newLine();
+        w.write("output.insertaResultado(, , nEventos-1)");
+        w.newLine();
+        w.write("}");
+        w.newLine();
+
+        w.write("if (currentState.equals(finalState))");         
+        w.newLine();
+        w.write("{");
+        w.newLine();
+        w.write("break;");
+        w.newLine();
+        w.write("}");
+        w.newLine();
+        w.write("}"); //for
+        w.newLine();
+        w.write("output.generarResultado();");
+        w.newLine();
+        w.write("}"); //public static void main
+        w.newLine();
+        w.write("}"); //public class
+        w.newLine();
+        w.close();
       }
       catch (IOException e)
       {

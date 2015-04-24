@@ -74,10 +74,17 @@ public class Transition2 implements Transition
 		tb.computeType();
 	}
 
-	public void generateCode (BufferedWriter w) throws IOException
+	public void generateCode (BufferedWriter w, int nTransitions) throws IOException
 	{
-		w.write("if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
-		w.newLine();
+		if (nTransitions==0)
+		{
+			w.write("if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
+		}
+		else
+		{
+			w.write("else if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
+		}
+		nTransitions++;
 		w.write("{");
 		w.newLine();
 		w.write("currentState = " + fs.generateCode() + ";");

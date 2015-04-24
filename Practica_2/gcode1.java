@@ -17,7 +17,8 @@ public String finalState = s4;
 public String a = "a";
 public String b = "b";
 public String c = "c";
-public boolean sal;
+int nSalidas = 1;
+boolean sal;
 public String currentState = s1;
 sal=false;
 output.insertaResultado("sal", false, nEventos-1);
@@ -44,11 +45,14 @@ if (currentState.equals(s3) && inputEvent.equals(b))
 {
 	currentState = s1;
 }
-if (currentState.equals(s3) && inputEvent.equals(c))
-{
+if (currentState.equals(s3) && inputEvent.equals(c)){
 currentState = s4;
 sal = true;
 output.insertaResultado("sal", sal, nEventos-1);
+}
+for(int i=0; i<nSalidas; i++)
+{
+output.insertaResultado(, , nEventos-1)
 }
 if (currentState.equals(finalState))
 {
