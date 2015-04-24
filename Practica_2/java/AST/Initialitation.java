@@ -30,6 +30,7 @@ public class Initialitation implements SimpleStatementList
 	public void generateCode(BufferedWriter w) throws IOException
 	{
 		w.write("public String currentState = " + this.i + ";");
+		w.newLine();
 		ssl.generateCode(w);
 	}
 }

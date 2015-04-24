@@ -22,13 +22,13 @@ public class Transitions implements TransitionList
 
 	public void generateCode(BufferedWriter w) throws IOException
 	{
+		w.newLine();
 		w.write("for (String inputEvent : entradas)");
 		w.newLine();
 		w.write("{");
 		w.newLine();
+		w.write("nEventos++;");
+		w.newLine();
 		tl.generateCode(w);
-		w.newLine();
-		w.write("}");
-		w.newLine();
 	}
 }

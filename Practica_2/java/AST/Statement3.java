@@ -34,7 +34,6 @@ public class Statement3 implements Statement
 		w.newLine();
 		w.write("	");
 		s.generateCode(w);
-		w.write(";");
 		w.newLine();
 		w.write("}");
 		w.newLine();

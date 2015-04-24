@@ -25,8 +25,7 @@ public class Condition
 
 	public void generateCode (BufferedWriter w) throws IOException
 	{
-		w.write("if ( " + el.generateCode() + " )");
-		w.newLine();
+		w.write("if  " + el.generateCode());
 	}
 
 }

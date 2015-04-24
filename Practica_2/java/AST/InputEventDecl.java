@@ -39,7 +39,7 @@ public class InputEventDecl
 
 		for (String inputEvent : events)
 		{
-			w.write("public String" + inputEvent + " = \"" + inputEvent + "\";");
+			w.write("public String " + inputEvent + " = \"" + inputEvent + "\";");
 			w.newLine();
 		}
 	}

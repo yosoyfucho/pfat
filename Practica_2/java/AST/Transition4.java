@@ -74,32 +74,20 @@ public class Transition4 implements Transition
 	
 	public void generateCode (BufferedWriter w) throws IOException
 	{
-		w.write("if ( currentState.equals(" + this.is + ") && inputEvent.equals(" + this.i + "))");
+		w.write("if ( currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + "))");
 		w.newLine();
 		w.write("{");
 		w.newLine();
-		w.write("	currentState = " + this.fs + ";");
-		w.newLine();
-		w.write("	");
 		c.generateCode(w);
-
-		for (String output : OutputEventDecl.getOutputEvents())
-		{
-			w.write("	output.insertaResultado(currentState," + output + " , nEventos-1);");
-			w.newLine();
-		}
-		w.write("	if ((currentState.equals(finalState))");
 		w.newLine();
-		w.write("	{");
+		w.write("{");
 		w.newLine();
-		w.write("		output.generarResultado();");
+		w.write("currentState = " + fs.generateCode() + ";");
 		w.newLine();
-		w.write("	}");
-		w.newLine();
+		tb.generateCode(w);
 		w.write("}");
 		w.newLine();
 		w.write("}");
 		w.newLine();
-		w.write("}");
 	}
 }

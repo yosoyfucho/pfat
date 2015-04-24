@@ -38,9 +38,9 @@ public class OutputEventDecl
 	{
 		String[] outputVar = il.generateCode().split(",");
 
-		for (String ouput : outputVar)
+		for (String output : outputVar)
 		{
-			w.write("public boolean" + output + ";");
+			w.write("public boolean " + output + ";");
 			w.newLine();
 		}
 	}

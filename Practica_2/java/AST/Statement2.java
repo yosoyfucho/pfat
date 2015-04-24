@@ -40,5 +40,7 @@ public class Statement2 implements Statement
 	{
 		w.write(this.i + " = " + el.generateCode() + ";");
 		w.newLine();
+		w.write("output.insertaResultado(\"" + this.i + "\", " + this.i + ", nEventos-1);");
+		w.newLine();
 	}
 }

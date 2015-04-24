@@ -63,9 +63,7 @@ public class Main
     {
       String nameFich = args[0];
       String ficheroJava = args[1] + ".java";
-      System.out.println("voy a generar el fichero!!!");
       BufferedWriter w = new BufferedWriter(new FileWriter(ficheroJava));
-      System.out.println("deberia de haber creado el fichero!!!");
 
       try
       {
@@ -92,12 +90,21 @@ public class Main
          w.write("int nEventos = 0;");
          w.newLine();    
          pr.generateCode(w);
+         w.write("if (currentState.equals(finalState))");         
+         w.newLine();
+         w.write("{");
+         w.newLine();
+         w.write("break;");
+         w.newLine();
+         w.write("}");
+         w.newLine();
+         w.write("}"); //for
          w.newLine();
          w.write("output.generarResultado();");
          w.newLine();
-         w.write("}");
+         w.write("}"); //public static void main
          w.newLine();
-         w.write("}");
+         w.write("}"); //public class
          w.newLine();
          w.close();
       }
@@ -106,8 +113,7 @@ public class Main
         System.out.println("Error abriendo fichero: " + ficheroJava);
         error = true;
       }
+      System.out.println("Generacion de codigo correcto");
     }
-    System.out.println("putooooooooooooooooooo!!!");
   }
-
 }

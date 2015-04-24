@@ -20,7 +20,7 @@ public class prueba3
 
 		Salida output = new Salida(w);
 
-		int nEventos = entradas.size();
+		int nEventos = 0;
 
 		/*
 		states s1,s2,s3,s4;
@@ -75,13 +75,12 @@ public class prueba3
 		c1 = false;
 		c2 = false;
 
-
 		/*
 		Recording the values from the beginning
 		*/
-		output.insertaResultado(s0, false, nEventos-1);
-		output.insertaResultado(s1, false, nEventos-1);
-		output.insertaResultado(s2, false, nEventos-1);
+		output.insertaResultado(s0, false, nEventos);
+		output.insertaResultado(s1, false, nEventos);
+		output.insertaResultado(s2, false, nEventos);
 
 		for (String inputEvent : entradas)
 		{

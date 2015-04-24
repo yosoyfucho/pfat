@@ -40,5 +40,6 @@ public class SimpleStatementList2 implements SimpleStatementList
 	{
 		w.write(this.i + "=" + this.cl + ";");
 		w.newLine();
+		w.write("output.insertaResultado(\"" + this.i + "\", " + this.cl + ", nEventos-1);");
 	}
 }

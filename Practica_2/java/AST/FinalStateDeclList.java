@@ -42,7 +42,7 @@ public class FinalStateDeclList
 
 		for (String finalS : finalStates)
 		{
-			w.write("public String" + finalS + " = \"" + finalS + "\";");
+			w.write("public String " + finalS + " = \"" + finalS + "\";");
 			w.newLine();
 			w.write("public String finalState = " + il.generateCode() + ";");
 			w.newLine();
