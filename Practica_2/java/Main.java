@@ -53,10 +53,10 @@ public class Main
 		//Analisis Semantico
 		if (!error)
 		{
-		error = true;
-		pr.computeType();
-		error = false;
-		System.out.println("Analisis semantico correcto");
+			error = true;
+			pr.computeType();
+			error = false;
+			System.out.println("Analisis semantico correcto");
 		}
 
 		// Generacion de Codigo
@@ -82,18 +82,6 @@ public class Main
 
 			String ficheroJava = nameFich + ".java";
 			java.io.BufferedWriter w = new java.io.BufferedWriter(new java.io.FileWriter(ficheroJava));
-			//int indent = "\t";
-
-			/*
-			java.io.BufferedReader in = new java.io.BufferedReader(new java.io.FileReader(args[0]));
-      	java.io.BufferedWriter out = new java.io.BufferedWriter(new java.io.FileWriter(args[1]));
-
-      	BuffererReader r = new BuffererReader();
-		
-			Vector<String> entradas = Entradas.obtener(r);
-
-			Salida output = new Salida(out);
-			*/
 
 			try
 			{
@@ -103,7 +91,7 @@ public class Main
 				w.newLine();
 				w.write("import GeneratedCodeLib.*;");
 				w.newLine();
-				System.out.println("El valor de nameFich es:"+nameFich);
+				//System.out.println("El valor de nameFich es:"+nameFich);
 				w.write("public class " + nameFich);
 				w.newLine();
 				w.write("{");
@@ -135,25 +123,15 @@ public class Main
 
 				pr.generateCode(w); 
 
-				w.write(indentacion+"for(int i=0; i<nSalidas; i++)");
-				w.newLine();
-				w.write("indentacion{");
-				w.newLine();
+				String [] outputs = SymbolTable.searchByType("output").split(",");
+				for(String out : outputs)
+				{
+					////////////////////////////////////////////////////
+					w.write(indentacion+"output.insertaResultado(\""+out+"\","+out+",nEventos-1);");
+					////////////////////////////////////////////////////
+					w.newLine();
+				}
 
-
-
-
-				
-
-
-
-				////////////////////////////////////////////////////
-				w.write(indentacion+ " "+ "output.insertaResultado(, , nEventos-1)");
-				////////////////////////////////////////////////////
-				w.newLine();
-				w.write(indentacion+"}");
-				w.newLine();
-				
 				w.write(indentacion+"if (currentState.equals(finalState))");         
 				w.newLine();
 				w.write(indentacion+"{");
@@ -171,8 +149,7 @@ public class Main
 				
 				w.write(indentacion+"output.generarResultado();");
 				w.newLine();
-				
-				indentacion = "	";
+
 				w.write(indentacion+"}"); //public static void main
 				w.newLine();
 				

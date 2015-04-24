@@ -43,7 +43,6 @@ public class FinalStateDeclList
 		String indentacion ="\t";
 		for (String finalS : finalStates)
 		{
-
 			w.write(indentacion+"public String " + finalS + " = \"" + finalS + "\";");
 			w.newLine();
 			w.write(indentacion+"public String finalState = " + il.generateCode() + ";");

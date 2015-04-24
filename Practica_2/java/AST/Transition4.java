@@ -90,8 +90,7 @@ public class Transition4 implements Transition
 		w.write(indentacion+"transNotFound = true;");
 		w.newLine();
 		tb.generateCode(w);
-		indentacion ="\t\t";
-		w.write(indentacion+"}");
+
 		w.newLine();
 		indentacion ="\t";
 		w.write(indentacion+"}");

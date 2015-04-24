@@ -87,7 +87,8 @@ public class Transition2 implements Transition
 		w.newLine();
 		tb.generateCode(w);
 		indentacion = "\t";
-		w.write(indentacion+"}");		
+		w.newLine();
+		w.write(indentacion+"}");
 		w.newLine();
 	}
 }

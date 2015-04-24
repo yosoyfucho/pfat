@@ -54,6 +54,33 @@ public class SymbolTable
 		return aux;
 	}
 
+	public static String searchByType (String type)
+	{
+		TableEntry aux = null;
+		int i = 0;
+		String output = "";
+		while (i < variables.size())
+		{
+			aux = variables.get(i);
+
+			if (aux.getType().equals(type))
+			{
+				if (output=="")
+				{
+					output = aux.getName();
+				}
+				else
+				{
+					output = output + "," + aux.getName();
+				}
+			}
+
+			aux = null;
+			i++;
+		}
+		return output;
+	}
+
 	public static TableEntry searchLocalOrOutputByName (String name)
 	{
 		TableEntry aux = null;
