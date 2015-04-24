@@ -39,7 +39,7 @@ public class StateDeclList
 		String indentacion = "\t";
 		for (String state : states)
 		{
-			w.write(indentacion+"String " + state + " = \"" + state + "\";");
+			w.write(indentacion+"String " + state + "_s = \"" + state + "\";");
 			w.newLine();
 		}
 	}

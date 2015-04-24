@@ -23,6 +23,6 @@ public class InitialState
 
 	public String generateCode() throws IOException
 	{
-		return this.i;	
+		return this.i+"_s";	
 	}
 }

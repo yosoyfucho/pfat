@@ -38,8 +38,6 @@ public class OutputEventDecl
 	{
 		String[] outputVar = il.generateCode().split(",");
 		String indentacion ="\t";
-		w.write(indentacion+"int nSalidas = " + outputVar.length + ";");
-		w.newLine();
 		for (String output : outputVar)
 		{
 			w.write(indentacion+"boolean " + output + ";");

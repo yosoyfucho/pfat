@@ -95,5 +95,7 @@ public class Transition4 implements Transition
 		indentacion ="\t";
 		w.write(indentacion+"}");
 		w.newLine();
+		w.write(indentacion+"}");
+		w.newLine();
 	}
 }

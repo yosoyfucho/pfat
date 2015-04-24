@@ -59,7 +59,6 @@ read -n 1 -s -p ">>> Pulsa una tecla..."
 
 clear
 
-pwd
 echo -e "\n [compile.sh] Compilando Main.java ... \n"
 # Genera los .class de java/Parser | java/Lexer | Main.java
 javac -d class/ -cp ../CUP/:java java/Main.java

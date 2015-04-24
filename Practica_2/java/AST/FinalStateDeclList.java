@@ -44,10 +44,9 @@ public class FinalStateDeclList
 		for (String finalS : finalStates)
 		{
 
-			w.write(indentacion+"String " + finalS + " = \"" + finalS + "\";");
+			w.write(indentacion+"String " + finalS + "_s = \"" + finalS + "\";");
 			w.newLine();
-			w.write(indentacion+"String finalState = " + il.generateCode() + ";");
-
+			w.write(indentacion+"finalState = " + finalS + "_s;");
 			w.newLine();
 		}
 

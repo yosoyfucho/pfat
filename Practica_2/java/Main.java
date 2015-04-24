@@ -97,7 +97,7 @@ public class Main
 				w.write("{");
 				w.newLine();
 
-				w.write(indentacion+"public static void main(String args[])");
+				w.write(indentacion+"public static void main(String args[]) throws IOException,Exception");
 				w.newLine();
 				indentacion+=indentacion;
 				w.write("{");
@@ -108,19 +108,17 @@ public class Main
 				w.newLine();
 				w.write(indentacion+"Vector<String> entradas = Entradas.obtener(r);");
 				w.newLine();
-
-
-
 				w.write(indentacion+"Salida output = new Salida(w);");
-				w.newLine();
-				w.write(indentacion+"int numEventos = 0;");
-				w.newLine();
-				w.write(indentacion+"boolean transNotFound = false;");
-
 				w.newLine();
 				w.write(indentacion+"int nEventos = 0;");
 				w.newLine();
-
+				w.write(indentacion+"boolean transNotFound = false;");
+				w.newLine();
+				w.write(indentacion+"boolean escape = false;");
+				w.newLine();
+				w.write(indentacion+"String finalState = \"\";");
+				w.newLine();
+				
 				pr.generateCode(w); 
 
 				String [] outputs = SymbolTable.searchByType("output").split(",");
@@ -147,6 +145,20 @@ public class Main
 				w.write(indentacion+"}"); //for
 				w.newLine();
 				
+				w.write(indentacion+"if (escape)");         
+				w.newLine();
+				w.write(indentacion+"{");
+				w.newLine();
+				for(String out : outputs)
+				{
+					////////////////////////////////////////////////////
+					w.write(indentacion+"output.insertaResultado(\""+out+"\","+out+",nEventos-1);");
+					////////////////////////////////////////////////////
+					w.newLine();
+				}
+				w.write(indentacion+"}");
+				w.newLine();
+
 				w.write(indentacion+"output.generarResultado();");
 				w.newLine();
 
