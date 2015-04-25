@@ -60,17 +60,4 @@ En caso de que la transición esté repetida mandará una excepción de tipo Dou
 		}
 	}
 
-	// public static String doTransition (String nameIS, String event)
-	// {
-	// 	TableEntryTrans aux = search(nameIS,event); // Revisar
-	// 	if(aux == null)
-	// 	{
-	// 		return nameIS;
-	// 	}
-	// 	else
-	// 	{
-	// 		return aux.getNameFs;
-	// 	}
-	// }
-
 }

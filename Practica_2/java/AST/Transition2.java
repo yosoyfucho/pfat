@@ -1,16 +1,11 @@
 package AST;
-
 import Compiler.*;
 import Errors.*;
-import java.io.*;
-import java.util.*;
 
 /*
-Transition ::= TRANSITION
-				PAREN
-				InitialState:is COMA Event:e COMA FinalState:fs
-				TESIS PC
-				TransBehaviour:tb {:RESULT = new Transition2(is,e,fs,tb); :}
+Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs
+								TESIS PC TransBehaviour:tb
+								{:RESULT = new Transition2(is,e,fs,tb); :}
 */
 
 
@@ -70,26 +65,7 @@ public class Transition2 implements Transition
 				}
 			}
 		}
-
+		
 		tb.computeType();
-	}
-
-	public void generateCode (BufferedWriter w) throws IOException
-	{
-		String indentacion = "\t\t\t\t";
-		w.write(indentacion+"if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
-		w.newLine();
-		w.write(indentacion+"{");
-		w.newLine();
-		indentacion += indentacion;
-		w.write(indentacion+"currentState = " + fs.generateCode() + ";");
-		w.newLine();
-		w.write(indentacion+"transNotFound = true;");
-		w.newLine();
-		tb.generateCode(w);
-		indentacion = "\t\t\t\t";
-		w.newLine();
-		w.write(indentacion+"}");
-		w.newLine();
 	}
 }

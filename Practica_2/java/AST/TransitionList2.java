@@ -1,8 +1,6 @@
 package AST;
-import java.io.*;
-import Errors.*;
 import Compiler.*;
-
+import Errors.*;
 /*
 TransitionList ::= Transition:t TransitionList:tl   {:RESULT = new TransitionList2(t,tl); :};
 */
@@ -22,11 +20,5 @@ public class TransitionList2 implements TransitionList
 	{
 		t.computeType();
 		tl.computeType();
-	}
-
-	public void generateCode(BufferedWriter w) throws IOException
-	{
-		t.generateCode(w);
-		tl.generateCode(w);
 	}
 }

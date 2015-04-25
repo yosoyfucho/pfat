@@ -3,9 +3,11 @@ package Compiler;
 public class TableEntryTrans {
 
 	private String nameIS;
-  	private String event;
   	private String nameFS;
+	private String event;
+	//private String typeIS;
 
+	//public TableEntryTrans (String nameIS, String event, String nameFS, String typeIS)
 	public TableEntryTrans (String nameIS, String event, String nameFS)
 
 	{
@@ -29,5 +31,10 @@ public class TableEntryTrans {
 		return event;
 	}
 
-
+/*
+	public String getTypeIS()
+	{
+		return typeIS;
+	}
+	*/
 }

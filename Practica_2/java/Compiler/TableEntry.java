@@ -1,12 +1,12 @@
 package Compiler;
 
-public class TableEntry 
-{
+public class TableEntry {
+
 	private String name;
 	private String type;
-	private Boolean initia;
+	private boolean initia;
 
-	public TableEntry (String name, String type, Boolean init)
+	public TableEntry (String name, String type, boolean init)
 	{
 		this.name = name;
 		this.type = type;
@@ -32,4 +32,5 @@ public class TableEntry
 	{
 		return type;
 	}
+
 }

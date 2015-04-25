@@ -1,28 +1,21 @@
 package AST;
 import Compiler.*;
 import Errors.*;
-import java.io.*;
-
 /*
 StatementList ::= Statement:s   {:RESULT = new StatementList1(s); :}
 */
 
 public class StatementList1 implements StatementList
 {
-	public Statement s;
+	public Statement t;
 
-	public StatementList1 (Statement s)
+	public StatementList1 (Statement t)
 	{
-		this.s = s;
+		this.t = t;
 	}
 
 	public void computeType() throws CompilerExc
 	{
-		s.computeType();
-	}
-
-	public void generateCode(BufferedWriter w) throws IOException
-	{
-		s.generateCode(w);
+		t.computeType();
 	}
 }

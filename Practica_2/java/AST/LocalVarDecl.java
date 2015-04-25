@@ -1,7 +1,6 @@
 package AST;
 import Compiler.*;
 import Errors.*;
-import java.io.*;
 /*
 LocalVarDecl ::= LOCAL IdentList:il PC   {:RESULT = new LocalVarDecl(il); :};
 */
@@ -28,17 +27,6 @@ public class LocalVarDecl
 			{
 				throw new DoubleDefExc(localVar[i]);
 			}
-		}
-	}
-
-	public void generateCode(BufferedWriter w) throws IOException
-	{
-		String[] localVar = il.generateCode().split(",");
-		String indentacion ="\t\t";
-		for (String local : localVar)
-		{
-			w.write(indentacion+"boolean " + local + ";");
-			w.newLine();
 		}
 	}
 }

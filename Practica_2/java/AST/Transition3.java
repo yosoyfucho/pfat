@@ -1,9 +1,6 @@
-
 package AST;
 import Compiler.*;
 import Errors.*;
-import java.io.*;
-import java.util.*;
 
 /*
 Transition ::= TRANSITION PAREN InitialState:is COMA Event:e COMA FinalState:fs
@@ -27,7 +24,7 @@ public class Transition3 implements Transition
 
 	public void computeType() throws CompilerExc
 	{
-
+		
 		if ( SymbolTable.searchByName(is.computeType())==null )
 		{
 			throw new VarNoDefExc(is.computeType());
@@ -67,35 +64,8 @@ public class Transition3 implements Transition
 				}
 			}
 		}
-
+		
 		c.computeType();
 	}
-
-	public void generateCode (BufferedWriter w) throws IOException
-	{
-		String indentacion ="\t\t\t\t";
-		w.write(indentacion+"if (currentState.equals(" + is.generateCode() + ") && inputEvent.equals(" + i.generateCode() + ") && !transNotFound)");
-		w.newLine();
-		w.write(indentacion+"{");
-		w.newLine();
-		c.generateCode(w);
-		w.newLine();
-		indentacion += indentacion;
-
-		w.write(indentacion+"{");
-		w.newLine();
-		indentacion += indentacion;
-
-		w.write(indentacion+"currentState = " + fs.generateCode() + ";");
-		w.newLine();
-		w.write(indentacion+"transNotFound = true;");
-		w.newLine();
-		indentacion ="\t\t\t\t";
-		w.write(indentacion+"}");
-		w.newLine();
-		indentacion="\t";
-		w.write(indentacion+"}");
-		w.newLine();
-	}
-
+	
 }

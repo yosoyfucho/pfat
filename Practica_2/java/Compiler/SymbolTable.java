@@ -7,7 +7,18 @@ import Errors.*;
 
 public class SymbolTable
 {
+
 	private static Vector<TableEntry> variables = new Vector<TableEntry>();
+
+/*
+public TableEntry checkTable (String name, String type,TableEntry e)
+
+Funcion que comprueba que no existe un nombre (name) con un determinado tipo (type)
+ya en la tabla (e)
+Devuelve un objeto TableEntry con el objeto si existe
+Devuelve null si no existe.
+
+*/
 
 	public static TableEntry search (String name, String type)
 	{
@@ -54,33 +65,6 @@ public class SymbolTable
 		return aux;
 	}
 
-	public static String searchByType (String type)
-	{
-		TableEntry aux = null;
-		int i = 0;
-		String output = "";
-		while (i < variables.size())
-		{
-			aux = variables.get(i);
-
-			if (aux.getType().equals(type))
-			{
-				if (output=="")
-				{
-					output = aux.getName();
-				}
-				else
-				{
-					output = output + "," + aux.getName();
-				}
-			}
-
-			aux = null;
-			i++;
-		}
-		return output;
-	}
-
 	public static TableEntry searchLocalOrOutputByName (String name)
 	{
 		TableEntry aux = null;
@@ -103,6 +87,7 @@ public class SymbolTable
 
 	public static void add (String name, String tipo, boolean init) throws DoubleDefExc
 	{
+
 		TableEntry newEntry = search(name,tipo);
 		if (newEntry == null)
 		{
@@ -115,4 +100,5 @@ public class SymbolTable
 			throw new DoubleDefExc(name);
 		}
 	}
+
 }
